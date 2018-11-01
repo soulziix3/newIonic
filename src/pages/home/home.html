@@ -1,17 +1,59 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar no-border-bottom>
+    <ion-title>
+      Willkommen 
+    </ion-title>
   </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="car">
+      <ion-segment-button value="rent">
+        Fahrzeug buchen
+      </ion-segment-button>
+      <ion-segment-button value="my_booking">
+        Meine Buchungen
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+  <div [ngSwitch]="car">
+    <ion-list *ngSwitchCase="'rent'">
+      <ion-item>
+        <ion-label>Buchungsbeginn</ion-label>
+        <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="event.month"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Startzeitpunkt</ion-label>
+        <ion-datetime displayFormat="H:mm" pickerFormat="H mm" [(ngModel)]="event.timeStarts"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Buchungsende</ion-label>
+        <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="event.month"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Endzeitpunkt</ion-label>
+        <ion-datetime displayFormat="H:mm" pickerFormat="H mm" [(ngModel)]="event.timeEnds"></ion-datetime>
+      </ion-item>
+      <button ion-button block type="submit">
+        Suche starten
+      </button>
+    </ion-list>
+    <ion-list *ngSwitchCase="'my_booking'">
+      
+    </ion-list>
+  </div>
 </ion-content>
+
+<style>
+  ion-list:first-child {
+    margin-top: 32px;
+  }
+  ion-list + ion-list {
+    margin-top: 0;
+  }
+</style>

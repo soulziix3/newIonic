@@ -1,0 +1,63 @@
+<ion-header>
+    <ion-navbar no-border-bottom>
+      <ion-title>
+        Admin Einstellungen 
+      </ion-title>
+    </ion-navbar>
+  
+    <ion-toolbar no-border-top>
+      <ion-segment [(ngModel)]="admin">
+        <ion-segment-button value="car">
+          Fahrzeuge
+        </ion-segment-button>
+        <ion-segment-button value="booking">
+          Buchungen
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <div [ngSwitch]="admin">
+        <ion-list *ngSwitchCase="'car'">
+        <form [formGroup]="carcreateForm" (submit)="createcar()" novalidate>
+          <ion-item>
+            <ion-label stacked>Modell</ion-label>
+            <ion-input formControlName="modell" type="text" value=""></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Marke</ion-label>
+            <ion-input formControlName="marke" type="text" value=""></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Sitze</ion-label>
+            <ion-input formControlName="sitze" type="text" value=""></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Farbe</ion-label>
+            <ion-input formControlName="farbe" type="text" value=""></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Kennzeichen</ion-label>
+            <ion-input formControlName="kennzeichen" type="text" value=""></ion-input>
+        </ion-item>
+        
+        <button ion-button block type="submit">Anlegen</button>
+        </form>
+
+        </ion-list>
+        <ion-list *ngSwitchCase="'booking'">
+          
+        </ion-list>
+      </div>
+    
+  </ion-content>
+  
+  <style>
+    ion-list:first-child {
+      margin-top: 32px;
+    }
+    ion-list + ion-list {
+      margin-top: 0;
+    }
+  </style>
