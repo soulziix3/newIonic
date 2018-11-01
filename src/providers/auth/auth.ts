@@ -23,4 +23,3 @@ export class AuthProvider {
     return this.afAuth.auth.createUserWithEmailAndPassword(newEmail, newPassword);
   }
 }
-
