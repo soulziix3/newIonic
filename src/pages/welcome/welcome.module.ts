@@ -11,3 +11,4 @@ import { WelcomePage } from './welcome';
   ],
 })
 export class WelcomePageModule {}
+
