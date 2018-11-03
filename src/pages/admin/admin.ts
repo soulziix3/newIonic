@@ -2,13 +2,11 @@ import { Component } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { AlertController, ToastController } from 'ionic-angular';
-import { FirebaseListObservable } from 'database-deprecated';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+//import { FirebaseListObservable } from 'database-deprecated';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
-import { DatabaseProvider } from '../../providers/auth/database';
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
 
-import firebase from 'firebase';
 interface Car { farbe: string; 
   modell: string; 
   marke: string; 
@@ -22,10 +20,12 @@ interface Car { farbe: string;
   templateUrl: 'admin.html',
 })
 export class AdminPage {
+  data: any;
   admin: string = 'car_create';
   public carcreateForm: FormGroup;
-  public carData: Observable<Car[]>;
-  public carCollectionRef: AngularFirestoreCollection<Car>;
+  //public carData: Observable<Car[]>;
+  public carCollectionRef: AngularFirestoreCollection<Car> = this.af.collection('cars');
+  public cars = this.carCollectionRef.valueChanges();
 
   constructor(
 //    private readonly carDB: DatabaseProvider,
@@ -35,9 +35,14 @@ export class AdminPage {
     public alertCtrl: AlertController,
     public toastCtrl: ToastController) {
 
-      this.carCollectionRef = this.af.collection('cars');
-      this.carData = this.carCollectionRef.valueChanges();
-      console.log(this.carData.source);
+      this.getAllPosts().subscribe((data)=>{
+        this.data = data;
+        console.log(data);
+    });
+
+      //this.carCollectionRef = af.collection('cars');
+      //this.carData = this.carCollectionRef.valueChanges();
+      console.log(this.carCollectionRef);
 
       this.carcreateForm = formBuilder.group({
         marke: [''],
@@ -48,6 +53,10 @@ export class AdminPage {
         reserviert: ['0'],
         gebucht: ['','','','','']
       });
+    }
+
+    getAllPosts (): Observable<any> {
+      return this.af.collection<any>("cars").valueChanges();
     }
 
   createcar() { 

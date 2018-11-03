@@ -50,9 +50,11 @@
 
         </ion-list>
         <ion-list *ngSwitchCase="'car_list'">
-          <ion-card>
-            <ion-item *ngFor="let data of cars | async">
-                <h2>{{data.marke}}, {{data.modell}}</h2>
+          <ion-card *ngFor="let data of cars | async">
+              <ion-card-header>
+                  {{data.marke}}, {{ data.modell }}
+                </ion-card-header>
+                <ion-card-content>
                 <p>Kennzeichen: {{data.kennzeichen}}</p>
                 <p>Sitze: {{data.sitze}}</p>
                 <p>Farbe: {{data.farbe}}</p>
@@ -60,8 +62,7 @@
                 <ion-icon ios="ios-trash" md="md-trash" (click)="deletecar()" danger></ion-icon>
                 Löschen
               </button>
-            
-            </ion-item>
+            </ion-card-content>
           </ion-card>
         </ion-list>
         <ion-list *ngSwitchCase="'booking'">
