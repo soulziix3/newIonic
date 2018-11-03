@@ -59,6 +59,15 @@ export class AdminPage {
       return this.af.collection<any>("cars").valueChanges();
     }
 
+  deletecar(car: Car) {
+   // this.carCollectionRef.doc(car.id).delete();
+  }
+
+  editcar(car: Car) {
+    //this.carCollectionRef.doc(car.id).update({ marke: 'NEW_MARKE', modell : 'NEW_MODELL' , sitze : 'NEW_SITZE' , kennzeichen : 'NEW_KENNZEICHEN' , farbe : 'NEW_FARBE' });
+
+  }
+
   createcar() { 
     const createToast = this.toastCtrl.create({
       message: 'Fahrzeug erfolgreich angelegt',
