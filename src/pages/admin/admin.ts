@@ -4,8 +4,18 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { AlertController, ToastController } from 'ionic-angular';
 import { FirebaseListObservable } from 'database-deprecated';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import { DatabaseProvider } from '../../providers/auth/database';
+import { AngularFirestoreCollection } from 'angularfire2/firestore';
+
 import firebase from 'firebase';
+interface Car { farbe: string; 
+  modell: string; 
+  marke: string; 
+  reserviert: number; 
+  sitze: number; 
+  kennzeichen: string;
+  gebucht: [string,string,string,string,string]} 
 
 @Component({
   selector: 'page-admin',
@@ -14,31 +24,25 @@ import firebase from 'firebase';
 export class AdminPage {
   admin: string = 'car_create';
   public carcreateForm: FormGroup;
-
-  public carData:Observable<any>;
-  public carData3: AngularFireList<any>;
-  public carData2: FirebaseListObservable<any>;
-  public carData4: any[];
+  public carData: Observable<Car[]>;
+  public carCollectionRef: AngularFirestoreCollection<Car>;
 
   constructor(
+//    private readonly carDB: DatabaseProvider,
     public db: AngularFireDatabase,
     private af: AngularFirestore, 
     public formBuilder: FormBuilder, 
     public alertCtrl: AlertController,
     public toastCtrl: ToastController) {
-      this.carData3 = this.db.list("/cars");
-      console.log(this.carData3);
 
-      db.list('/cars').valueChanges()
-      .subscribe(result => {
-        this.carData4 = result;
-        console.log(this.carData4);
-    });
+      this.carCollectionRef = this.af.collection('cars');
+      this.carData = this.carCollectionRef.valueChanges();
+      console.log(this.carData.source);
 
       this.carcreateForm = formBuilder.group({
         marke: [''],
         modell: [''],
-        sitze: [],
+        sitze: [0],
         farbe: [''],
         kennzeichen: [''],
         reserviert: ['0'],
@@ -64,8 +68,7 @@ export class AdminPage {
         {
           text: 'Ja',
           handler: () => {
-            return new Promise<any>((resolve, reject) => {
-              this.af.collection('/cars').add({
+            this.carCollectionRef.add({
               marke: this.carcreateForm.value.marke,
               modell: this.carcreateForm.value.modell,
               sitze: parseInt(this.carcreateForm.value.sitze),
@@ -73,16 +76,9 @@ export class AdminPage {
               kennzeichen: this.carcreateForm.value.kennzeichen,
               reserviert: 0,
               gebucht: ['','','','','']
-              })
-              .then(
-                (res) => {
-                  resolve(res)
-                  createToast.present();
-                  this.carcreateForm.reset()
-                },
-                err => reject(err)
-              )
-            })
+            });
+            createToast.present();
+            this.carcreateForm.reset()
           }
         }
       ]

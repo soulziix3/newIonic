@@ -18,7 +18,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreModule } from 'angularfire2/firestore';
 
 const firebaseConfig = 
  {
@@ -34,7 +34,7 @@ const firebaseConfig =
   declarations: [
     MyApp,
     WelcomePage,
-    LoginPage,
+    //LoginPage,
     SignupPage,
     SettingsPage,
     AdminPage,
@@ -49,13 +49,13 @@ const firebaseConfig =
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-   // AngularFireStorageModule
+    AngularFirestoreModule.enablePersistence()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     WelcomePage,
-    LoginPage,
+    //LoginPage,
     SignupPage,
     SettingsPage,
     AdminPage,
