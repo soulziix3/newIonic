@@ -12,6 +12,7 @@ export class SettingsPage {
     }
 
     public gotoadmin(){
+
         this.navCtrl.push(AdminPage);
     }
 

@@ -7,8 +7,11 @@
   
     <ion-toolbar no-border-top>
       <ion-segment [(ngModel)]="admin">
-        <ion-segment-button value="car">
-          Fahrzeuge
+        <ion-segment-button value="car_create">
+          Fahrzeug anlegen
+        </ion-segment-button>
+        <ion-segment-button value="car_list">
+          Fahrzeugliste
         </ion-segment-button>
         <ion-segment-button value="booking">
           Buchungen
@@ -19,7 +22,7 @@
 
   <ion-content>
     <div [ngSwitch]="admin">
-        <ion-list *ngSwitchCase="'car'">
+        <ion-list *ngSwitchCase="'car_create'">
         <form [formGroup]="carcreateForm" (submit)="createcar()" novalidate>
           <ion-item>
             <ion-label stacked>Modell</ion-label>
@@ -31,7 +34,7 @@
         </ion-item>
         <ion-item>
             <ion-label stacked>Sitze</ion-label>
-            <ion-input formControlName="sitze" type="text" value=""></ion-input>
+            <ion-input formControlName="sitze" type="number" value=""></ion-input>
         </ion-item>
         <ion-item>
             <ion-label stacked>Farbe</ion-label>
@@ -46,8 +49,35 @@
         </form>
 
         </ion-list>
+        <ion-list *ngSwitchCase="'car_list'">
+          <ion-card>
+            <ion-item *ngFor="let data of cars | async">
+                <h2>{{data.marke}}, {{data.modell}}</h2>
+                <p>Kennzeichen: {{data.kennzeichen}}</p>
+                <p>Sitze: {{data.sitze}}</p>
+                <p>Farbe: {{data.farbe}}</p>
+              <button ion-button clear >
+                <ion-icon ios="ios-trash" md="md-trash" (click)="deletecar()" danger></ion-icon>
+                Löschen
+              </button>
+            
+            </ion-item>
+          </ion-card>
+        </ion-list>
         <ion-list *ngSwitchCase="'booking'">
-          
+            <ion-card>
+                <ion-item>
+                  Buchung
+                  </ion-item>
+                    <p>Kennzeichen: Test</p>
+                    <p>Sitze: Test</p>
+                    <p>Farbe: Test</p>
+                  <button ion-button clear >
+                    <ion-icon ios="ios-trash" md="md-trash" (click)="deletecar()" danger></ion-icon>
+                    Löschen
+                  </button>
+                
+              </ion-card>
         </ion-list>
       </div>
     
@@ -61,4 +91,3 @@
       margin-top: 0;
     }
   </style>
-  
