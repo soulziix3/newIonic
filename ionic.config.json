@@ -1,7 +1,0 @@
-{
-  "name": "newCgApp",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "ionic-angular"
-}
