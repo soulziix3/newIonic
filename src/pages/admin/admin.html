@@ -50,7 +50,7 @@
 
         </ion-list>
         <ion-list *ngSwitchCase="'car_list'">
-          <ion-card *ngFor="let data of cars | async">
+          <ion-card (click)="goToCarProfile()" *ngFor="let data of cars | async">
               <ion-card-header>
                   {{data.marke}}, {{ data.modell }}
                 </ion-card-header>
@@ -59,24 +59,6 @@
                 <p>Sitze: {{data.sitze}}</p>
                 <p>Farbe: {{data.farbe}}</p>
               
-              <ion-grid>
-                  <ion-row>
-                    <ion-col col-6>
-                        <button ion-button full >
-                            <ion-icon ios="ios-build" md="md-build" (click)="editcar()" danger></ion-icon>
-                            Ändern
-                          </button>
-                    </ion-col>
-                    <ion-col col-6>
-                        <button ion-button full >
-                            <ion-icon ios="ios-trash" md="md-trash" (click)="deletecar()"></ion-icon>
-                            Löschen
-                          </button>
-                    </ion-col>
-                  </ion-row>
-                </ion-grid>
-
-
             </ion-card-content>
           </ion-card>
         </ion-list>

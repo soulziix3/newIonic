@@ -20,6 +20,9 @@
 <ion-content>
   <div [ngSwitch]="car">
     <ion-list *ngSwitchCase="'rent'">
+
+
+
       <ion-item>
         <ion-label>Buchungsbeginn</ion-label>
         <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="event.month"></ion-datetime>

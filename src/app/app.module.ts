@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { AboutPage } from '../pages/about/about';
@@ -14,6 +13,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { CarProfilePage } from '../pages/admin/carProfile';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -33,15 +33,16 @@ const firebaseConfig =
 @NgModule({
   declarations: [
     MyApp,
-    WelcomePage,
-    //LoginPage,
+    //WelcomePage,
+    LoginPage,
     SignupPage,
     SettingsPage,
     AdminPage,
     AboutPage,
     //ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    CarProfilePage
   ],
   imports: [
     BrowserModule,
@@ -54,15 +55,16 @@ const firebaseConfig =
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    WelcomePage,
-    //LoginPage,
+    //WelcomePage,
+    LoginPage,
     SignupPage,
     SettingsPage,
     AdminPage,
     AboutPage,
     //ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    CarProfilePage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

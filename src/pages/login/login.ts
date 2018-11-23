@@ -8,6 +8,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { SignupPage } from '../signup/signup';
 import { TabsPage } from '../tabs/tabs';
 
+
 /**
  * Generated class for the WelcomePage page.
  *
@@ -15,7 +16,7 @@ import { TabsPage } from '../tabs/tabs';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -34,6 +35,14 @@ export class LoginPage {
         password: ['', Validators.compose([Validators.minLength(6), Validators.required])]
       });
   }
+
+  /* 
+  loginUser(email: string, password: string): Promise<any> {
+    return firebase.auth().signInWithEmailAndPassword(email, password);
+  }
+*/
+
+
 
   loginUser(){
     if (!this.loginForm.valid){

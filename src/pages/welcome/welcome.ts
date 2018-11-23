@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, Loading, AlertController, LoadingController } from 'ionic-angular';
 
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { EmailValidator } from '../../validators/email';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
 
 import { SignupPage } from '../signup/signup';
-import { TabsPage } from '../tabs/tabs';
+
 
 /**
  * Generated class for the WelcomePage page.
@@ -29,12 +28,22 @@ export class WelcomePage {
     public formBuilder: FormBuilder, public alertCtrl: AlertController,
     public loadingCtrl: LoadingController) {
 
+      /** 
       this.loginForm = formBuilder.group({
         email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
         password: ['', Validators.compose([Validators.minLength(6), Validators.required])]
       });
+      */
   }
 
+  /** 
+loginUser(email: string, password: string): Promise<any> {
+  return firebase.auth().signInWithEmailAndPassword(email, password);
+}
+*/
+
+
+/** 
   loginUser(){
     if (!this.loginForm.valid){
       console.log(this.loginForm.value);
@@ -63,7 +72,7 @@ export class WelcomePage {
       this.loading.present();
     }
   }
-
+*/
   //goToResetPassword(){
   //  this.navCtrl.push('ResetPasswordPage');
   //}
