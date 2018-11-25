@@ -7,6 +7,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 
 import { SignupPage } from '../signup/signup';
 import { TabsPage } from '../tabs/tabs';
+import {HomePage} from "../home/home";
 
 
 /**
@@ -36,6 +37,7 @@ export class LoginPage {
       });
   }
 
+
   /* 
   loginUser(email: string, password: string): Promise<any> {
     return firebase.auth().signInWithEmailAndPassword(email, password);
@@ -50,7 +52,8 @@ export class LoginPage {
     } else {
       this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password)
       .then( () => {
-          this.navCtrl.setRoot(TabsPage);
+          this.navCtrl.setRoot(HomePage);
+
         }, error => {
         this.loading.dismiss().then( () => {
           let alert = this.alertCtrl.create({

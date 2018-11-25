@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, App } from 'ionic-angular';
+import {LoginPage} from "../login/login";
+import firebase from "firebase";
 
 @Component({
   selector: 'page-home',
@@ -17,4 +19,10 @@ export class HomePage {
 
   }
 
+    logoutUser(): Promise<void> {
+        this.navCtrl.push(LoginPage);
+        return firebase.auth().signOut();
+        //this.auth.logout();
+        //this.authData.logoutUser();
+    }
 }

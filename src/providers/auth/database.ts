@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';    
 import { Observable } from 'rxjs/Observable';        // Importacion del observable
-import 'rxjs/add/operator/map';       // no se porque se hace esto 
+import 'rxjs/add/operator/map';       // no se porque se hace esto
 
 @Injectable()
 export class DatabaseProvider {
@@ -26,3 +26,4 @@ export class DatabaseProvider {
     sitze: number; 
     gebucht: [string,string,string,string,string]}   
   //export interface ShirtId extends Car { id: string; }
+

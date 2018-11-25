@@ -5,6 +5,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { WelcomePage } from '../welcome/welcome';
 import firebase from 'firebase';
 import { LoginPage } from '../login/login';
+import {HomePage} from "../home/home";
 
 
 @Component({
@@ -17,6 +18,7 @@ export class SettingsPage {
     constructor(public navCtrl: NavController, 
         //public auth:Auth
         ) {
+
     }
 
     public gotoadmin(){
@@ -27,10 +29,5 @@ export class SettingsPage {
         this.navCtrl.pop();
     }
 
-    logoutUser(): Promise<void> {
-        this.navCtrl.setRoot(LoginPage);
-        return firebase.auth().signOut();
-        //this.auth.logout();
-        //this.authData.logoutUser();
-    }
+
 }

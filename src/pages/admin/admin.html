@@ -50,6 +50,19 @@
 
         </ion-list>
         <ion-list *ngSwitchCase="'car_list'">
+
+            <ion-item-sliding *ngFor="let data1 of cars | async" #item>
+                <ion-item>
+                    {{data1.marke}}, {{ data1.modell }}, {{data1.kennzeichen}}
+                </ion-item>
+                <ion-item-options side="right">
+                    <button ion-button (click)="editcar(data1.id)">Ändern</button>
+                    <button ion-button color="danger" (click)="deletecar(data1.id)">Löschen</button>
+                </ion-item-options>
+
+            </ion-item-sliding>
+
+<!--
           <ion-card (click)="goToCarProfile()" *ngFor="let data of cars | async">
               <ion-card-header>
                   {{data.marke}}, {{ data.modell }}
@@ -58,7 +71,6 @@
                 <p>Kennzeichen: {{data.kennzeichen}}</p>
                 <p>Sitze: {{data.sitze}}</p>
                 <p>Farbe: {{data.farbe}}</p>
-              
             </ion-card-content>
           </ion-card>
         </ion-list>
@@ -76,6 +88,7 @@
                   </button>
                 
               </ion-card>
+              -->
         </ion-list>
       </div>
     
