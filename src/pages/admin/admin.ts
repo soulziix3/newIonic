@@ -6,7 +6,7 @@ import { AlertController, NavController, ToastController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
-import { CarProfilePage } from '../admin/carProfile';
+// import { CarProfilePage } from '../admin/carProfile';
 import {map} from "rxjs/operators";
 import * as firebase from 'firebase/app';
 
@@ -144,11 +144,6 @@ export class AdminPage {
        this.carCollectionRef.doc(data1.id).delete();
     }
 
-  goToCarProfile() {
-    this.navCtrl.push(CarProfilePage);
-  }
-  
     
   }
-  
   
