@@ -14,6 +14,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 // import { CarProfilePage } from '../pages/admin/carProfile';
+import {BookCarPage} from "../pages/book-car/book-car";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -43,6 +44,7 @@ const firebaseConfig =
     HomePage,
     TabsPage,
     // CarProfilePage
+    BookCarPage
   ],
   imports: [
     BrowserModule,
@@ -65,6 +67,7 @@ const firebaseConfig =
     HomePage,
     TabsPage,
     //CarProfilePage
+    BookCarPage,
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

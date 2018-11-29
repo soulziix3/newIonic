@@ -25,34 +25,38 @@
 <ion-content>
   <div [ngSwitch]="car">
     <ion-list *ngSwitchCase="'rent'">
+      <form [formGroup]="bookcarForm" (ngSubmite)= "searchCars()">
+        <ion-item >
+          <ion-label >Buchungsbeginn</ion-label>
+          <ion-datetime displayFormat="DD MMM YYYY" formControlName="dateStarts"> </ion-datetime>
+        </ion-item>
 
+        <ion-item>
+          <ion-label>Startzeitpunkt</ion-label>
+          <ion-datetime displayFormat="H:mm" pickerFormat="H mm" formControlName="timeStarts" ></ion-datetime>
+        </ion-item>
 
+        <ion-item>
+          <ion-label>Buchungsende</ion-label>
+          <ion-datetime displayFormat="DD MMM YYYY" formControlName="dateEnds"></ion-datetime>
+        </ion-item>
 
-      <ion-item>
-        <ion-label>Buchungsbeginn</ion-label>
-        <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="event.month"></ion-datetime>
-      </ion-item>
+        <ion-item>
+          <ion-label>Endzeitpunkt</ion-label>
+          <ion-datetime displayFormat="H:mm" pickerFormat="H mm" formControlName="timeEnds"></ion-datetime>
+        </ion-item>
 
-      <ion-item>
-        <ion-label>Startzeitpunkt</ion-label>
-        <ion-datetime displayFormat="H:mm" pickerFormat="H mm" [(ngModel)]="event.timeStarts"></ion-datetime>
-      </ion-item>
+        <ion-item>
+          <ion-label>Sitzplätze</ion-label>
+          <ion-input formControlName="seats"></ion-input>
+        </ion-item>
+        <button ion-button block (click)="searchCars()" >Suche starten</button>
 
-      <ion-item>
-        <ion-label>Buchungsende</ion-label>
-        <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="event.month"></ion-datetime>
-      </ion-item>
+      </form>
 
-      <ion-item>
-        <ion-label>Endzeitpunkt</ion-label>
-        <ion-datetime displayFormat="H:mm" pickerFormat="H mm" [(ngModel)]="event.timeEnds"></ion-datetime>
-      </ion-item>
-      <button ion-button block type="submit">
-        Suche starten
-      </button>
     </ion-list>
     <ion-list *ngSwitchCase="'my_booking'">
-      
+
     </ion-list>
   </div>
 </ion-content>
@@ -65,3 +69,4 @@
     margin-top: 0;
   }
 </style>
+

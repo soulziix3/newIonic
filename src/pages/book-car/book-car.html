@@ -1,0 +1,76 @@
+<!--
+  Generated template for the BookCarPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Verfügbare Fahrzeuge</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <ion-title>
+      Buchungsinformationen
+    </ion-title>
+      <ion-item>
+        <label> Startdatum: {{dateStart}}</label>
+      </ion-item>
+
+      <ion-item>
+        <label> Enddatum: {{dateEnd}}</label>
+      </ion-item>
+
+      <ion-item>
+        <label> Startzeit: {{timeStart}}</label>
+      </ion-item>
+
+      <ion-item>
+        <label> Endzeit: {{timeEnd}} </label>
+      </ion-item>
+
+      <ion-item>
+        <label>Anzahl Sitzplätze: {{seat}}</label>
+      </ion-item>
+
+  </div>
+  <br>
+  <div>
+    <ion-title>
+      Verfügbare Fahrzeuge
+    </ion-title>
+    <form (ngSubmit)= "bookCar()">
+      <ion-card *ngFor="let dataCar of cars | async">
+              <ion-card-header>
+                  {{dataCar.marke}}, {{ dataCar.modell }}
+                </ion-card-header>
+                <ion-card-content>
+                <p>Kennzeichen: {{dataCar.kennzeichen}}</p>
+                <p>Sitze: {{dataCar.sitze}}</p>
+                <p>Farbe: {{dataCar.farbe}}</p>
+
+              <ion-grid>
+                  <ion-row>
+                    <ion-col col-6>
+                        <button ion-button full >
+                            <ion-icon ios="ios-build" md="md-build" (click)="bookCar()"></ion-icon>
+                            Buchen
+                          </button>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+            </ion-card-content>
+          </ion-card>
+    </form>
+  </div>
+
+</ion-content>
+
+
+
+
+
