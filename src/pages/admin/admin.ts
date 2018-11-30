@@ -1,14 +1,12 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { AlertController, NavController, ToastController } from 'ionic-angular';
-//import { FirebaseListObservable } from 'database-deprecated';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
-// import { CarProfilePage } from '../admin/carProfile';
-import {map} from "rxjs/operators";
-import * as firebase from 'firebase/app';
+//import {map} from "rxjs/operators";
+//import {DatabaseProvider} from "../../providers/auth/database";
 
 
 interface Car { 
@@ -21,24 +19,21 @@ interface Car {
   kennzeichen: string;
   gebucht: [string,string]}
 
-  interface CarID extends Car{
-     id: string
-  }
-
 @Component({
   selector: 'page-admin',
   templateUrl: 'admin.html',
 })
 export class AdminPage {
-  data1: any;
+  data: any;
   admin: string = 'car_create';
   public carcreateForm: FormGroup;
   public carData: Observable<Car[]>;
   public carCollectionRef: AngularFirestoreCollection<Car> = this.af.collection('cars');
   public cars = this.carCollectionRef.valueChanges();
-  public carDoc: AngularFirestoreDocument<Car>;
+  //public carDoc: AngularFirestoreDocument<Car>;
+  //public  dbp: DatabaseProvider;
 
-  constructor(
+    constructor(
     public navCtrl: NavController,
 //    private readonly carDB: DatabaseProvider,
     public db: AngularFireDatabase,
@@ -46,12 +41,11 @@ export class AdminPage {
     public formBuilder: FormBuilder, 
     public alertCtrl: AlertController,
     public toastCtrl: ToastController) {
-
     this.carData = this.carCollectionRef.valueChanges();
 
-      this.getAllPosts().subscribe((data)=>{
-        this.data1 = data;
-        //console.log(data);
+        this.getAllPosts().subscribe((data)=>{
+        this.data = data;
+        console.log(this.data);
     });
 
       //this.carCollectionRef = af.collection('cars');
@@ -112,17 +106,71 @@ export class AdminPage {
   }
 
 
-  editcar(key) {
-    this.carData = this.carCollectionRef.snapshotChanges().pipe(
-          map(actions => actions.map(a => {
-              const data1 = a.payload.doc.data() as Car;
-              const id = a.payload.doc.id;
-              return { id, ...data1 };
-          }))
-      );
-      console.log(this.carData);
+  editcar(data1) {
+      const createToast = this.toastCtrl.create({
+          message: 'Fahrzeug erfolgreich geändert',
+          duration: 3000
+      });
+      const prompt = this.alertCtrl.create({
+          title: 'Ändern',
+          message: "Hier können Sie Änderungen am Fahrzeug durchführen:",
+          inputs: [
+              {
+                  name: 'marke',
+                  placeholder: 'Marke',
+                  value: data1.marke
 
+              },
+              {
+                  name: 'modell',
+                  placeholder: 'Modell',
+                  value: data1.modell
+              },
+              {
+                  name: 'kennzeichen',
+                  placeholder: 'Kennzeichen',
+                  value: data1.kennzeichen
+              },
+              {
+                  name: 'sitze',
+                  placeholder: 'Sitze',
+                  value: data1.sitze
+              },
+              {
+                  name: 'farbe',
+                  placeholder: 'Farbe',
+                  value: data1.farbe
+              },
+          ],
+          buttons: [
+              {
+                  text: 'Abbrechen',
+                  handler: data => {
+                      console.log('Cancel clicked');
+                  }
+              },
+              {
+                  text: 'Ändern',
+                  handler: cardata => {
+                      let carRef = this.af.collection('cars').ref.where('carid', '==', data1.carid);
+                      carRef.get().then((result) => {
+                          result.forEach(doc => {
+                              //console.log(doc.data());
+                              //added benefit of getting the document id / key
+                              console.log(doc.id)
+                              this.carCollectionRef.doc(doc.id).update(cardata);
+                          })
+                      })
+
+                      createToast.present();
+                  }
+              }
+          ]
+      });
+      prompt.present();
   }
+
+
 
 //      this.carCollectionRef.doc('Caxf4WsmhhIjlZrpUIRY').ref.get().then(function(doc) {
 //          if (doc.exists) {
@@ -140,10 +188,22 @@ export class AdminPage {
 
 
     deletecar(data1) {
-        console.log()
-       this.carCollectionRef.doc(data1.id).delete();
-    }
+        const createToast = this.toastCtrl.create({
+            message: 'Fahrzeug erfolgreich gelöscht',
+            duration: 3000
+        });
+        let carRef = this.af.collection('cars').ref.where('carid', '==', data1.carid);
+        carRef.get().then((result) => {
+            result.forEach(doc => {
+                //console.log(doc.data());
+                //added benefit of getting the document id / key
+                console.log(doc.id)
+                this.carCollectionRef.doc(doc.id).delete();
+            })
+        })
 
-    
+        createToast.present();
+    }
   }
+  
   

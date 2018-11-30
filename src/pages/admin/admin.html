@@ -8,10 +8,10 @@
     <ion-toolbar no-border-top>
       <ion-segment [(ngModel)]="admin">
         <ion-segment-button value="car_create">
-          Fahrzeug anlegen
+          Anlegen
         </ion-segment-button>
         <ion-segment-button value="car_list">
-          Fahrzeugliste
+          Liste
         </ion-segment-button>
         <ion-segment-button value="booking">
           Buchungen
@@ -56,8 +56,8 @@
                     {{data1.marke}}, {{ data1.modell }}, {{data1.kennzeichen}}
                 </ion-item>
                 <ion-item-options side="right">
-                    <button ion-button (click)="editcar(data1.id)">Ändern</button>
-                    <button ion-button color="danger" (click)="deletecar(data1.id)">Löschen</button>
+                    <button ion-button (click)="editcar(data1)">Ändern</button>
+                    <button ion-button color="danger" (click)="deletecar(data1)">Löschen</button>
                 </ion-item-options>
 
             </ion-item-sliding>
