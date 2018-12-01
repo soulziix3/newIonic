@@ -13,19 +13,20 @@
   <ion-toolbar no-border-top>
     <ion-segment [(ngModel)]="car">
       <ion-segment-button value="rent">
-        Fahrzeug buchen
+        Buchen
       </ion-segment-button>
       <ion-segment-button value="my_booking">
-        Meine Buchungen
+        Buchungen
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
   <div [ngSwitch]="car">
     <ion-list *ngSwitchCase="'rent'">
       <form [formGroup]="bookcarForm" (ngSubmite)= "searchCars()">
+
         <ion-item >
           <ion-label >Buchungsbeginn</ion-label>
           <ion-datetime displayFormat="DD MMM YYYY" formControlName="dateStarts"> </ion-datetime>
@@ -50,9 +51,9 @@
           <ion-label>Sitzplätze</ion-label>
           <ion-input formControlName="seats"></ion-input>
         </ion-item>
-        <button ion-button block (click)="searchCars()" >Suche starten</button>
-
+        <button ion-button (click)="searchCars()" block>Suche starten</button>
       </form>
+
 
     </ion-list>
     <ion-list *ngSwitchCase="'my_booking'">

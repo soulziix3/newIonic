@@ -20,7 +20,7 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content padding>
     <div [ngSwitch]="admin">
         <ion-list *ngSwitchCase="'car_create'">
         <form [formGroup]="carcreateForm" (submit)="createcar()" novalidate>

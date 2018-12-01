@@ -13,7 +13,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-// import { CarProfilePage } from '../pages/admin/carProfile';
+import { ProtocolPage } from '../pages/about/protocol';
 import {BookCarPage} from "../pages/book-car/book-car";
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -34,6 +34,7 @@ const firebaseConfig =
 @NgModule({
   declarations: [
     MyApp,
+    ProtocolPage,
     //WelcomePage,
     LoginPage,
     SignupPage,
@@ -57,6 +58,7 @@ const firebaseConfig =
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    ProtocolPage,
     //WelcomePage,
     LoginPage,
     SignupPage,

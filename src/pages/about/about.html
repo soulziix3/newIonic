@@ -1,11 +1,20 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Protokoll
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-card  *ngFor="let dataCar of cars | async" (click)="goToProtocol()">
+    <ion-card-header>
+      {{dataCar.marke}}, {{ dataCar.modell }}
+    </ion-card-header>
+    <ion-card-content>
+      <p>Kennzeichen: {{dataCar.kennzeichen}}</p>
+      <p>Sitze: {{dataCar.sitze}}</p>
+      <p>Farbe: {{dataCar.farbe}}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
