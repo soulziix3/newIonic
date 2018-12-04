@@ -107,6 +107,7 @@ export class AdminPage {
 
 
   editcar(data1) {
+      console.log(data1);
       const createToast = this.toastCtrl.create({
           message: 'Fahrzeug erfolgreich geändert',
           duration: 3000
@@ -148,6 +149,7 @@ export class AdminPage {
                   handler: data => {
                       console.log('Cancel clicked');
                   }
+
               },
               {
                   text: 'Ändern',
@@ -197,7 +199,7 @@ export class AdminPage {
             result.forEach(doc => {
                 //console.log(doc.data());
                 //added benefit of getting the document id / key
-                console.log(doc.id)
+                console.log(doc.id);
                 this.carCollectionRef.doc(doc.id).delete();
             })
         })
@@ -205,5 +207,4 @@ export class AdminPage {
         createToast.present();
     }
   }
-  
   

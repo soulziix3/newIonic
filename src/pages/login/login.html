@@ -7,12 +7,21 @@
 <ion-header>
 
   <ion-navbar hideBackButton>
-    <ion-title>Willkommen</ion-title>
+    <ion-item>
+
+      <ion-title text-lg-center>E-Smart Carsharing App <img  class="capgeminiLogo" src="../assets/imgs/logoCapgemini.png" align="right" height="30px" width="auto" /></ion-title>
+    </ion-item>
+
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
+  <ion-item>
+     <img src="../assets/imgs/eSmartsLogin.png" height="auto"  width="100%" style="display: inline-block">
+  </ion-item>
+
+
   <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
 
     <ion-item>

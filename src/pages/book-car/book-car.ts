@@ -8,8 +8,7 @@ import { AlertController, ToastController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
-import {firestore} from "firebase";
-
+import {auth, firestore} from "firebase";
 
 /**
  * Generated class for the BookCarPage page.
@@ -33,16 +32,17 @@ interface Booking {
   dateStart: string;
   timeEnd: string;
   timeStart: string;
-  userID: string
-
+  seat: number;
 }
+
 @Component({
   selector: 'page-book-car',
   templateUrl: 'book-car.html',
 
 })
 export class BookCarPage {
-
+  userID: any;
+  data: any;
   dateStart: string;
   dateEnd: string;
   timeStart: string;
@@ -60,7 +60,10 @@ export class BookCarPage {
 
 
 
+
+
   constructor(
+
     public navCtrl: NavController,
     public navParams: NavParams,
     public db: AngularFireDatabase,
@@ -73,17 +76,64 @@ export class BookCarPage {
     this.timeStart = navParams.get("tStart");
     this.timeEnd = navParams.get("tEnd");
     this.seat = navParams.get("seat");
+    this.dataCar = this.bookingCollectionRef.valueChanges();
 
+     this.getAllPosts().subscribe((data)=>{
+        this.data = data;
+        console.log(this.data);
+    })
+  }
+
+  getAllPosts(): Observable<any>{
+    return this.af.collection<any>("cars").valueChanges();
+  }
+  bookCar(data) {
+    console.log(data.carid);
+
+    const createToast = this.toastCtrl.create({
+      message: "Fahrzeug erfolgreich gebucht",
+      duration: 3000
+      });
+    const confirm = this.alertCtrl.create({
+      title: "Fahrzeug buchen",
+      message: "Wolllen Sie diese Buchung wirklich anlegen?",
+      buttons: [
+        {
+          text: "Nein",
+          handler: () => {
+            console.log("Not clicked");
+          }
+        },
+        {
+          text: "Ja ",
+
+          handler: () => {
+
+            let carRef = this.af.collection('cars').ref.where('carid', '==', data.carid);
+            carRef.get().then((result) => {
+                          result.forEach(doc => {
+                              console.log(doc.id);
+                              this.bookingCollectionRef.add({
+                                carID: doc.id,
+                                dateEnd: this.dateEnd,
+                                dateStart: this.dateStart,
+                                timeEnd: this.timeEnd,
+                                timeStart: this.timeStart,
+                                seat: parseInt(this.seat),
+                                });
+
+                          })
+                      });
+
+            createToast.present();
+          }
+        }
+      ]
+
+    });
+    confirm.present();
 
 
   }
-  bookCar(value){
-    console.log("Fahrzeug buchen");
-
-
-  }
-
-
-
 
 }

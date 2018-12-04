@@ -43,7 +43,7 @@
     <ion-title>
       Verfügbare Fahrzeuge
     </ion-title>
-    <form (ngSubmit)= "bookCar()">
+    <form>
       <ion-card *ngFor="let dataCar of cars | async">
               <ion-card-header>
                   {{dataCar.marke}}, {{ dataCar.modell }}
@@ -56,9 +56,9 @@
               <ion-grid>
                   <ion-row>
                     <ion-col col-6>
-                        <button ion-button full >
-                            <ion-icon ios="ios-build" md="md-build" (click)="bookCar()"></ion-icon>
-                            Buchen
+                        <button ion-button  (click)="bookCar(dataCar)" >
+                            <ion-icon ios="ios-build" md="md-build"></ion-icon>
+                            Buchen {{dataCar}}
                           </button>
                     </ion-col>
                   </ion-row>
