@@ -8,6 +8,7 @@ import { LoginPage } from '../login/login';
 import {HomePage} from "../home/home";
 
 
+
 @Component({
   selector: 'page-settings',
   templateUrl: 'settings.html',
@@ -22,6 +23,7 @@ export class SettingsPage {
     }
 
     public gotoadmin(){
+        console.log(firebase.auth().currentUser.uid);
         this.navCtrl.push(AdminPage);
     }
 

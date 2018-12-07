@@ -9,6 +9,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
 import {auth, firestore} from "firebase";
+import firebase from 'firebase';
 
 /**
  * Generated class for the BookCarPage page.
@@ -27,12 +28,15 @@ interface Car {
   gebucht: [string, string, string, string, string]
 }
 interface Booking {
+
   carID: string;
+  userID: string;
   dateEnd: string;
   dateStart: string;
   timeEnd: string;
   timeStart: string;
   seat: number;
+  bookingID: string;
 }
 
 @Component({
@@ -113,6 +117,8 @@ export class BookCarPage {
             carRef.get().then((result) => {
                           result.forEach(doc => {
                               console.log(doc.id);
+                              const id = this.af.createId();
+
                               this.bookingCollectionRef.add({
                                 carID: doc.id,
                                 dateEnd: this.dateEnd,
@@ -120,6 +126,9 @@ export class BookCarPage {
                                 timeEnd: this.timeEnd,
                                 timeStart: this.timeStart,
                                 seat: parseInt(this.seat),
+                                userID: firebase.auth().currentUser.uid,
+                                bookingID: id,
+
                                 });
 
                           })

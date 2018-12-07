@@ -51,33 +51,37 @@
           <ion-label>Sitzplätze</ion-label>
           <ion-input formControlName="seats"></ion-input>
         </ion-item>
-        <button ion-button (click)="searchCars()" block>Suche starten</button>
+        <button ion-button (click)="searchCars()" block>Fahrzeug buchen </button>
       </form>
 
 
     </ion-list>
     <ion-list *ngSwitchCase="'my_booking'">
-       <ion-card *ngFor="let dataBooking of bookings | async">
-              <ion-card-header>
-                  {{dataCar.marke}}, {{ dataCar.modell }}
-                </ion-card-header>
-                <ion-card-content>
-                <p>Kennzeichen: {{dataCar.kennzeichen}}</p>
-                <p>Sitze: {{dataCar.sitze}}</p>
-                <p>Farbe: {{dataCar.farbe}}</p>
+      <ion-card *ngFor="let data of bookings | async">
 
-              <ion-grid>
-                  <ion-row>
-                    <ion-col col-6>
-                        <button ion-button  (click)="bookCar(dataCar)" >
-                            <ion-icon ios="ios-build" md="md-build"></ion-icon>
-                            Buchen {{dataCar}}
-                          </button>
-                    </ion-col>
-                  </ion-row>
-                </ion-grid>
-            </ion-card-content>
-          </ion-card>
+        <ion-card-content *ngIf="data.userID == checkuID()">
+          <div>
+            <ion-card-header>
+           Buchung
+          </ion-card-header>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <p>Startdatum: {{data.dateStart}}</p>
+                  <p>Startzeit: {{data.timeStart}}</p>
+                </ion-col>
+                <ion-col>
+                  <p> Enddatum: {{data.dateEnd}} </p>
+                  <p>Endzeit: {{data.timeEnd}}</p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+         <button ion-button (click)="deleteBooking(data)" block>Buchung stornieren</button>
+          </div>
+
+        </ion-card-content>
+      </ion-card>
+
 
 
     </ion-list>
