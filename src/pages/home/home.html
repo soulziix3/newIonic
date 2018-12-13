@@ -38,7 +38,13 @@
 
         <ion-item>
           <ion-label>Sitzplätze</ion-label>
-          <ion-input formControlName="seats"></ion-input>
+          <ion-select formControlName="seats">
+            <ion-option value="1">1</ion-option>
+          <ion-option value="2">2</ion-option>
+          <ion-option value="3">3</ion-option>
+          <ion-option value="4">4</ion-option>
+          </ion-select>
+
         </ion-item>
         <button ion-button (click)="searchCars()" block>Fahrzeug buchen </button>
       </form>
