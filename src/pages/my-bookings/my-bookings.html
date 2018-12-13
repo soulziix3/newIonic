@@ -1,0 +1,92 @@
+
+<ion-header>
+  <ion-navbar no-border-bottom>
+   <ion-title align="middle">
+     <img  class="capgeminiLogo" src="../assets/imgs/logoCapgemini.png" align="middle" height="30px" width="auto" />
+   </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logoutUser()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+   <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="bookings1">
+      <ion-segment-button value="currentbookings">
+        Aktuelle Buchungen
+      </ion-segment-button>
+      <ion-segment-button value="bookinghistory">
+        Buchungshistorie
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div [ngSwitch]="bookings1">
+    <ion-list *ngSwitchCase="'currentbookings'">
+
+
+
+      <ion-card *ngFor="let data of bookings | async">
+
+        <ion-card-content *ngIf="data.userID == checkuID() && data.dateStart >= '2018-12-13'">
+          <div>
+            <ion-card-header>
+           Buchung
+          </ion-card-header>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <p>Startdatum: {{data.dateStart}}</p>
+                  <p>Startzeit: {{data.timeStart}}</p>
+                  <button ion-button (click)="deleteBooking(data)" block>Buchung stornieren</button>
+                </ion-col>
+                <ion-col>
+                  <p> Enddatum: {{data.dateEnd}} </p>
+                  <p>Endzeit: {{data.timeEnd}}</p>
+                  <button ion-button (click)="goToProtocoll()" block>Protokoll erstellen</button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+
+
+
+
+          </div>
+        </ion-card-content>
+
+      </ion-card>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'bookinghistory'">
+      <ion-card *ngFor="let data of bookings | async">
+
+        <ion-card-content *ngIf="data.userID == checkuID() && data.dateStart < '2018-12-13' ">
+          <div>
+            <ion-card-header>
+           Buchung
+          </ion-card-header>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <p>Startdatum: {{data.dateStart}}</p>
+                  <p>Startzeit: {{data.timeStart}}</p>
+                </ion-col>
+                <ion-col>
+                  <p> Enddatum: {{data.dateEnd}} </p>
+                  <p>Endzeit: {{data.timeEnd}}</p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            <button ion-button (click)="goToProtocoll()" block>Protokoll erstellen</button>
+          </div>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  </div>
+
+</ion-content>

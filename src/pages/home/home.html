@@ -9,22 +9,10 @@
       </button>
     </ion-buttons>
   </ion-navbar>
-
-  <ion-toolbar no-border-top>
-    <ion-segment [(ngModel)]="car">
-      <ion-segment-button value="rent">
-        Buchen
-      </ion-segment-button>
-      <ion-segment-button value="my_booking">
-        Buchungen
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <div [ngSwitch]="car">
-    <ion-list *ngSwitchCase="'rent'">
+  <div>
       <form [formGroup]="bookcarForm" (ngSubmite)= "searchCars()">
 
         <ion-item >
@@ -55,37 +43,6 @@
         <button ion-button (click)="searchCars()" block>Fahrzeug buchen </button>
       </form>
 
-
-    </ion-list>
-    <ion-list *ngSwitchCase="'my_booking'">
-      <ion-card *ngFor="let data of bookings | async">
-
-        <ion-card-content *ngIf="data.userID == checkuID()">
-          <div>
-            <ion-card-header>
-           Buchung
-          </ion-card-header>
-            <ion-grid>
-              <ion-row>
-                <ion-col>
-                  <p>Startdatum: {{data.dateStart}}</p>
-                  <p>Startzeit: {{data.timeStart}}</p>
-                </ion-col>
-                <ion-col>
-                  <p> Enddatum: {{data.dateEnd}} </p>
-                  <p>Endzeit: {{data.timeEnd}}</p>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-         <button ion-button (click)="deleteBooking(data)" block>Buchung stornieren</button>
-          </div>
-
-        </ion-card-content>
-      </ion-card>
-
-
-
-    </ion-list>
   </div>
 </ion-content>
 
