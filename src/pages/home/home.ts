@@ -37,6 +37,7 @@ export class HomePage {
   public bookings = this.bookingCollectionRef.valueChanges();
   public carCollectionRef: AngularFirestoreCollection<Car> =  this.af.collection("cars");
   public cars = this.carCollectionRef.valueChanges();
+  public date: string = new Date().toDateString();
 
 
   private bookcarForm: FormGroup;

@@ -20,6 +20,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth';
 import { AngularFirestore, AngularFirestoreModule } from 'angularfire2/firestore';
+import {MyBookingsPage} from "../pages/my-bookings/my-bookings";
 
 const firebaseConfig = 
  {
@@ -45,7 +46,8 @@ const firebaseConfig =
     HomePage,
     TabsPage,
     // CarProfilePage
-    BookCarPage
+    BookCarPage,
+    MyBookingsPage
   ],
   imports: [
     BrowserModule,
@@ -70,6 +72,7 @@ const firebaseConfig =
     TabsPage,
     //CarProfilePage
     BookCarPage,
+    MyBookingsPage,
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

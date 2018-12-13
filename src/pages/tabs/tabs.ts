@@ -5,6 +5,7 @@ import { ContactPage } from '../contact/contact';
 import { SettingsPage } from '../settings/settings';
 import { HomePage } from '../home/home';
 import {NavParams} from "ionic-angular";
+import {MyBookingsPage} from "../my-bookings/my-bookings";
 
 @Component({
   templateUrl: 'tabs.html'
@@ -12,7 +13,7 @@ import {NavParams} from "ionic-angular";
 export class TabsPage {
 
   tab1Root = HomePage;
-  tab2Root = AboutPage;
+  tab2Root = MyBookingsPage;
   tab3Root = SettingsPage;
 
   constructor() {
