@@ -159,10 +159,10 @@ export class AdminPage {
                           result.forEach(doc => {
                               //console.log(doc.data());
                               //added benefit of getting the document id / key
-                              console.log(doc.id)
+                              console.log(doc.id);
                               this.carCollectionRef.doc(doc.id).update(cardata);
                           })
-                      })
+                      });
 
                       createToast.present();
                   }
@@ -202,7 +202,7 @@ export class AdminPage {
                 console.log(doc.id);
                 this.carCollectionRef.doc(doc.id).delete();
             })
-        })
+        });
 
         createToast.present();
     }

@@ -10,6 +10,9 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
 import {auth, firestore} from "firebase";
 import firebase from 'firebase';
+import {map} from "rxjs/operators";
+import {pipe} from "rxjs";
+import {on} from "@ionic/app-scripts/dist/util/events";
 
 /**
  * Generated class for the BookCarPage page.
@@ -53,17 +56,17 @@ export class BookCarPage {
   timeEnd: string;
   seat: string;
   carID: string;
+  carlist: Car[];
   dataCar: any;
   public items: Array<any> = [];
   dataBooking: Array<any>;
   public carCollectionRef: AngularFirestoreCollection<Car> = this.af.collection("cars");
+  public carId: Observable<Car[]>;
+  public bookingId: Observable<Booking[]>;
   public cars = this.carCollectionRef.valueChanges();
   public bookingCollectionRef: AngularFirestoreCollection<Booking> = this.af.collection(
     "bookings");
   public bookings = this.bookingCollectionRef.valueChanges();
-
-
-
 
 
   constructor(
@@ -82,15 +85,62 @@ export class BookCarPage {
     this.seat = navParams.get("seat");
     this.dataCar = this.bookingCollectionRef.valueChanges();
 
-     this.getAllPosts().subscribe((data)=>{
-        this.data = data;
-        console.log(this.data);
-    })
+    this.getAllPosts().subscribe((data)=>{
+       this.data = data;
+    });
+
+    this.getAllDocuments().subscribe((data)=>{
+        this.dataBooking = data;
+        //console.log(this.dataBooking);
+    });
+
+      var doc = this.getInformation();
+      //console.log(doc);
+
   }
 
   getAllPosts(): Observable<any>{
     return this.af.collection<any>("cars").valueChanges();
   }
+
+  getAllDocuments(): Observable<any>{
+    return this.af.collection<any>("bookings").valueChanges();
+  }
+
+  getInformation() {
+    
+
+      //let carRef = this.af.collection('cars').ref.where('carid', '==', data1.carid);
+      //this.carId = this.carCollectionRef.snapshotChanges().pipe(map( changes => {
+      //    return changes.map(a => {
+      //        const data = a.payload.doc.data() as Car;
+      //        const id = a.payload.doc.id;
+      //        return { id, ...data };
+      //    });
+      //}));
+
+      //this.carId.subscribe(docs => {
+      //    docs.forEach(doc => {
+      //        console.log(doc);
+      //    })
+      //})
+
+      //this.bookingId = this.bookingCollectionRef.snapshotChanges().pipe(map( changes => {
+      //    return changes.map(a => {
+      //        const data = a.payload.doc.data() as Booking;
+      //        const id = a.payload.doc.id;
+      //        return { id, ...data };
+      //    });
+      //}));
+
+      //var bookingElement = this.bookingId.subscribe(docs => {
+      //   docs.forEach(doc => {
+              //return doc;
+      //    })
+      //});
+
+  }
+
   bookCar(data) {
     console.log(data.carid);
 
@@ -146,3 +196,4 @@ export class BookCarPage {
   }
 
 }
+

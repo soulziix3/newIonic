@@ -3,10 +3,9 @@ import { AdminPage } from '../admin/admin';
 import { Component } from '@angular/core';
 import { AuthProvider } from '../../providers/auth/auth';
 import { WelcomePage } from '../welcome/welcome';
-import firebase from 'firebase';
+import firebase, {auth} from 'firebase';
 import { LoginPage } from '../login/login';
 import {HomePage} from "../home/home";
-
 
 
 @Component({
@@ -23,7 +22,7 @@ export class SettingsPage {
     }
 
     public gotoadmin(){
-        console.log(firebase.auth().currentUser.uid);
+        console.log(firebase.auth().currentUser.uid)
         this.navCtrl.push(AdminPage);
     }
 
