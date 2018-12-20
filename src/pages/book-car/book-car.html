@@ -49,17 +49,22 @@
                   {{dataCar.marke}}, {{ dataCar.modell }}
                 </ion-card-header>
                 <ion-card-content>
-                <p>Kennzeichen: {{dataCar.kennzeichen}}</p>
-                <p>Sitze: {{dataCar.sitze}}</p>
-                <p>Farbe: {{dataCar.farbe}}</p>
-                  <button ion-button  (click)="bookCar(dataCar)" >Buchen</button>
+                  <ion-row>
+                    <ion-col style="text-align: left">
+                      <p>Kennzeichen: {{dataCar.kennzeichen}}</p>
+                      <p>Sitze: {{dataCar.sitze}}</p>
+                      <p>Farbe: {{dataCar.farbe}}</p>
+                    </ion-col>
+                    <ion-col style="text-align: right">
+                      <button ion-button (click)="bookCar(dataCar)" >Buchen</button>
+                    </ion-col>
+                  </ion-row>
             </ion-card-content>
           </ion-card>
     </form>
   </div>
 
 </ion-content>
-
 
 
 

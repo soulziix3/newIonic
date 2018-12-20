@@ -6,6 +6,8 @@ import {AngularFirestore, AngularFirestoreCollection} from "angularfire2/firesto
 import firebase from "firebase";
 import {LoginPage} from "../login/login";
 import {ProtocolPage} from "../about/protocol";
+import {HomePage} from "../home/home";
+
 
 
 interface Booking {
@@ -64,17 +66,39 @@ export class MyBookingsPage {
         const createToast = this.toastCtrl.create({
             message: 'Buchung erfolgreich storniert',
             duration: 3000
-        });
-        let bookRef = this.af.collection('bookings').ref.where('bookingID', '==', data.bookingID);
-        bookRef.get().then((result) => {
-            result.forEach(doc => {
+            });
+        const confirm = this.alertCtrl.create({
+              title: "Fahrzeug buchen",
+              message: "Wolllen Sie diese Buchung wirklich stornieren?",
+              buttons: [
+                {
+                  text: "Nein",
+                  handler: () => {
+                    console.log("Not clicked");
+                  }
+                },
+                {
+                  text: "Ja ",
 
-                console.log(doc.id);
-                this.bookingCollectionRef.doc(doc.id).delete();
-            })
-        });
+                  handler: () => {
 
-        createToast.present();
+                    let bookRef = this.af.collection('bookings').ref.where('bookingID', '==', data.bookingID);
+                    bookRef.get().then((result) => {
+                        result.forEach(doc => {
+
+                            console.log(doc.id);
+                            this.bookingCollectionRef.doc(doc.id).delete();
+                        })
+                    });
+
+                    createToast.present();
+                    this.navCtrl.push(HomePage);
+                  }
+                }
+              ]
+
+            });
+            confirm.present();
 
   }
 

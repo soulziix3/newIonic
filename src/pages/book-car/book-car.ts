@@ -10,6 +10,8 @@ import { Observable } from 'rxjs/Observable';
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
 import {auth, firestore} from "firebase";
 import firebase from 'firebase';
+import {HomePage} from "../home/home";
+import {SignupPage} from "../signup/signup";
 
 /**
  * Generated class for the BookCarPage page.
@@ -100,7 +102,7 @@ export class BookCarPage {
       });
     const confirm = this.alertCtrl.create({
       title: "Fahrzeug buchen",
-      message: "Wolllen Sie diese Buchung wirklich anlegen?",
+      message: "Wollen Sie diese Buchung wirklich anlegen?",
       buttons: [
         {
           text: "Nein",
@@ -135,6 +137,7 @@ export class BookCarPage {
                       });
 
             createToast.present();
+            this.navCtrl.push(HomePage);
           }
         }
       ]
