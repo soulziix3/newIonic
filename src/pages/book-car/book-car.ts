@@ -186,7 +186,7 @@ export class BookCarPage {
                       });
 
             createToast.present();
-            this.navCtrl.push(HomePage);
+            this.navCtrl.setRoot(HomePage);
           }
         }
       ]

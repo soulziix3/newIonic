@@ -92,7 +92,7 @@ export class MyBookingsPage {
                     });
 
                     createToast.present();
-                    this.navCtrl.push(HomePage);
+                    this.navCtrl.setRoot(HomePage);
                   }
                 }
               ]

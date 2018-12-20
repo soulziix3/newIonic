@@ -81,6 +81,6 @@ export class LoginPage {
   //}
 
   createAccount(){
-    this.navCtrl.push(SignupPage);
+    this.navCtrl.setRoot(SignupPage);
   }
 }

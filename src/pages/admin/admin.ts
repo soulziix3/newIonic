@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { AdminPage } from '../admin/admin';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { AlertController, NavController, ToastController } from 'ionic-angular';
@@ -8,6 +9,13 @@ import { AngularFirestoreCollection } from 'angularfire2/firestore';
 //import {map} from "rxjs/operators";
 //import {DatabaseProvider} from "../../providers/auth/database";
 
+interface Booking {
+    carID: string;
+    dateEnd: string;
+    dateStart: string;
+    timeEnd: string;
+    timeStart: string;
+    seat: number;}
 
 interface Car { 
   carid: string;
@@ -26,8 +34,11 @@ interface Car {
 export class AdminPage {
   data: any;
   admin: string = 'car_create';
+  public bookingCollectionRef: AngularFirestoreCollection<Booking> = this.af.collection(
+    "bookings");
   public carcreateForm: FormGroup;
   public carData: Observable<Car[]>;
+  public bookings = this.bookingCollectionRef.valueChanges();
   public carCollectionRef: AngularFirestoreCollection<Car> = this.af.collection('cars');
   public cars = this.carCollectionRef.valueChanges();
   //public carDoc: AngularFirestoreDocument<Car>;
@@ -67,6 +78,46 @@ export class AdminPage {
       return this.af.collection<any>("cars").valueChanges();
     }
 
+  deleteBooking(data){
+    console.log("Buchung löschen");
+        const createToast = this.toastCtrl.create({
+            message: 'Buchung erfolgreich storniert',
+            duration: 3000
+            });
+        const confirm = this.alertCtrl.create({
+              title: "Fahrzeug buchen",
+              message: "Wolllen Sie diese Buchung wirklich stornieren?",
+              buttons: [
+                {
+                  text: "Nein",
+                  handler: () => {
+                    console.log("Not clicked");
+                  }
+                },
+                {
+                  text: "Ja ",
+
+                  handler: () => {
+
+                    let bookRef = this.af.collection('bookings').ref.where('bookingID', '==', data.bookingID);
+                    bookRef.get().then((result) => {
+                        result.forEach(doc => {
+
+                            console.log(doc.id);
+                            this.bookingCollectionRef.doc(doc.id).delete();
+                        })
+                    });
+
+                    createToast.present();
+                    this.navCtrl.setRoot(AdminPage);
+                  }
+                }
+              ]
+
+            });
+            confirm.present();
+
+  }
   createcar() { 
     const createToast = this.toastCtrl.create({
       message: 'Fahrzeug erfolgreich angelegt',

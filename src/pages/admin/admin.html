@@ -92,17 +92,40 @@
               -->
         </ion-list>
         <ion-list *ngSwitchCase="'booking'">
-            <ion-item-sliding *ngFor="let data of bookings | async" #item>
-                <ion-item>
-                    {{data1.marke}}, {{ data1.modell }}, {{data1.kennzeichen}}
-                </ion-item>
+            <ion-card *ngFor="let data of bookings | async">
 
-                <ion-item-options side="right">
-                    <button ion-button (click)="editcar(data1)">Ändern</button>
-                    <button ion-button color="danger" (click)="deletecar(data1)">Löschen</button>
-                </ion-item-options>
+              <ion-card-content>
+                <div>
+                  <ion-card-header>
+                 Buchung
+                  </ion-card-header>
+                  <ion-row>
+                      <ion-col style="text-align: left">
+                        <ion-grid>
+                          <ion-row>
+                            <ion-col>
+                              <p>Startdatum: {{data.dateStart}}</p>
+                              <p>Startzeit: {{data.timeStart}}</p>
+                            </ion-col>
+                            <ion-col>
+                              <p> Enddatum: {{data.dateEnd}} </p>
+                              <p>Endzeit: {{data.timeEnd}}</p>
+                            </ion-col>
+                          </ion-row>
+                        </ion-grid>
+                      </ion-col>
+                      <ion-col style="text-align: right">
+                        <button ion-button (click)="deleteBooking(data)" block>Buchung stornieren</button>
+                      </ion-col>
+                  </ion-row>
 
-            </ion-item-sliding>
+
+
+
+
+              </div>
+            </ion-card-content>
+            </ion-card>
         </ion-list>
       </div>
     
