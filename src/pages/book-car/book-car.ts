@@ -14,7 +14,6 @@ import {HomePage} from "../home/home";
 import {SignupPage} from "../signup/signup";
 import {map} from "rxjs/operators";
 import {pipe} from "rxjs";
-import {on} from "@ionic/app-scripts/dist/util/events";
 
 /**
  * Generated class for the BookCarPage page.
