@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import { AdminPage } from '../admin/admin';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { AlertController, NavController, ToastController } from 'ionic-angular';
