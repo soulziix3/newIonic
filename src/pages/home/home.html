@@ -17,23 +17,13 @@
 
         <ion-item >
           <ion-label >Buchungsbeginn</ion-label>
-          <ion-datetime displayFormat="DD MMM YYYY" formControlName="dateStarts"> </ion-datetime>
+          <ion-datetime displayFormat="DD MMM YYYY H:mm" [min] = "minDate" max="2025-10-31" formControlName="dateStarts"> </ion-datetime>
         </ion-item>
 
-        <ion-item>
-          <ion-label>Startzeitpunkt</ion-label>
-          <ion-datetime displayFormat="H:mm" pickerFormat="H mm" formControlName="timeStarts" >
-          </ion-datetime>
-        </ion-item>
 
         <ion-item>
           <ion-label>Buchungsende</ion-label>
-          <ion-datetime displayFormat="DD MMM YYYY" formControlName="dateEnds" ></ion-datetime>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>Endzeitpunkt</ion-label>
-          <ion-datetime displayFormat="H:mm" pickerFormat="H mm" formControlName="timeEnds"></ion-datetime>
+          <ion-datetime displayFormat="DD MMM YYYY H:mm" [min] = "minDate" max="2025-12-31" formControlName="dateEnds" ></ion-datetime>
         </ion-item>
 
         <ion-item>

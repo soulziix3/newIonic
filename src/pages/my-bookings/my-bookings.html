@@ -28,7 +28,7 @@
 
       <ion-card *ngFor="let data of bookingsComplete.booking| async ">
 
-        <ion-card-content>
+        <ion-card-content *ngIf="data.userID == checkuID() && data.dateStart > checkCurrentDate()">
           <div>
             <ion-card-header>
               Buchung
@@ -38,12 +38,12 @@
                 <ion-grid>
                   <ion-row>
                     <ion-col>
-                      <p>Startdatum: {{data.dateStart}}</p>
-                      <p>Startzeit: {{data.timeStart}}</p>
+                      <p>Startdatum: {{data.dateStart | date: 'dd/MM/yyyy'}}</p>
+                      <p>Startzeit: {{data.dateStart | date: 'HH:mm'}}</p>
                     </ion-col>
                     <ion-col>
-                      <p> Enddatum: {{data.dateEnd}} </p>
-                      <p>Endzeit: {{data.timeEnd}}</p>
+                      <p> Enddatum: {{data.dateEnd | date: 'dd/MM/yyyy'}} </p>
+                      <p>Endzeit: {{data.dateEnd | date: 'HH:mm'}}</p>
                     </ion-col>
                   </ion-row>
                 </ion-grid>
@@ -77,12 +77,12 @@
                 <ion-grid>
                   <ion-row>
                     <ion-col>
-                      <p>Startdatum: {{data.dateStart}}</p>
-                      <p>Startzeit: {{data.timeStart}}</p>
+                      <p>Startdatum: {{data.dateStart | date: 'dd/MM/yyyy'}}</p>
+                      <p>Startzeit: {{data.dateStart | date: 'HH:mm'}}</p>
                     </ion-col>
                     <ion-col>
-                      <p> Enddatum: {{data.dateEnd}} </p>
-                      <p>Endzeit: {{data.timeEnd}}</p>
+                      <p> Enddatum: {{data.dateEnd | date: 'dd/MM/yyyy'}} </p>
+                      <p>Endzeit: {{data.dateEnd | date: 'HH:mm'}}</p>
                     </ion-col>
                   </ion-row>
                 </ion-grid>

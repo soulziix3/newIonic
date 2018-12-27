@@ -14,8 +14,6 @@ interface Booking {
     carID: string;
     dateEnd: string;
     dateStart: string;
-    timeEnd: string;
-    timeStart: string;
     seat: number;
 }
 
@@ -165,8 +163,7 @@ export class MyBookingsPage {
     }
 
     checkCurrentDate(){
-        const curDate = this.date;
-        console.log(this.date);
+        const curDate = new Date(this.date).getTime();
         return this.date;
 
     }

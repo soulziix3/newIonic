@@ -18,19 +18,19 @@
       Buchungsinformationen
     </ion-title>
       <ion-item>
-        <label> Startdatum: {{dateStart}}</label>
+        <label> Startdatum: {{dateStart | date: 'dd/MM/yyyy'}}</label>
       </ion-item>
 
       <ion-item>
-        <label> Enddatum: {{dateEnd}}</label>
+        <label> Enddatum: {{dateEnd | date: 'dd/MM/yyyy' }}</label>
       </ion-item>
 
       <ion-item>
-        <label> Startzeit: {{timeStart}}</label>
+        <label> Startzeit: {{dateStart | date: 'HH:mm' }}</label>
       </ion-item>
 
       <ion-item>
-        <label> Endzeit: {{timeEnd}} </label>
+        <label> Endzeit: {{dateEnd | date: 'HH:mm'}} </label>
       </ion-item>
 
       <ion-item>

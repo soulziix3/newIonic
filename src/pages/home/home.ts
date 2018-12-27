@@ -12,8 +12,6 @@ interface Booking {
     carID: string;
     dateEnd: string;
     dateStart: string;
-    timeEnd: string;
-    timeStart: string;
     seat: number;
 }
 
@@ -38,6 +36,7 @@ export class HomePage {
   public carCollectionRef: AngularFirestoreCollection<Car> =  this.af.collection("cars");
   public cars = this.carCollectionRef.valueChanges();
   public date: string = new Date().toDateString();
+  minDate: string = new Date().toISOString();
 
 
   private bookcarForm: FormGroup;
@@ -59,8 +58,6 @@ export class HomePage {
     this.bookcarForm = this.formBuilder.group({
       dateStarts: [""],
       dateEnds: [""],
-      timeStarts: [""],
-      timeEnds: [""],
       seats: [""],
     })
   }
@@ -77,8 +74,6 @@ export class HomePage {
     this.navCtrl.push(BookCarPage, {
       dStart: this.bookcarForm.value["dateStarts"],
       dEnd: this.bookcarForm.value["dateEnds"],
-      tStart: this.bookcarForm.value["timeStarts"],
-      tEnd: this.bookcarForm.value["timeEnds"],
       seat: this.bookcarForm.value["seats"],
 
     });

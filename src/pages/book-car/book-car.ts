@@ -35,10 +35,8 @@ interface Booking {
 
   carID: string;
   userID: string;
-  dateEnd: string;
-  dateStart: string;
-  timeEnd: string;
-  timeStart: string;
+  dateEnd: any;
+  dateStart: any;
   seat: number;
   bookingID: string;
 }
@@ -51,8 +49,8 @@ interface Booking {
 export class BookCarPage {
   userID: any;
   data: any;
-  dateStart: string;
-  dateEnd: string;
+  dateStart: any;
+  dateEnd: any;
   timeStart: string;
   timeEnd: string;
   seat: string;
@@ -183,10 +181,8 @@ export class BookCarPage {
 
                               this.bookingCollectionRef.add({
                                 carID: doc.id,
-                                dateEnd: this.dateEnd,
-                                dateStart: this.dateStart,
-                                timeEnd: this.timeEnd,
-                                timeStart: this.timeStart,
+                                dateEnd: new Date(this.dateEnd).getTime(),
+                                dateStart: new Date(this.dateStart).getTime(),
                                 seat: parseInt(this.seat),
                                 userID: firebase.auth().currentUser.uid,
                                 bookingID: id,
