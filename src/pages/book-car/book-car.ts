@@ -60,7 +60,7 @@ export class BookCarPage {
   carlist: Car[];
   dataCar: any;
   public items: Array<any> = [];
-  dataBooking: Array<any>;
+  public dataBooking: Array<any>;
   public carCollectionRef: AngularFirestoreCollection<Car> = this.af.collection("cars");
   public carId: Observable<Car[]>;
   public bookingId: Observable<Booking[]>;
@@ -92,12 +92,16 @@ export class BookCarPage {
 
     this.getAllDocuments().subscribe((data)=>{
         this.dataBooking = data;
-        //console.log(this.dataBooking);
+        this.test(this.dataBooking);
     });
 
-      var doc = this.getInformation();
+      //var doc = this.getInformation();
       //console.log(doc);
+      //console.log(this.dataBooking);
+  }
 
+  test(test) {
+    console.log(test);
   }
 
   getAllPosts(): Observable<any>{
@@ -108,8 +112,15 @@ export class BookCarPage {
     return this.af.collection<any>("bookings").valueChanges();
   }
 
-  getInformation() {
+  getInformation(data) {
 
+      this.getAllDocuments().subscribe((data)=>{
+          this.dataBooking = data;
+          //this.test(this.dataBooking);
+      });
+
+      //return this.af.collection('bookings').ref.where('dateStart', '>=', this.dateStart)
+      //   .where('dateEnd', '<=', this.dateEnd);
 
       //let carRef = this.af.collection('cars').ref.where('carid', '==', data1.carid);
       //this.carId = this.carCollectionRef.snapshotChanges().pipe(map( changes => {

@@ -1,16 +1,15 @@
-
 <ion-header>
   <ion-navbar no-border-bottom>
-   <ion-title align="middle">
-     <img  class="capgeminiLogo" src="../assets/imgs/logoCapgemini.png" align="middle" height="30px" width="auto" />
-   </ion-title>
+    <ion-title align="middle">
+      <img  class="capgeminiLogo" src="../assets/imgs/logoCapgemini.png" align="middle" height="30px" width="auto" />
+    </ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="logoutUser()">
         <ion-icon name="log-out"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
-   <ion-toolbar no-border-top>
+  <ion-toolbar no-border-top>
     <ion-segment [(ngModel)]="bookings1">
       <ion-segment-button value="currentbookings">
         Aktuelle Buchungen
@@ -27,15 +26,13 @@
   <div [ngSwitch]="bookings1">
     <ion-list *ngSwitchCase="'currentbookings'">
 
-
-
-      <ion-card *ngFor="let data of bookings | async">
+      <ion-card *ngFor="let data of bookingsComplete.booking| async ">
 
         <ion-card-content>
           <div>
             <ion-card-header>
-           Buchung
-          </ion-card-header>
+              Buchung
+            </ion-card-header>
             <ion-row>
               <ion-col style="text-align: left">
                 <ion-grid>
@@ -70,11 +67,11 @@
     <ion-list *ngSwitchCase="'bookinghistory'">
       <ion-card *ngFor="let data of bookings | async">
 
-        <ion-card-content *ngIf="data.userID == checkuID() && data.dateStart < '2018-12-18' ">
+        <ion-card-content *ngIf="data.userID == checkuID() && data.dateStart < checkCurrentDate() ">
           <div>
             <ion-card-header>
-           Buchung
-          </ion-card-header>
+              Buchung
+            </ion-card-header>
             <ion-row>
               <ion-col style="text-align: left">
                 <ion-grid>
