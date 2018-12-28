@@ -8,7 +8,6 @@ import {LoginPage} from "../login/login";
 import {ProtocolPage} from "../about/protocol";
 import {HomePage} from "../home/home";
 import {Observable} from "../../../node_modules/rxjs/Observable";
-import {MyApp} from "../../app/app.component";
 
 interface Booking {
     carID: string;
@@ -40,12 +39,13 @@ export class MyBookingsPage {
     public cars = this.carCollectionRef.valueChanges();
     public date = new Date();
     bookings1: string = "currentbookings";
+
+    public carArray = [];
     bookingsComplete = {
         booking: this.bookings,
-        car: this.cars
+        car: this.cars,
+        merge: this.carArray
     };
-    public merge: {};
-
 
     constructor(public navCtrl: NavController,
                 public app: App,
@@ -57,51 +57,62 @@ export class MyBookingsPage {
 
         this.getAllDocuments().subscribe((data)=>{
             //this.dataBooking = data;
-            this.merge = this.test(data);
-            //console.log(this.merge)
+            this.test(data);
+            //console.log(this.carArray)
             //console.log(this.dataBooking)
         });
     }
-    test(test) {
-        let merge = this.merge;
+    test(test){
+        let merge: any;
         let af = this.af;
-        let carArray = {};
+        let carArray = this.carArray;
 
         this.af.collection("cars").ref
             .get()
             .then(function(querySnapshot) {
                 querySnapshot.forEach(function(carDoc) {
-
-
+                    var carArr = carArray;
                     af.collection("bookings").ref
                         .get()
                         .then(function(querySnapshot) {
                             querySnapshot.forEach(function(bookingDoc) {
                                 if (bookingDoc.get('carID') === carDoc.id) {
                                     merge = Object.assign(carDoc.data(), bookingDoc.data());
-                                    //merge[0].options.push(carArray);
-                                    console.log(merge)
+                                    return carArray.push(merge);
                                 }
-
                             });
-                        })
+                        });
+                    //this.carArr = carArray;
+                    //console.log(this.carArr);
+                    return carArr.push(carArray)
 
+                    //console.log(carArr[0])
 
                 });
             })
             .catch(function(error) {
                 console.log("Error getting documents: ", error);
             });
-        //console.log(newMerge);
-        return merge;
-        //console.log(this.af.collection("cars").doc(test[0].carID))
-        //console.log(this.af.collection("cars").ref.where( 'carID', "==", test[0].carID))
+        this.carArray.push(carArray);
+        //this.carArray[0].splice(0,3)
+        //console.log(this.carArray[0]);
+        var newArray = [];
+        this.carArray[0].forEach(value => {
+            newArray.push(value)
 
+            //console.log(value)
+        })
 
+        for (var _i = 0; _i < newArray.length; _i++) {
+            var num = newArray[_i];
+            console.log(num);
+        }
+        //console.log(newArray)
+        //this.carArray = newArray
+        //console.log(this.carArray)
+        //this.carArray.splice(0,3)
+        //console.log(this.carArray)
     }
-
-
-
 
 
     logoutUser(): Promise<void> {
