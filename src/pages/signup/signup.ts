@@ -3,7 +3,7 @@ import { IonicPage, NavController, Loading, AlertController, LoadingController, 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
 import { EmailValidator } from '../../validators/email';
-import { WelcomePage } from '../welcome/welcome';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the SignupPage page.
@@ -42,7 +42,7 @@ export class SignupPage {
           duration: 3000
         });
         toast.present();
-        this.nav.setRoot(WelcomePage);
+        this.nav.setRoot(LoginPage);
       }, (error) => {
         this.loading.dismiss().then( () => {
           var errorMessage: string = error.message;

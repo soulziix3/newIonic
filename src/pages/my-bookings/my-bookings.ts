@@ -139,7 +139,7 @@ export class MyBookingsPage {
             duration: 3000
         });
         const confirm = this.alertCtrl.create({
-            title: "Fahrzeug buchen",
+            title: "Fahrzeug stornieren",
             message: "Wolllen Sie diese Buchung wirklich stornieren?",
             buttons: [
                 {

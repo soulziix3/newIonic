@@ -62,7 +62,6 @@
                 </ion-item-options>
 
             </ion-item-sliding>
-
 <!--
           <ion-card (click)="goToCarProfile()" *ngFor="let data of cars | async">
               <ion-card-header>
@@ -92,40 +91,38 @@
               -->
         </ion-list>
         <ion-list *ngSwitchCase="'booking'">
-            <ion-card *ngFor="let data of bookings | async">
+          <div>
+            <ion-item>
+              Buchung
+            </ion-item>
+            <ion-item-sliding *ngFor="let data of bookingsComplete.booking| async "#item>
+                 <ion-item>
 
-              <ion-card-content>
-                <div>
-                  <ion-card-header>
-                 Buchung
-                  </ion-card-header>
-                  <ion-row>
-                      <ion-col style="text-align: left">
-                        <ion-grid>
-                          <ion-row>
-                            <ion-col>
-                              <p>Startdatum: {{data.dateStart}}</p>
-                              <p>Startzeit: {{data.timeStart}}</p>
-                            </ion-col>
-                            <ion-col>
-                              <p> Enddatum: {{data.dateEnd}} </p>
-                              <p>Endzeit: {{data.timeEnd}}</p>
-                            </ion-col>
-                          </ion-row>
-                        </ion-grid>
-                      </ion-col>
-                      <ion-col style="text-align: right">
-                        <button ion-button (click)="deleteBooking(data)" block>Buchung stornieren</button>
-                      </ion-col>
-                  </ion-row>
+                   <ion-col style="text-align: left">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col>
+                          <p>Startdatum: {{data.dateStart | date: 'dd/MM/yyyy'}}</p>
+                          <p>Startzeit: {{data.dateStart | date: 'HH:mm'}}</p>
+                        </ion-col>
+                        <ion-col>
+                          <p> Enddatum: {{data.dateEnd | date: 'dd/MM/yyyy'}} </p>
+                          <p>Endzeit: {{data.dateEnd | date: 'HH:mm'}}</p>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-col>
+                 </ion-item>
 
 
+              <ion-item-options side="right">
+                <button color="danger" ion-button large icon-only (click)="deleteBooking(data)">
+                        <ion-icon name="close-circle"></ion-icon>
+                </button>
+              </ion-item-options>
 
-
-
-              </div>
-            </ion-card-content>
-            </ion-card>
+            </ion-item-sliding>
+          </div>
         </ion-list>
       </div>
     

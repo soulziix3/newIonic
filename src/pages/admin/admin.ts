@@ -42,6 +42,11 @@ export class AdminPage {
   public cars = this.carCollectionRef.valueChanges();
   //public carDoc: AngularFirestoreDocument<Car>;
   //public  dbp: DatabaseProvider;
+  bookings1: string = "currentbookings";
+  bookingsComplete = {
+      booking: this.bookings,
+      car: this.cars
+  };
 
     constructor(
     public navCtrl: NavController,
