@@ -1,0 +1,4 @@
+#Fri Dec 28 16:07:30 CET 2018
+base.0=C\:\\Users\\Vitalstuttgarter\\PycharmProjects\\newIonic_test_2\\newIonic\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex
