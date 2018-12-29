@@ -29,13 +29,14 @@
         <ion-item>
           Buchung
         </ion-item>
-        <ion-item-sliding *ngFor="let data of bookingsComplete.booking| async "#item>
+        <ion-item-sliding *ngFor="let data of carArray "#item>
              <ion-item *ngIf="data.userID == checkuID() && data.dateStart > checkCurrentDate()">
 
                <ion-col style="text-align: left">
                 <ion-grid>
                   <ion-row>
                     <ion-col>
+                      <p>{{data.marke}} {{data.modell}} {{data.kennzeichen}}</p>
                       <p>Startdatum: {{data.dateStart | date: 'dd/MM/yyyy'}}</p>
                       <p>Startzeit: {{data.dateStart | date: 'HH:mm'}}</p>
                     </ion-col>
@@ -68,12 +69,13 @@
         <ion-item>
           Buchung
         </ion-item>
-        <ion-item-sliding *ngFor="let data of bookingsComplete.booking| async "#item>
+        <ion-item-sliding *ngFor="let data of carArray "#item>
           <ion-item *ngIf="data.userID == checkuID() && data.dateStart < checkCurrentDate()">
             <ion-col style="text-align: left">
                   <ion-grid>
                     <ion-row>
                       <ion-col>
+                        <p>{{data.marke}} {{data.modell}} {{data.kennzeichen}}</p>
                         <p>Startdatum: {{data.dateStart | date: 'dd/MM/yyyy'}}</p>
                         <p>Startzeit: {{data.dateStart | date: 'HH:mm'}}</p>
                       </ion-col>

@@ -8,6 +8,7 @@ import {LoginPage} from "../login/login";
 import {ProtocolPage} from "../about/protocol";
 import {HomePage} from "../home/home";
 import {Observable} from "../../../node_modules/rxjs/Observable";
+import {areAllEquivalent} from "@angular/compiler/src/output/output_ast";
 
 interface Booking {
     carID: string;
@@ -40,7 +41,7 @@ export class MyBookingsPage {
     public date = new Date();
     bookings1: string = "currentbookings";
 
-    public carArray = [];
+    public carArray:any[] = [];
     bookingsComplete = {
         booking: this.bookings,
         car: this.cars,
@@ -57,12 +58,13 @@ export class MyBookingsPage {
 
         this.getAllDocuments().subscribe((data)=>{
             //this.dataBooking = data;
-            this.test(data);
+            this.mergeCarAndBookingData(data);
             //console.log(this.carArray)
             //console.log(this.dataBooking)
         });
     }
-    test(test){
+
+    mergeCarAndBookingData(test){
         let merge: any;
         let af = this.af;
         let carArray = this.carArray;
@@ -71,46 +73,28 @@ export class MyBookingsPage {
             .get()
             .then(function(querySnapshot) {
                 querySnapshot.forEach(function(carDoc) {
-                    var carArr = carArray;
+
                     af.collection("bookings").ref
                         .get()
                         .then(function(querySnapshot) {
+
                             querySnapshot.forEach(function(bookingDoc) {
                                 if (bookingDoc.get('carID') === carDoc.id) {
                                     merge = Object.assign(carDoc.data(), bookingDoc.data());
-                                    return carArray.push(merge);
+
+                                    if (typeof merge !== 'undefined') {
+                                        MyBookingsPage.prototype.pushMergedData(merge)
+                                        carArray.push(merge)
+                                    }
                                 }
                             });
                         });
-                    //this.carArr = carArray;
-                    //console.log(this.carArr);
-                    return carArr.push(carArray)
-
-                    //console.log(carArr[0])
 
                 });
             })
             .catch(function(error) {
                 console.log("Error getting documents: ", error);
             });
-        this.carArray.push(carArray);
-        //this.carArray[0].splice(0,3)
-        //console.log(this.carArray[0]);
-        var newArray = [];
-        this.carArray[0].forEach(value => {
-            newArray.push(value)
-
-            //console.log(value)
-        })
-
-        for (var _i = 0; _i < newArray.length; _i++) {
-            var num = newArray[_i];
-            console.log(num);
-        }
-        //console.log(newArray)
-        //this.carArray = newArray
-        //console.log(this.carArray)
-        //this.carArray.splice(0,3)
         //console.log(this.carArray)
     }
 
@@ -170,6 +154,20 @@ export class MyBookingsPage {
 
         });
         confirm.present();
+
+    }
+
+    pushMergedData(carArr) {
+
+        console.log(carArr)
+        this.carArray = []
+        //console.log(this.bookingsComplete.merge)
+        // if (typeof this.carArray !== 'undefined') {
+        this.carArray.unshift(carArr)
+        //this.bookingsComplete.merge.push(carArr)
+        // }
+        console.log(this.carArray)
+
 
     }
 
