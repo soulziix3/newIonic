@@ -158,12 +158,10 @@ export class MyBookingsPage {
     }
 
     pushMergedData(carArr) {
-
-        console.log(carArr)
         this.carArray = []
         //console.log(this.bookingsComplete.merge)
         // if (typeof this.carArray !== 'undefined') {
-        this.carArray.unshift(carArr)
+        this.carArray.push(carArr)
         //this.bookingsComplete.merge.push(carArr)
         // }
         console.log(this.carArray)

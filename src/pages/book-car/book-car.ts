@@ -66,6 +66,7 @@ export class BookCarPage {
   public bookingCollectionRef: AngularFirestoreCollection<Booking> = this.af.collection(
     "bookings");
   public bookings = this.bookingCollectionRef.valueChanges();
+  public carArray:any[] = [];
 
 
   constructor(
@@ -90,7 +91,7 @@ export class BookCarPage {
 
     this.getAllDocuments().subscribe((data)=>{
         this.dataBooking = data;
-        this.test(this.dataBooking);
+        this.mergeCarAndBookingData(data);
     });
 
       //var doc = this.getInformation();
@@ -117,39 +118,63 @@ export class BookCarPage {
           //this.test(this.dataBooking);
       });
 
-      //return this.af.collection('bookings').ref.where('dateStart', '>=', this.dateStart)
-      //   .where('dateEnd', '<=', this.dateEnd);
-
-      //let carRef = this.af.collection('cars').ref.where('carid', '==', data1.carid);
-      //this.carId = this.carCollectionRef.snapshotChanges().pipe(map( changes => {
-      //    return changes.map(a => {
-      //        const data = a.payload.doc.data() as Car;
-      //        const id = a.payload.doc.id;
-      //        return { id, ...data };
-      //    });
-      //}));
-
-      //this.carId.subscribe(docs => {
-      //    docs.forEach(doc => {
-      //        console.log(doc);
-      //    })
-      //})
-
-      //this.bookingId = this.bookingCollectionRef.snapshotChanges().pipe(map( changes => {
-      //    return changes.map(a => {
-      //        const data = a.payload.doc.data() as Booking;
-      //        const id = a.payload.doc.id;
-      //        return { id, ...data };
-      //    });
-      //}));
-
-      //var bookingElement = this.bookingId.subscribe(docs => {
-      //   docs.forEach(doc => {
-              //return doc;
-      //    })
-      //});
-
   }
+
+    mergeCarAndBookingData(carData){
+        let merge: any;
+        let af = this.af;
+        let carArray = this.carArray;
+        let datestart = this.dateStart;
+        let dateend = this.dateEnd;
+        let timestart = this.timeStart;
+        let timeend = this.timeEnd;
+        let CarDataList = this.data
+
+        this.af.collection("bookings").ref
+            .get()
+            .then(function(querySnapshot) {
+                querySnapshot.forEach(function(bookingDoc) {
+                    af.collection("cars").ref
+                        .get()
+                        .then(function(querySnapshot) {
+
+                            querySnapshot.forEach(function(carDoc) {
+
+                              console.log(datestart)
+                                console.log(bookingDoc.get('dateStart'))
+
+                                if (bookingDoc.get('carID') === carDoc.id) {
+                                  if(datestart === bookingDoc.get('dateStart') && dateend === bookingDoc.get('dateEnd')) {
+                                    if((timestart >= bookingDoc.get('timeStart') && timestart < bookingDoc.get('timeEnd')
+                                        && timeend <= bookingDoc.get('timeEnd') && timeend > bookingDoc.get('timeStart'))
+                                    || (timestart < bookingDoc.get('timeStart') && timeend < bookingDoc.get('timeEnd')
+                                        && timeend > bookingDoc.get('timeStart'))
+
+                                    || (timestart > bookingDoc.get('timeStart') && timeend > bookingDoc.get('timeEnd'))
+                                    && timestart < bookingDoc.get('timeEnd')) {
+                                      CarDataList = af.doc(`cars/${carDoc.id}`);
+                                      //BookCarPage.prototype.deleteData(CarDataList)
+                                      //CarDataList.delete()
+                                  }
+                                  }
+                                }
+                            });
+                        });
+                });
+
+            })
+            .catch(function(error) {
+                console.log("Error getting documents: ", error);
+            });
+
+
+        //console.log(this.carArray)
+    }
+
+    deleteData(data) {
+        this.data = data
+        this.data.delete()
+    }
 
   bookCar(data) {
     console.log(data.carid);
