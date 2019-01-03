@@ -79,7 +79,7 @@ export class MyBookingsPage {
                         .then(function(querySnapshot) {
 
                             querySnapshot.forEach(function(bookingDoc) {
-                                if (bookingDoc.get('carID') === carDoc.id) {
+                                if (bookingDoc.get('carID') === carDoc.get('carid')) {
                                     merge = Object.assign(carDoc.data(), bookingDoc.data());
 
                                     if (typeof merge !== 'undefined') {

@@ -24,113 +24,156 @@ import {pipe} from "rxjs";
 
 
 interface Car {
-  farbe: string;
-  modell: string;
-  reserviert: number;
-  sitze: number;
-  kennzeichen: string;
-  gebucht: [string, string, string, string, string]
+    farbe: string;
+    modell: string;
+    reserviert: number;
+    sitze: number;
+    kennzeichen: string;
+    gebucht: [string, string, string, string, string]
 }
 interface Booking {
 
-  carID: string;
-  userID: string;
-  dateEnd: any;
-  dateStart: any;
-  seat: number;
-  bookingID: string;
+    carID: string;
+    userID: string;
+    dateEnd: any;
+    dateStart: any;
+    seat: number;
+    bookingID: string;
 }
 
 @Component({
-  selector: 'page-book-car',
-  templateUrl: 'book-car.html',
+    selector: 'page-book-car',
+    templateUrl: 'book-car.html',
 
 })
 export class BookCarPage {
-  userID: any;
-  data: any;
-  dateStart: any;
-  dateEnd: any;
-  timeStart: string;
-  timeEnd: string;
-  seat: string;
-  carID: string;
-  carlist: Car[];
-  dataCar: any;
-  public items: Array<any> = [];
-  public dataBooking: Array<any>;
-  public carCollectionRef: AngularFirestoreCollection<Car> = this.af.collection("cars");
-  public carId: Observable<Car[]>;
-  public bookingId: Observable<Booking[]>;
-  public cars = this.carCollectionRef.valueChanges();
-  public bookingCollectionRef: AngularFirestoreCollection<Booking> = this.af.collection(
-    "bookings");
-  public bookings = this.bookingCollectionRef.valueChanges();
-  public carArray:any[] = [];
+    userID: any;
+    data: any;
+    dateStart: any;
+    dateEnd: any;
+    timeStart: string;
+    timeEnd: string;
+    seat: string;
+    carID: string;
+    carlist: Car[];
+    dataCar: any;
+    public items: Array<any> = [];
+    public dataBooking: Array<any>;
+    public carCollectionRef: AngularFirestoreCollection<Car> = this.af.collection("cars");
+    public carId: Observable<Car[]>;
+    public bookingId: Observable<Booking[]>;
+    public cars = this.carCollectionRef.valueChanges();
+    public bookingCollectionRef: AngularFirestoreCollection<Booking> = this.af.collection(
+        "bookings");
+    public bookings = this.bookingCollectionRef.valueChanges();
+    public carArray1:any = [];
+    public newArray: any = [];
 
 
-  constructor(
+    constructor(
 
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    public db: AngularFireDatabase,
-    private af: AngularFirestore,
-    public alertCtrl: AlertController,
-    public toastCtrl: ToastController) {
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        public db: AngularFireDatabase,
+        private af: AngularFirestore,
+        public alertCtrl: AlertController,
+        public toastCtrl: ToastController) {
 
-    this.dateStart = navParams.get("dStart");
-    this.dateEnd = navParams.get("dEnd");
-    this.timeStart = navParams.get("tStart");
-    this.timeEnd = navParams.get("tEnd");
-    this.seat = navParams.get("seat");
-    this.dataCar = this.bookingCollectionRef.valueChanges();
+        this.dateStart = navParams.get("dStart");
+        this.dateEnd = navParams.get("dEnd");
+        this.timeStart = navParams.get("tStart");
+        this.timeEnd = navParams.get("tEnd");
+        this.seat = navParams.get("seat");
+        this.dataCar = this.bookingCollectionRef.valueChanges();
 
-    this.getAllPosts().subscribe((data)=>{
-       this.data = data;
-    });
+        this.getAllPosts().subscribe((data)=>{
+            this.data = data;
+            let test = this.checkCarAndBookingData(data)
+            //console.log(test)
+            //console.log(this.data)
+            //this.data = JSON.parse(this.data)
+        });
 
-    this.getAllDocuments().subscribe((data)=>{
-        this.dataBooking = data;
-        this.mergeCarAndBookingData(data);
-    });
+        this.getAllDocuments().subscribe((data)=>{
+            this.dataBooking = data;
+            //
+            //this.checkCarAndBookingData(data);
+        });
 
-      //var doc = this.getInformation();
-      //console.log(doc);
-      //console.log(this.dataBooking);
-  }
+        //var doc = this.getInformation();
+        //console.log(doc);
+        //console.log(this.dataBooking);
+    }
 
-  test(test) {
-    console.log(test);
-  }
+    test(test) {
+        console.log(test);
+    }
 
-  getAllPosts(): Observable<any>{
-    return this.af.collection<any>("cars").valueChanges();
-  }
+    getAllPosts(): Observable<any>{
+        return this.af.collection<any>("cars").valueChanges();
+    }
 
-  getAllDocuments(): Observable<any>{
-    return this.af.collection<any>("bookings").valueChanges();
-  }
+    getAllDocuments(): Observable<any>{
+        return this.af.collection<any>("bookings").valueChanges();
+    }
 
-  getInformation(data) {
+    getInformation(data) {
 
-      this.getAllDocuments().subscribe((data)=>{
-          this.dataBooking = data;
-          //this.test(this.dataBooking);
-      });
+        this.getAllDocuments().subscribe((data)=>{
+            this.dataBooking = data;
+            //this.test(this.dataBooking);
+        });
 
-  }
+    }
 
-    mergeCarAndBookingData(carData){
-        let merge: any;
+    testNew(carData)
+    {
+        return true
+    }
+
+    checkCarAndBookingData(carData){
+        var carArray = this.carArray1
         let af = this.af;
-        let carArray = this.carArray;
-        let datestart = this.dateStart;
-        let dateend = this.dateEnd;
-        let timestart = this.timeStart;
-        let timeend = this.timeEnd;
-        let CarDataList = this.data
+        let datestart = new Date(this.dateStart).getTime();
+        let dateend = new Date(this.dateEnd).getTime();
 
-        this.af.collection("bookings").ref
+        this.getAllDocuments().subscribe((data)=>{
+            console.log(data)
+            if (data.length == 0) {
+                for (let i = 0; i < carData.length; i++) {
+                    BookCarPage.prototype.pushData(carData[i]);
+                    carArray.push(carData[i])
+                }
+            };
+            //
+            //this.checkCarAndBookingData(data);
+        });
+
+
+        for (let i = 0; i < carData.length; i++){
+
+            let bookRef = this.af.collection('bookings').ref.where('carID', '==', carData[i].carid);
+            //console.log(bookRef)
+            if (bookRef != undefined){
+
+                bookRef.get().then((result) => {
+                    //console.log(result)
+                    result.forEach(doc => {
+
+                        console.log("Keine Daten")
+                    })
+
+                });
+            }
+            else{
+                BookCarPage.prototype.pushData(carData[i]);
+                carArray.push(carData[i])
+            }
+            //BookCarPage.prototype.pushData(carData[i]);
+            //carArray.push(carData[i])
+        }
+
+        af.collection("bookings").ref
             .get()
             .then(function(querySnapshot) {
                 querySnapshot.forEach(function(bookingDoc) {
@@ -139,26 +182,38 @@ export class BookCarPage {
                         .then(function(querySnapshot) {
 
                             querySnapshot.forEach(function(carDoc) {
+                                if (bookingDoc.get('carID') === carDoc.get("carid")) {
 
-                              console.log(datestart)
-                                console.log(bookingDoc.get('dateStart'))
+                                    if ((datestart < bookingDoc.get('dateStart')) &&
+                                        (datestart < bookingDoc.get('dateEnd')) ){
+                                        if ((dateend < bookingDoc.get("dateStart")&&
+                                            ( dateend < bookingDoc.get("dateEnd")))){
+                                            BookCarPage.prototype.pushData(carDoc.data());
+                                            carArray.push(carDoc.data())
+                                            //console.log(carArray)
+                                        }
 
-                                if (bookingDoc.get('carID') === carDoc.id) {
-                                  if(datestart === bookingDoc.get('dateStart') && dateend === bookingDoc.get('dateEnd')) {
-                                    if((timestart >= bookingDoc.get('timeStart') && timestart < bookingDoc.get('timeEnd')
-                                        && timeend <= bookingDoc.get('timeEnd') && timeend > bookingDoc.get('timeStart'))
-                                    || (timestart < bookingDoc.get('timeStart') && timeend < bookingDoc.get('timeEnd')
-                                        && timeend > bookingDoc.get('timeStart'))
+                                        //BookCarPage.prototype.pushData(carDoc)
+                                    } else if ((datestart > bookingDoc.get('dateStart')) &&
+                                        (datestart > bookingDoc.get('dateEnd')) ) {
+                                        if ((dateend > bookingDoc.get("dateStart")&&
+                                            ( dateend > bookingDoc.get("dateEnd")))) {
+                                            BookCarPage.prototype.pushData(carDoc.data());
+                                            carArray.push(carDoc.data())
+                                            //console.log(carArray)
+                                        }
 
-                                    || (timestart > bookingDoc.get('timeStart') && timeend > bookingDoc.get('timeEnd'))
-                                    && timestart < bookingDoc.get('timeEnd')) {
-                                      CarDataList = af.doc(`cars/${carDoc.id}`);
-                                      //BookCarPage.prototype.deleteData(CarDataList)
-                                      //CarDataList.delete()
-                                  }
-                                  }
+                                    }
+
+
+                                } else {
+                                    BookCarPage.prototype.pushData(carDoc.data());
+                                    carArray.push(carDoc.data())
+                                    //console.log(carArray)
                                 }
                             });
+                            //carArray.push(carArray)
+
                         });
                 });
 
@@ -166,67 +221,73 @@ export class BookCarPage {
             .catch(function(error) {
                 console.log("Error getting documents: ", error);
             });
-
-
-        //console.log(this.carArray)
+        //this.carArray1.push(carArray)
+        //console.log(this.carArray1)
     }
 
-    deleteData(data) {
-        this.data = data
-        this.data.delete()
+    pushData(data) {
+        this.carArray1 = []
+        this.carArray1.push(data);
+        //console.log(this.test2(this.carArray1))
+        console.log(this.carArray1)
     }
 
-  bookCar(data) {
-    console.log(data.carid);
+    test2(data){
 
-    const createToast = this.toastCtrl.create({
-      message: "Fahrzeug erfolgreich gebucht",
-      duration: 3000
-      });
-    const confirm = this.alertCtrl.create({
-      title: "Fahrzeug buchen",
-      message: "Wollen Sie diese Buchung wirklich anlegen?",
-      buttons: [
-        {
-          text: "Nein",
-          handler: () => {
-            console.log("Not clicked");
-          }
-        },
-        {
-          text: "Ja ",
+        return data
+    }
 
-          handler: () => {
+    bookCar(data) {
+        console.log(data.carid);
 
-            let carRef = this.af.collection('cars').ref.where('carid', '==', data.carid);
-            carRef.get().then((result) => {
-                          result.forEach(doc => {
-                              console.log(doc.id);
-                              const id = this.af.createId();
+        const createToast = this.toastCtrl.create({
+            message: "Fahrzeug erfolgreich gebucht",
+            duration: 3000
+        });
+        const confirm = this.alertCtrl.create({
+            title: "Fahrzeug buchen",
+            message: "Wollen Sie diese Buchung wirklich anlegen?",
+            buttons: [
+                {
+                    text: "Nein",
+                    handler: () => {
+                        console.log("Not clicked");
+                    }
+                },
+                {
+                    text: "Ja ",
 
-                              this.bookingCollectionRef.add({
-                                carID: doc.id,
-                                dateEnd: new Date(this.dateEnd).getTime(),
-                                dateStart: new Date(this.dateStart).getTime(),
-                                seat: parseInt(this.seat),
-                                userID: firebase.auth().currentUser.uid,
-                                bookingID: id,
+                    handler: () => {
+
+                        let carRef = this.af.collection('cars').ref.where('carid', '==', data.carid);
+                        carRef.get().then((result) => {
+                            result.forEach(doc => {
+                                console.log(doc.id);
+                                const id = this.af.createId();
+
+                                this.bookingCollectionRef.add({
+                                    carID: data.carid,
+                                    dateEnd: new Date(this.dateEnd).getTime(),
+                                    dateStart: new Date(this.dateStart).getTime(),
+                                    seat: parseInt(this.seat),
+                                    userID: firebase.auth().currentUser.uid,
+                                    bookingID: id,
 
                                 });
 
-                          })
-                      });
+                            })
+                        });
 
-            createToast.present();
-            this.navCtrl.setRoot(HomePage);
-          }
-        }
-      ]
+                        createToast.present();
+                        this.navCtrl.setRoot(HomePage);
+                    }
+                }
+            ]
 
-    });
-    confirm.present();
+        });
+        confirm.present();
 
 
-  }
+    }
 
 }
