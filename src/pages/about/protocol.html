@@ -12,37 +12,7 @@
             Fahrer A
         </ion-card-header>
         <ion-card-content>
-            <ion-list>
 
-                <ion-item>
-                    <ion-input type="text" placeholder="Name"></ion-input>
-                </ion-item>
-
-                <ion-item>
-                    <ion-input type="text" placeholder="Vorname"></ion-input>
-                </ion-item>
-
-                <ion-item>
-                    <ion-input type="text" placeholder="Anschrift"></ion-input>
-                </ion-item>
-
-                <ion-item>
-                    <ion-input type="text" placeholder="Telefon"></ion-input>
-                </ion-item>
-
-                <ion-item>
-                    <ion-input type="text" placeholder="Marke, Modell"></ion-input>
-                </ion-item>
-
-                <ion-item>
-                    <ion-input type="text" placeholder="Kennzeichen"></ion-input>
-                </ion-item>
-
-                <ion-item>
-                    <ion-input type="text" placeholder="Sichtbare Schäden"></ion-input>
-                </ion-item>
-
-            </ion-list>
         </ion-card-content>
     </ion-card>
 
@@ -52,37 +22,6 @@
         </ion-card-header>
         <ion-card-content>
 
-            <ion-list>
-
-                <ion-item>
-                    <ion-input type="text" placeholder="Name"></ion-input>
-                </ion-item>
-
-                <ion-item>
-                    <ion-input type="text" placeholder="Vorname"></ion-input>
-                </ion-item>
-
-                <ion-item>
-                    <ion-input type="text" placeholder="Anschrift"></ion-input>
-                </ion-item>
-
-                <ion-item>
-                    <ion-input type="text" placeholder="Telefon"></ion-input>
-                </ion-item>
-
-                <ion-item>
-                    <ion-input type="text" placeholder="Marke, Modell"></ion-input>
-                </ion-item>
-
-                <ion-item>
-                    <ion-input type="text" placeholder="Kennzeichen"></ion-input>
-                </ion-item>
-
-                <ion-item>
-                    <ion-input type="text" placeholder="Sichtbare Schäden"></ion-input>
-                </ion-item>
-
-            </ion-list>
 
         </ion-card-content>
     </ion-card>
@@ -92,130 +31,23 @@
             Unfallumstände
         </ion-card-header>
         <ion-card-content>
-            <ion-item text-wrap>
-                <ion-label>Fahrzeug parkte (auf der Straße)</ion-label>
-                <ion-select [(ngModel)]="question1" interface="popover">
-                    <ion-option value="driver1">Fahrer A</ion-option>
-                    <ion-option value="driver2">Fahrer B</ion-option>
-                </ion-select>
-            </ion-item>
-            <ion-item text-wrap>
-                <ion-label>fuhr aus der Parkstelle heraus</ion-label>
-                <ion-select [(ngModel)]="question2" interface="popover">
-                    <ion-option value="driver1">Fahrer A</ion-option>
-                    <ion-option value="driver2">Fahrer B</ion-option>
-                </ion-select>
-            </ion-item>
-            <ion-item text-wrap>
-                <ion-label>parkte ein</ion-label>
-                <ion-select [(ngModel)]="question3" interface="popover">
-                    <ion-option value="driver1">Fahrer A</ion-option>
-                    <ion-option value="driver2">Fahrer B</ion-option>
-                </ion-select>
-            </ion-item>
-            <ion-item text-wrap>
-                <ion-label>verließ einen Parkplatz, ein privates Grundstück, einen Weg</ion-label>
-                <ion-select [(ngModel)]="question4" interface="popover">
-                    <ion-option value="driver1">Fahrer A</ion-option>
-                    <ion-option value="driver2">Fahrer B</ion-option>
-                </ion-select>
-            </ion-item>
-            <ion-item text-wrap>
-                <ion-label>begann, in einen Parkplatz, ein privates Grundstück, einen Weg einzufahren</ion-label>
-                <ion-select [(ngModel)]="question5" interface="popover">
-                    <ion-option value="driver1">Fahrer A</ion-option>
-                    <ion-option value="driver2">Fahrer B</ion-option>
-                </ion-select>
-            </ion-item>
-            <ion-item text-wrap>
-                <ion-label>bog in einen Kreisverkehr ein</ion-label>
-                <ion-select [(ngModel)]="question6" interface="popover">
-                    <ion-option value="driver1">Fahrer A</ion-option>
-                    <ion-option value="driver2">Fahrer B</ion-option>
-                </ion-select>
-            </ion-item>
-            <ion-item text-wrap>
-                <ion-label>fuhr im Kreisverkehr</ion-label>
-                <ion-select [(ngModel)]="question7" interface="popover">
-                    <ion-option value="driver1">Fahrer A</ion-option>
-                    <ion-option value="driver2">Fahrer B</ion-option>
-                </ion-select>
-            </ion-item>
-            <ion-item text-wrap>
-                <ion-label>fuhr heckseitig auf ein anderes Fahrzeug auf bei Fahrt in dieselbe Richtung und auf derselben Fahrspur</ion-label>
-                <ion-select [(ngModel)]="question8" interface="popover">
-                    <ion-option value="driver1">Fahrer A</ion-option>
-                    <ion-option value="driver2">Fahrer B</ion-option>
-                </ion-select>
-            </ion-item>
-            <ion-item text-wrap>
-                <ion-label>fuhr in gleicher Richtung, aber anderer Spur</ion-label>
-                <ion-select [(ngModel)]="question9" interface="popover">
-                    <ion-option value="driver1">Fahrer A</ion-option>
-                    <ion-option value="driver2">Fahrer B</ion-option>
-                </ion-select>
-            </ion-item>
-            <ion-item text-wrap>
-                <ion-label>wechselte die Spur</ion-label>
-                <ion-select [(ngModel)]="question10" interface="popover">
-                    <ion-option value="driver1">Fahrer A</ion-option>
-                    <ion-option value="driver2">Fahrer B</ion-option>
-                </ion-select>
-            </ion-item>
-            <ion-item text-wrap>
-                <ion-label>überholte</ion-label>
-                <ion-select [(ngModel)]="question11" interface="popover">
-                    <ion-option value="driver1">Fahrer A</ion-option>
-                    <ion-option value="driver2">Fahrer B</ion-option>
-                </ion-select>
-            </ion-item>
-            <ion-item text-wrap>
-                <ion-label>bog rechts ab</ion-label>
-                <ion-select [(ngModel)]="question12" interface="popover">
-                    <ion-option value="driver1">Fahrer A</ion-option>
-                    <ion-option value="driver2">Fahrer B</ion-option>
-                </ion-select>
-            </ion-item>
-            <ion-item text-wrap>
-                <ion-label>bog links ab</ion-label>
-                <ion-select [(ngModel)]="question13" interface="popover">
-                    <ion-option value="driver1">Fahrer A</ion-option>
-                    <ion-option value="driver2">Fahrer B</ion-option>
-                </ion-select>
-            </ion-item>
-            <ion-item text-wrap>
-                <ion-label>setzte zurück</ion-label>
-                <ion-select [(ngModel)]="question14" interface="popover">
-                    <ion-option value="driver1">Fahrer A</ion-option>
-                    <ion-option value="driver2">Fahrer B</ion-option>
-                </ion-select>
-            </ion-item>
-            <ion-item text-wrap>
-                <ion-label>fuhr in die Gegenfahrbahn</ion-label>
-                <ion-select [(ngModel)]="question15" interface="popover">
-                    <ion-option value="driver1">Fahrer A</ion-option>
-                    <ion-option value="driver2">Fahrer B</ion-option>
-                </ion-select>
-            </ion-item>
-            <ion-item text-wrap>
-                <ion-label>kam von rechts</ion-label>
-                <ion-select [(ngModel)]="question16" interface="popover">
-                    <ion-option value="driver1">Fahrer A</ion-option>
-                    <ion-option value="driver2">Fahrer B</ion-option>
-                </ion-select>
-            </ion-item>
-            <ion-item text-wrap>
-                <ion-label>beachtete Vorfahrtszeichen nicht</ion-label>
-                <ion-select [(ngModel)]="question17" interface="popover">
-                    <ion-option value="driver1">Fahrer A</ion-option>
-                    <ion-option value="driver2">Fahrer B</ion-option>
-                </ion-select>
-            </ion-item>
+
         </ion-card-content>
     </ion-card>
 
-    <button ion-button type="submit" block>
-        Absenden
+    <ion-row class="center">
+        <button ion-button large icon-only (click)="takePhoto()">
+        <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
+        </button>
+    <button ion-button large icon-only (click)="getPicture(0)">
+        <ion-icon ios="ios-images" md="md-images"></ion-icon>
     </button>
+
+    </ion-row>
+    <ion-card>
+        <img [src]="captureDataUrl" *ngIf="captureDataUrl"/>
+        <button ion-button (click)="upload()" *ngIf="captureDataUrl">Upload</button>
+    </ion-card>
+
     
 </ion-content>

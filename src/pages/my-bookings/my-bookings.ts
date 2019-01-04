@@ -27,6 +27,8 @@ interface Car {
 
 }
 
+declare const bookingData;
+
 @IonicPage()
 @Component({
     selector: 'page-my-bookings',
@@ -40,19 +42,22 @@ export class MyBookingsPage {
     public cars = this.carCollectionRef.valueChanges();
     public date = new Date();
     bookings1: string = "currentbookings";
+    public bookingData = window["bookingData"]
 
     public carArray:any[] = [];
-    bookingsComplete = {
-        booking: this.bookings,
-        car: this.cars,
-        merge: this.carArray
-    };
+    //bookingsComplete = {
+    //    booking: this.bookings,
+    //    car: this.cars,
+    //    merge: this.carArray
+    //};
+    //public bookingData:any;
+
 
     constructor(public navCtrl: NavController,
-                public app: App,
+                //public app: App,
                 public alertCtrl: AlertController,
                 public toastCtrl: ToastController,
-                private formBuilder: FormBuilder,
+                //private formBuilder: FormBuilder,
                 private af: AngularFirestore,
                 public db: AngularFireDatabase) {
 
@@ -174,9 +179,14 @@ export class MyBookingsPage {
         return this.date;
 
     }
-    goToProtocoll(){
+    goToProtocoll(data){
+        this.bookingData = data;
         this.navCtrl.push(ProtocolPage)
     }
 
-
+    getBookingData(): any {
+        return this.bookingData
+    }
 }
+
+

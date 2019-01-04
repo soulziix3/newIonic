@@ -21,6 +21,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth';
 import { AngularFirestore, AngularFirestoreModule } from 'angularfire2/firestore';
 import {MyBookingsPage} from "../pages/my-bookings/my-bookings";
+import { Camera } from '@ionic-native/camera';
+import { ImageProvider } from '../providers/image-provider';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { Crop } from '@ionic-native/crop';
 
 const firebaseConfig = 
  {
@@ -79,7 +83,11 @@ const firebaseConfig =
     StatusBar,
     SplashScreen,
     AuthProvider,
-    AngularFirestore
+    AngularFirestore,
+    Camera,
+    ImageProvider,
+      ImagePicker,
+      Crop
   ]
 })
 export class AppModule {
