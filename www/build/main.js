@@ -140,7 +140,7 @@ var ProtocolPage = /** @class */ (function () {
         __metadata("design:type", Boolean)
     ], ProtocolPage.prototype, "useURI", void 0);
     ProtocolPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/about/protocol.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>\n            Protokoll\n        </ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <ion-card>\n        <ion-card-header>\n            Fahrer A\n        </ion-card-header>\n        <ion-card-content>\n\n        </ion-card-content>\n    </ion-card>\n\n    <ion-card>\n        <ion-card-header>\n            Fahrer B\n        </ion-card-header>\n        <ion-card-content>\n\n\n        </ion-card-content>\n    </ion-card>\n\n    <ion-card>\n        <ion-card-header>\n            Unfallumstände\n        </ion-card-header>\n        <ion-card-content>\n\n        </ion-card-content>\n    </ion-card>\n\n    <ion-row class="center">\n        <button ion-button large icon-only (click)="takePhoto()">\n        <ion-icon ios="ios-camera" md="md-camera"></ion-icon>\n        </button>\n    <button ion-button large icon-only (click)="getPicture(0)">\n        <ion-icon ios="ios-images" md="md-images"></ion-icon>\n    </button>\n\n    </ion-row>\n    <ion-card>\n        <img [src]="captureDataUrl" *ngIf="captureDataUrl"/>\n        <button ion-button (click)="upload()" *ngIf="captureDataUrl">Upload</button>\n    </ion-card>\n\n    \n</ion-content>'/*ion-inline-end:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/about/protocol.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\about\protocol.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title>\n\n            Protokoll\n\n        </ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n    <ion-card>\n\n        <ion-card-header>\n\n            Fahrer A\n\n        </ion-card-header>\n\n        <ion-card-content>\n\n\n\n        </ion-card-content>\n\n    </ion-card>\n\n\n\n    <ion-card>\n\n        <ion-card-header>\n\n            Fahrer B\n\n        </ion-card-header>\n\n        <ion-card-content>\n\n\n\n\n\n        </ion-card-content>\n\n    </ion-card>\n\n\n\n    <ion-card>\n\n        <ion-card-header>\n\n            Unfallumstände\n\n        </ion-card-header>\n\n        <ion-card-content>\n\n\n\n        </ion-card-content>\n\n    </ion-card>\n\n\n\n    <ion-row class="center">\n\n        <button ion-button large icon-only (click)="takePhoto()">\n\n        <ion-icon ios="ios-camera" md="md-camera"></ion-icon>\n\n        </button>\n\n    <button ion-button large icon-only (click)="getPicture(0)">\n\n        <ion-icon ios="ios-images" md="md-images"></ion-icon>\n\n    </button>\n\n\n\n    </ion-row>\n\n    <ion-card>\n\n        <img [src]="captureDataUrl" *ngIf="captureDataUrl"/>\n\n        <button ion-button (click)="upload()" *ngIf="captureDataUrl">Upload</button>\n\n    </ion-card>\n\n\n\n    \n\n</ion-content>'/*ion-inline-end:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\about\protocol.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_camera__["a" /* Camera */],
             __WEBPACK_IMPORTED_MODULE_2__providers_image_provider__["a" /* ImageProvider */],
@@ -241,7 +241,7 @@ var SignupPage = /** @class */ (function () {
     };
     SignupPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-signup',template:/*ion-inline-start:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/signup/signup.html"*/'<!--\n  Generated template for the SignupPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>\n      Accounterstellung\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>\n\n    <ion-item>\n      <ion-label stacked>Email</ion-label>\n      <ion-input formControlName="email" type="email" placeholder="Deine Email Adresse"\n        [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty"></ion-input>\n    </ion-item>\n    <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">\n      <p>Bitte gültige Mail Adresse eingeben.</p>\n    </ion-item>\n\n    <ion-item>\n      <ion-label stacked>Password</ion-label>\n      <ion-input formControlName="password" type="password"  placeholder="Dein Passwort"\n        [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty"></ion-input>\n    </ion-item>\n    <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">\n      <p>Das Passwort muss mindestens 6 Zeichen lang sein.</p>\n    </ion-item>\n\n    <button ion-button type="submit" block>\n      Account erstellen\n    </button>\n\n  </form>\n</ion-content>\n\n'/*ion-inline-end:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/signup/signup.html"*/,
+            selector: 'page-signup',template:/*ion-inline-start:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\signup\signup.html"*/'<!--\n\n  Generated template for the SignupPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar color="primary">\n\n    <ion-title>\n\n      Accounterstellung\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>\n\n\n\n    <ion-item>\n\n      <ion-label stacked>Email</ion-label>\n\n      <ion-input formControlName="email" type="email" placeholder="Deine Email Adresse"\n\n        [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty"></ion-input>\n\n    </ion-item>\n\n    <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">\n\n      <p>Bitte gültige Mail Adresse eingeben.</p>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label stacked>Password</ion-label>\n\n      <ion-input formControlName="password" type="password"  placeholder="Dein Passwort"\n\n        [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty"></ion-input>\n\n    </ion-item>\n\n    <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">\n\n      <p>Das Passwort muss mindestens 6 Zeichen lang sein.</p>\n\n    </ion-item>\n\n\n\n    <button ion-button type="submit" block>\n\n      Account erstellen\n\n    </button>\n\n\n\n  </form>\n\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\signup\signup.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
@@ -380,22 +380,15 @@ var BookCarPage = /** @class */ (function () {
         this.timeStart = navParams.get("tStart");
         this.timeEnd = navParams.get("tEnd");
         this.seat = navParams.get("seat");
+        this.destination = navParams.get("destination");
         this.dataCar = this.bookingCollectionRef.valueChanges();
         this.getAllPosts().subscribe(function (data) {
             _this.data = data;
             var test = _this.checkCarAndBookingData(data);
-            //console.log(test)
-            //console.log(this.data)
-            //this.data = JSON.parse(this.data)
         });
         this.getAllDocuments().subscribe(function (data) {
             _this.dataBooking = data;
-            //
-            //this.checkCarAndBookingData(data);
         });
-        //var doc = this.getInformation();
-        //console.log(doc);
-        //console.log(this.dataBooking);
     }
     BookCarPage_1 = BookCarPage;
     BookCarPage.prototype.test = function (test) {
@@ -418,39 +411,39 @@ var BookCarPage = /** @class */ (function () {
         return true;
     };
     BookCarPage.prototype.checkCarAndBookingData = function (carData) {
+        var _this = this;
         var carArray = this.carArray1;
         var af = this.af;
         var datestart = new Date(this.dateStart).getTime();
         var dateend = new Date(this.dateEnd).getTime();
+        var seat = this.seat;
         this.getAllDocuments().subscribe(function (data) {
-            console.log(data);
-            if (data.length == 0) {
-                for (var i = 0; i < carData.length; i++) {
-                    BookCarPage_1.prototype.pushData(carData[i]);
-                    carArray.push(carData[i]);
-                }
-            }
-            ;
-            //
-            //this.checkCarAndBookingData(data);
         });
-        for (var i = 0; i < carData.length; i++) {
-            var bookRef = this.af.collection('bookings').ref.where('carID', '==', carData[i].carid);
+        var _loop_1 = function (i) {
+            var bookRef = this_1.af.collection('bookings').ref.where('carID', '==', carData[i].carid);
             //console.log(bookRef)
             if (bookRef != undefined) {
                 bookRef.get().then(function (result) {
-                    //console.log(result)
-                    result.forEach(function (doc) {
-                        console.log("Keine Daten");
-                    });
+                    if (result.size > 0) {
+                        result.forEach(function (doc) {
+                            console.log("Keine Daten");
+                        });
+                    }
+                    else {
+                        //debugger
+                        if (_this.seat <= carData[i].sitze) {
+                            _this.availableCars = true;
+                            BookCarPage_1.prototype.pushData(carData[i]);
+                            carArray.push(carData[i]);
+                            console.log(carArray, "keine buchung");
+                        }
+                    }
                 });
             }
-            else {
-                BookCarPage_1.prototype.pushData(carData[i]);
-                carArray.push(carData[i]);
-            }
-            //BookCarPage.prototype.pushData(carData[i]);
-            //carArray.push(carData[i])
+        };
+        var this_1 = this;
+        for (var i = 0; i < carData.length; i++) {
+            _loop_1(i);
         }
         af.collection("bookings").ref
             .get()
@@ -460,14 +453,28 @@ var BookCarPage = /** @class */ (function () {
                     .get()
                     .then(function (querySnapshot) {
                     querySnapshot.forEach(function (carDoc) {
+                        //debugger
+                        var checkCar = true;
                         if (bookingDoc.get('carID') === carDoc.get("carid")) {
                             if ((datestart < bookingDoc.get('dateStart')) &&
                                 (datestart < bookingDoc.get('dateEnd'))) {
                                 if ((dateend < bookingDoc.get("dateStart") &&
                                     (dateend < bookingDoc.get("dateEnd")))) {
-                                    BookCarPage_1.prototype.pushData(carDoc.data());
-                                    carArray.push(carDoc.data());
-                                    //console.log(carArray)
+                                    if (seat <= carDoc.get('sitze')) {
+                                        for (var i = 0; i < carArray.length; i++) {
+                                            if (carDoc.get('carid') == carArray[i].carid) {
+                                                checkCar = false;
+                                            }
+                                        }
+                                        if (checkCar == true) {
+                                            BookCarPage_1.prototype.pushData(carDoc.data());
+                                            carArray.push(carDoc.data());
+                                            console.log(carArray, "buchung <");
+                                        }
+                                        else {
+                                            checkCar = true;
+                                        }
+                                    }
                                 }
                                 //BookCarPage.prototype.pushData(carDoc)
                             }
@@ -475,36 +482,49 @@ var BookCarPage = /** @class */ (function () {
                                 (datestart > bookingDoc.get('dateEnd'))) {
                                 if ((dateend > bookingDoc.get("dateStart") &&
                                     (dateend > bookingDoc.get("dateEnd")))) {
-                                    BookCarPage_1.prototype.pushData(carDoc.data());
-                                    carArray.push(carDoc.data());
-                                    //console.log(carArray)
+                                    if (seat <= carDoc.get('sitze')) {
+                                        for (var i = 0; i < carArray.length; i++) {
+                                            if (carDoc.get('carid') == carArray[i].carid) {
+                                                checkCar = false;
+                                            }
+                                        }
+                                        if (checkCar == true) {
+                                            BookCarPage_1.prototype.pushData(carDoc.data());
+                                            carArray.push(carDoc.data());
+                                            console.log(carArray, "buchung <");
+                                        }
+                                        else {
+                                            checkCar = true;
+                                        }
+                                    }
                                 }
                             }
                         }
                         else {
-                            BookCarPage_1.prototype.pushData(carDoc.data());
-                            carArray.push(carDoc.data());
-                            //console.log(carArray)
                         }
                     });
-                    //carArray.push(carArray)
+                    if (carArray.length != 0) {
+                        console.log("data found");
+                        BookCarPage_1.prototype.availableCars = true;
+                    }
+                    else {
+                        console.log("no data");
+                        BookCarPage_1.prototype.availableCars = false;
+                    }
                 });
             });
         })
             .catch(function (error) {
             console.log("Error getting documents: ", error);
         });
-        //this.carArray1.push(carArray)
-        //console.log(this.carArray1)
     };
     BookCarPage.prototype.pushData = function (data) {
         this.carArray1 = [];
         this.carArray1.push(data);
-        //console.log(this.test2(this.carArray1))
-        console.log(this.carArray1);
+        //console.log(this.carArray1)
     };
-    BookCarPage.prototype.test2 = function (data) {
-        return data;
+    BookCarPage.prototype.returnBoolCarData = function (array) {
+        //this.availableCars = true
     };
     BookCarPage.prototype.bookCar = function (data) {
         var _this = this;
@@ -551,7 +571,7 @@ var BookCarPage = /** @class */ (function () {
     };
     BookCarPage = BookCarPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-book-car',template:/*ion-inline-start:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/book-car/book-car.html"*/'<!--\n  Generated template for the BookCarPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Verfügbare Fahrzeuge</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n  <div>\n    <ion-title>\n      Buchungsinformationen\n    </ion-title>\n    <ion-item>\n      <label> Startdatum: {{dateStart | date: \'dd/MM/yyyy\'}}</label>\n    </ion-item>\n\n    <ion-item>\n      <label> Enddatum: {{dateEnd | date: \'dd/MM/yyyy\' }}</label>\n    </ion-item>\n\n    <ion-item>\n      <label> Startzeit: {{dateStart | date: \'HH:mm\' }}</label>\n    </ion-item>\n\n    <ion-item>\n      <label> Endzeit: {{dateEnd | date: \'HH:mm\'}} </label>\n    </ion-item>\n\n    <ion-item>\n      <label>Anzahl Sitzplätze: {{seat}}</label>\n    </ion-item>\n\n  </div>\n  <br>\n  <div>\n    <ion-title>\n      Verfügbare Fahrzeuge {{carArray1}}\n    </ion-title>\n    <form>\n      <ion-card *ngFor="let dataCar of carArray1">\n        <ion-card-header>\n          {{dataCar.marke}}, {{ dataCar.modell }}\n        </ion-card-header>\n        <ion-card-content>\n          <ion-row>\n            <ion-col style="text-align: left">\n              <p>Kennzeichen: {{dataCar.kennzeichen}}</p>\n              <p>Sitze: {{dataCar.sitze}}</p>\n              <p>Farbe: {{dataCar.farbe}}</p>\n            </ion-col>\n            <ion-col style="text-align: right">\n              <button ion-button (click)="bookCar(dataCar)" >Buchen</button>\n            </ion-col>\n          </ion-row>\n        </ion-card-content>\n      </ion-card>\n    </form>\n  </div>\n\n</ion-content>'/*ion-inline-end:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/book-car/book-car.html"*/,
+            selector: 'page-book-car',template:/*ion-inline-start:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\book-car\book-car.html"*/'<!--\n\n  Generated template for the BookCarPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Verfügbare Fahrzeuge</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <div>\n\n    <ion-title>\n\n      Buchungsinformationen\n\n    </ion-title>\n\n    <ion-item>\n\n      <label> Startdatum: {{dateStart | date: \'dd/MM/yyyy\'}}</label>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <label> Enddatum: {{dateEnd | date: \'dd/MM/yyyy\' }}</label>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <label> Startzeit: {{dateStart | date: \'HH:mm\' }}</label>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <label> Endzeit: {{dateEnd | date: \'HH:mm\'}} </label>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <label>Anzahl Sitzplätze: {{seat}}</label>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <label>Ziel: {{destination}}</label>\n\n    </ion-item>\n\n\n\n  </div>\n\n  <br>\n\n  <div>\n\n    <ion-title>\n\n      Verfügbare Fahrzeuge {{carArray1}}\n\n    </ion-title>\n\n    <form>\n\n      <ion-card *ngFor="let dataCar of carArray1">\n\n        <ion-card-header>\n\n          {{dataCar.marke}}, {{ dataCar.modell }}\n\n        </ion-card-header>\n\n        <ion-card-content>\n\n          <ion-row>\n\n            <ion-col style="text-align: left">\n\n              <p>Kennzeichen: {{dataCar.kennzeichen}}</p>\n\n              <p>Sitze: {{dataCar.sitze}}</p>\n\n              <p>Farbe: {{dataCar.farbe}}</p>\n\n            </ion-col>\n\n            <ion-col style="text-align: right">\n\n              <button ion-button (click)="bookCar(dataCar)" >Buchen</button>\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-card-content>\n\n      </ion-card>\n\n      <div *ngIf="availableCars == false">\n\n        Keine Fahrzeuge verfügbar\n\n      </div>\n\n    </form>\n\n  </div>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\book-car\book-car.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -635,7 +655,7 @@ var TabsPage = /** @class */ (function () {
         this.tab3Root = __WEBPACK_IMPORTED_MODULE_1__settings_settings__["a" /* SettingsPage */];
     }
     TabsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="Buchen" tabIcon="car"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="Meine Buchungen" tabIcon="paper"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Einstellungen" tabIcon="settings"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/tabs/tabs.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\tabs\tabs.html"*/'<ion-tabs>\n\n  <ion-tab [root]="tab1Root" tabTitle="Buchen" tabIcon="car"></ion-tab>\n\n  <ion-tab [root]="tab2Root" tabTitle="Meine Buchungen" tabIcon="paper"></ion-tab>\n\n  <ion-tab [root]="tab3Root" tabTitle="Einstellungen" tabIcon="settings"></ion-tab>\n\n</ion-tabs>\n\n'/*ion-inline-end:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\tabs\tabs.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], TabsPage);
@@ -682,7 +702,7 @@ var SettingsPage = /** @class */ (function () {
     };
     SettingsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-settings',template:/*ion-inline-start:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/settings/settings.html"*/'<ion-header>\n    <ion-navbar no-border-bottom>\n      <ion-title>\n        Einstellungen \n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content>\n\n  </ion-content>\n\n  <ion-footer padding>\n\n      <div class="buttonRow">\n          <ion-row wrap>\n              <button ion-button (click)="gotoadmin()" block>Admin</button>\n          </ion-row>\n        </div>\n  </ion-footer>\n  '/*ion-inline-end:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/settings/settings.html"*/,
+            selector: 'page-settings',template:/*ion-inline-start:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\settings\settings.html"*/'<ion-header>\n\n    <ion-navbar no-border-bottom>\n\n      <ion-title>\n\n        Einstellungen \n\n      </ion-title>\n\n    </ion-navbar>\n\n  </ion-header>\n\n  \n\n  <ion-content>\n\n\n\n  </ion-content>\n\n\n\n  <ion-footer padding>\n\n\n\n      <div class="buttonRow">\n\n          <ion-row wrap>\n\n              <button ion-button (click)="gotoadmin()" block>Admin</button>\n\n          </ion-row>\n\n        </div>\n\n  </ion-footer>\n\n  '/*ion-inline-end:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\settings\settings.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["h" /* NavController */]])
     ], SettingsPage);
@@ -822,7 +842,7 @@ var AdminPage = /** @class */ (function () {
                         _this.carCollectionRef.add({
                             marke: _this.carcreateForm.value.marke,
                             modell: _this.carcreateForm.value.modell,
-                            sitze: parseInt(_this.carcreateForm.value.sitze),
+                            sitze: Number(_this.carcreateForm.value.sitze),
                             farbe: _this.carcreateForm.value.farbe,
                             kennzeichen: _this.carcreateForm.value.kennzeichen,
                             reserviert: 0,
@@ -866,7 +886,7 @@ var AdminPage = /** @class */ (function () {
                 {
                     name: 'sitze',
                     placeholder: 'Sitze',
-                    value: data1.sitze
+                    value: data1.sitze,
                 },
                 {
                     name: 'farbe',
@@ -884,6 +904,7 @@ var AdminPage = /** @class */ (function () {
                 {
                     text: 'Ändern',
                     handler: function (cardata) {
+                        cardata.sitze = parseInt(cardata.sitze);
                         var carRef = _this.af.collection('cars').ref.where('carid', '==', data1.carid);
                         carRef.get().then(function (result) {
                             result.forEach(function (doc) {
@@ -929,7 +950,7 @@ var AdminPage = /** @class */ (function () {
     };
     AdminPage = AdminPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-admin',template:/*ion-inline-start:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/admin/admin.html"*/'<ion-header>\n    <ion-navbar no-border-bottom>\n      <ion-title>\n        Admin Einstellungen \n      </ion-title>\n    </ion-navbar>\n  \n    <ion-toolbar no-border-top>\n      <ion-segment [(ngModel)]="admin">\n        <ion-segment-button value="car_create">\n          Anlegen\n        </ion-segment-button>\n        <ion-segment-button value="car_list">\n          Liste\n        </ion-segment-button>\n        <ion-segment-button value="booking">\n          Buchungen\n        </ion-segment-button>\n      </ion-segment>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content padding>\n    <div [ngSwitch]="admin">\n        <ion-list *ngSwitchCase="\'car_create\'">\n        <form [formGroup]="carcreateForm" (submit)="createcar()" novalidate>\n          <ion-item>\n            <ion-label stacked>Modell</ion-label>\n            <ion-input formControlName="modell" type="text" value=""></ion-input>\n        </ion-item>\n        <ion-item>\n            <ion-label stacked>Marke</ion-label>\n            <ion-input formControlName="marke" type="text" value=""></ion-input>\n        </ion-item>\n        <ion-item>\n            <ion-label stacked>Sitze</ion-label>\n            <ion-input formControlName="sitze" type="number" value=""></ion-input>\n        </ion-item>\n        <ion-item>\n            <ion-label stacked>Farbe</ion-label>\n            <ion-input formControlName="farbe" type="text" value=""></ion-input>\n        </ion-item>\n        <ion-item>\n            <ion-label stacked>Kennzeichen</ion-label>\n            <ion-input formControlName="kennzeichen" type="text" value=""></ion-input>\n        </ion-item>\n        \n        <button ion-button block type="submit">Anlegen</button>\n        </form>\n\n        </ion-list>\n        <ion-list *ngSwitchCase="\'car_list\'">\n\n            <ion-item-sliding *ngFor="let data1 of cars | async" #item>\n                <ion-item>\n                    {{data1.marke}}, {{ data1.modell }}, {{data1.kennzeichen}}\n                </ion-item>\n\n                <ion-item-options side="right">\n                    <button ion-button (click)="editcar(data1)">Ändern</button>\n                    <button ion-button color="danger" (click)="deletecar(data1)">Löschen</button>\n                </ion-item-options>\n\n            </ion-item-sliding>\n<!--\n          <ion-card (click)="goToCarProfile()" *ngFor="let data of cars | async">\n              <ion-card-header>\n                  {{data.marke}}, {{ data.modell }}\n                </ion-card-header>\n                <ion-card-content>\n                <p>Kennzeichen: {{data.kennzeichen}}</p>\n                <p>Sitze: {{data.sitze}}</p>\n                <p>Farbe: {{data.farbe}}</p>\n            </ion-card-content>\n          </ion-card>\n        </ion-list>\n        <ion-list *ngSwitchCase="\'booking\'">\n            <ion-card>\n                <ion-item>\n                  Buchung\n                  </ion-item>\n                    <p>Kennzeichen: Test</p>\n                    <p>Sitze: Test</p>\n                    <p>Farbe: Test</p>\n                  <button ion-button clear >\n                    <ion-icon ios="ios-trash" md="md-trash" (click)="deletecar()" danger></ion-icon>\n                    Löschen\n                  </button>\n                \n              </ion-card>\n              -->\n        </ion-list>\n        <ion-list *ngSwitchCase="\'booking\'">\n          <div>\n            <ion-item>\n              Buchung\n            </ion-item>\n            <ion-item-sliding *ngFor="let data of bookingsComplete.booking| async "#item>\n                 <ion-item>\n\n                   <ion-col style="text-align: left">\n                    <ion-grid>\n                      <ion-row>\n                        <ion-col>\n                          <p>Startdatum: {{data.dateStart | date: \'dd/MM/yyyy\'}}</p>\n                          <p>Startzeit: {{data.dateStart | date: \'HH:mm\'}}</p>\n                        </ion-col>\n                        <ion-col>\n                          <p> Enddatum: {{data.dateEnd | date: \'dd/MM/yyyy\'}} </p>\n                          <p>Endzeit: {{data.dateEnd | date: \'HH:mm\'}}</p>\n                        </ion-col>\n                      </ion-row>\n                    </ion-grid>\n                  </ion-col>\n                 </ion-item>\n\n\n              <ion-item-options side="right">\n                <button color="danger" ion-button large icon-only (click)="deleteBooking(data)">\n                        <ion-icon name="close-circle"></ion-icon>\n                </button>\n              </ion-item-options>\n\n            </ion-item-sliding>\n          </div>\n        </ion-list>\n      </div>\n    \n  </ion-content>\n  \n  <style>\n    ion-list:first-child {\n      margin-top: 32px;\n    }\n    ion-list + ion-list {\n      margin-top: 0;\n    }\n  </style>\n'/*ion-inline-end:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/admin/admin.html"*/,
+            selector: 'page-admin',template:/*ion-inline-start:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\admin\admin.html"*/'<ion-header>\n\n    <ion-navbar no-border-bottom>\n\n      <ion-title>\n\n        Admin Einstellungen \n\n      </ion-title>\n\n    </ion-navbar>\n\n  \n\n    <ion-toolbar no-border-top>\n\n      <ion-segment [(ngModel)]="admin">\n\n        <ion-segment-button value="car_create">\n\n          Anlegen\n\n        </ion-segment-button>\n\n        <ion-segment-button value="car_list">\n\n          Liste\n\n        </ion-segment-button>\n\n        <ion-segment-button value="booking">\n\n          Buchungen\n\n        </ion-segment-button>\n\n      </ion-segment>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content padding>\n\n    <div [ngSwitch]="admin">\n\n        <ion-list *ngSwitchCase="\'car_create\'">\n\n        <form [formGroup]="carcreateForm" (submit)="createcar()" novalidate>\n\n          <ion-item>\n\n            <ion-label stacked>Modell</ion-label>\n\n            <ion-input formControlName="modell" type="text" value=""></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-label stacked>Marke</ion-label>\n\n            <ion-input formControlName="marke" type="text" value=""></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-label stacked>Sitze</ion-label>\n\n            <ion-input formControlName="sitze" type="number" value=""></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-label stacked>Farbe</ion-label>\n\n            <ion-input formControlName="farbe" type="text" value=""></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n            <ion-label stacked>Kennzeichen</ion-label>\n\n            <ion-input formControlName="kennzeichen" type="text" value=""></ion-input>\n\n        </ion-item>\n\n        \n\n        <button ion-button block type="submit">Anlegen</button>\n\n        </form>\n\n\n\n        </ion-list>\n\n        <ion-list *ngSwitchCase="\'car_list\'">\n\n\n\n            <ion-item-sliding *ngFor="let data1 of cars | async" #item>\n\n                <ion-item>\n\n                    {{data1.marke}}, {{ data1.modell }}, {{data1.kennzeichen}}\n\n                </ion-item>\n\n\n\n                <ion-item-options side="right">\n\n                    <button ion-button (click)="editcar(data1)">Ändern</button>\n\n                    <button ion-button color="danger" (click)="deletecar(data1)">Löschen</button>\n\n                </ion-item-options>\n\n\n\n            </ion-item-sliding>\n\n<!--\n\n          <ion-card (click)="goToCarProfile()" *ngFor="let data of cars | async">\n\n              <ion-card-header>\n\n                  {{data.marke}}, {{ data.modell }}\n\n                </ion-card-header>\n\n                <ion-card-content>\n\n                <p>Kennzeichen: {{data.kennzeichen}}</p>\n\n                <p>Sitze: {{data.sitze}}</p>\n\n                <p>Farbe: {{data.farbe}}</p>\n\n            </ion-card-content>\n\n          </ion-card>\n\n        </ion-list>\n\n        <ion-list *ngSwitchCase="\'booking\'">\n\n            <ion-card>\n\n                <ion-item>\n\n                  Buchung\n\n                  </ion-item>\n\n                    <p>Kennzeichen: Test</p>\n\n                    <p>Sitze: Test</p>\n\n                    <p>Farbe: Test</p>\n\n                  <button ion-button clear >\n\n                    <ion-icon ios="ios-trash" md="md-trash" (click)="deletecar()" danger></ion-icon>\n\n                    Löschen\n\n                  </button>\n\n                \n\n              </ion-card>\n\n              -->\n\n        </ion-list>\n\n        <ion-list *ngSwitchCase="\'booking\'">\n\n          <div>\n\n            <ion-item>\n\n              Buchung\n\n            </ion-item>\n\n            <ion-item-sliding *ngFor="let data of bookingsComplete.booking| async "#item>\n\n                 <ion-item>\n\n\n\n                   <ion-col style="text-align: left">\n\n                    <ion-grid>\n\n                      <ion-row>\n\n                        <ion-col>\n\n                          <p>Startdatum: {{data.dateStart | date: \'dd/MM/yyyy\'}}</p>\n\n                          <p>Startzeit: {{data.dateStart | date: \'HH:mm\'}}</p>\n\n                        </ion-col>\n\n                        <ion-col>\n\n                          <p> Enddatum: {{data.dateEnd | date: \'dd/MM/yyyy\'}} </p>\n\n                          <p>Endzeit: {{data.dateEnd | date: \'HH:mm\'}}</p>\n\n                        </ion-col>\n\n                      </ion-row>\n\n                    </ion-grid>\n\n                  </ion-col>\n\n                 </ion-item>\n\n\n\n\n\n              <ion-item-options side="right">\n\n                <button color="danger" ion-button large icon-only (click)="deleteBooking(data)">\n\n                        <ion-icon name="close-circle"></ion-icon>\n\n                </button>\n\n              </ion-item-options>\n\n\n\n            </ion-item-sliding>\n\n          </div>\n\n        </ion-list>\n\n      </div>\n\n    \n\n  </ion-content>\n\n  \n\n  <style>\n\n    ion-list:first-child {\n\n      margin-top: 32px;\n\n    }\n\n    ion-list + ion-list {\n\n      margin-top: 0;\n\n    }\n\n  </style>\n\n'/*ion-inline-end:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\admin\admin.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["AngularFireDatabase"],
@@ -1154,7 +1175,7 @@ var MyApp = /** @class */ (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
@@ -1215,7 +1236,7 @@ var AboutPage = /** @class */ (function () {
     };
     AboutPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-about',template:/*ion-inline-start:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/about/about.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Protokoll\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-card  *ngFor="let dataCar of cars | async" (click)="goToProtocol()">\n    <ion-card-header>\n      {{dataCar.marke}}, {{ dataCar.modell }}\n    </ion-card-header>\n    <ion-card-content>\n      <p>Kennzeichen: {{dataCar.kennzeichen}}</p>\n      <p>Sitze: {{dataCar.sitze}}</p>\n      <p>Farbe: {{dataCar.farbe}}</p>\n    </ion-card-content>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/about/about.html"*/,
+            selector: 'page-about',template:/*ion-inline-start:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\about\about.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Protokoll\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-card  *ngFor="let dataCar of cars | async" (click)="goToProtocol()">\n\n    <ion-card-header>\n\n      {{dataCar.marke}}, {{ dataCar.modell }}\n\n    </ion-card-header>\n\n    <ion-card-content>\n\n      <p>Kennzeichen: {{dataCar.kennzeichen}}</p>\n\n      <p>Sitze: {{dataCar.sitze}}</p>\n\n      <p>Farbe: {{dataCar.farbe}}</p>\n\n    </ion-card-content>\n\n  </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\about\about.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -1320,7 +1341,7 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/login/login.html"*/'<!--\n  Generated template for the WelcomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar hideBackButton>\n    <ion-title align="middle">\n     <img  class="capgeminiLogo" src="../assets/imgs/logoCapgemini.png" align="middle" height="30px" width="auto" />\n   </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n  <ion-item>\n     <img src="../assets/imgs/eSmartsLogin.png" height="auto"  width="100%" style="display: inline-block">\n  </ion-item>\n\n\n  <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>\n\n    <ion-item>\n      <ion-label stacked>Email</ion-label>\n      <ion-input #email formControlName="email" type="email" placeholder="Deine Email Adresse"\n        [class.invalid]="!loginForm.controls.email.valid &&\n          loginForm.controls.email.dirty"></ion-input>\n    </ion-item>\n    <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  &&\n      loginForm.controls.email.dirty">\n      <p>Bitte gültige Email Adresse eingeben.</p>\n    </ion-item>\n\n    <ion-item>\n      <ion-label stacked>Password</ion-label>\n      <ion-input #password formControlName="password" type="password" placeholder="Dein Passwort"\n        [class.invalid]="!loginForm.controls.password.valid &&\n          loginForm.controls.password.dirty"></ion-input>\n    </ion-item>\n    <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  &&\n      loginForm.controls.password.dirty">\n      <p>Das Passwort muss mindestens 6 Zeichen lang sein.</p>\n    </ion-item>\n\n    <button ion-button block type="submit">\n      Login\n    </button>\n\n  </form>\n  <button ion-button block clear (click)="createAccount()">\n    Neuen Benutzer anlegen\n  </button>\n\n</ion-content>\n\n'/*ion-inline-end:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/login/login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\login\login.html"*/'<!--\n\n  Generated template for the WelcomePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar hideBackButton>\n\n    <ion-title align="middle">\n\n     <img  class="capgeminiLogo" src="../assets/imgs/logoCapgemini.png" align="middle" height="30px" width="auto" />\n\n   </ion-title>\n\n\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-item>\n\n     <img src="../assets/imgs/eSmartsLogin.png" height="auto"  width="100%" style="display: inline-block">\n\n  </ion-item>\n\n\n\n\n\n  <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>\n\n\n\n    <ion-item>\n\n      <ion-label stacked>Email</ion-label>\n\n      <ion-input #email formControlName="email" type="email" placeholder="Deine Email Adresse"\n\n        [class.invalid]="!loginForm.controls.email.valid &&\n\n          loginForm.controls.email.dirty"></ion-input>\n\n    </ion-item>\n\n    <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  &&\n\n      loginForm.controls.email.dirty">\n\n      <p>Bitte gültige Email Adresse eingeben.</p>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label stacked>Password</ion-label>\n\n      <ion-input #password formControlName="password" type="password" placeholder="Dein Passwort"\n\n        [class.invalid]="!loginForm.controls.password.valid &&\n\n          loginForm.controls.password.dirty"></ion-input>\n\n    </ion-item>\n\n    <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  &&\n\n      loginForm.controls.password.dirty">\n\n      <p>Das Passwort muss mindestens 6 Zeichen lang sein.</p>\n\n    </ion-item>\n\n\n\n    <button ion-button block type="submit">\n\n      Login\n\n    </button>\n\n\n\n  </form>\n\n  <button ion-button block clear (click)="createAccount()">\n\n    Neuen Benutzer anlegen\n\n  </button>\n\n\n\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_4__providers_auth_auth__["a" /* AuthProvider */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
@@ -1430,7 +1451,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar no-border-bottom>\n   <ion-title align="middle">\n     <img  class="capgeminiLogo" src="../assets/imgs/logoCapgemini.png" align="middle" height="30px" width="auto" />\n   </ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="logoutUser()">\n        <ion-icon name="log-out"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <div>\n      <form [formGroup]="bookcarForm" (ngSubmite)= "searchCars()">\n\n        <ion-item >\n          <ion-label >Buchungsbeginn</ion-label>\n          <ion-datetime displayFormat="DD MMM YYYY H:mm" [min] = "minDate" max="2025-10-31" formControlName="dateStarts"> </ion-datetime>\n        </ion-item>\n\n\n        <ion-item>\n          <ion-label>Buchungsende</ion-label>\n          <ion-datetime displayFormat="DD MMM YYYY H:mm" [min] = "minDate" max="2025-12-31" formControlName="dateEnds" ></ion-datetime>\n        </ion-item>\n\n        <ion-item>\n          <ion-label>Sitzplätze</ion-label>\n          <ion-select formControlName="seats">\n            <ion-option value="1">1</ion-option>\n          <ion-option value="2">2</ion-option>\n          <ion-option value="3">3</ion-option>\n          <ion-option value="4">4</ion-option>\n          </ion-select>\n\n        </ion-item>\n        <button ion-button (click)="searchCars()" block>Prüfen </button>\n      </form>\n\n  </div>\n</ion-content>\n\n<style>\n  ion-list:first-child {\n    margin-top: 32px;\n  }\n  ion-list + ion-list {\n    margin-top: 0;\n  }\n</style>\n\n'/*ion-inline-end:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar no-border-bottom>\n\n   <ion-title align="middle">\n\n     <img  class="capgeminiLogo" src="../assets/imgs/logoCapgemini.png" align="middle" height="30px" width="auto" />\n\n   </ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="logoutUser()">\n\n        <ion-icon name="log-out"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <div>\n\n      <form [formGroup]="bookcarForm" (ngSubmite)= "searchCars()">\n\n\n\n        <ion-item >\n\n          <ion-label >Buchungsbeginn</ion-label>\n\n          <ion-datetime displayFormat="DD MMM YYYY H:mm" [min] = "minDate" max="2025-10-31" formControlName="dateStarts"> </ion-datetime>\n\n        </ion-item>\n\n\n\n\n\n        <ion-item>\n\n          <ion-label>Buchungsende</ion-label>\n\n          <ion-datetime displayFormat="DD MMM YYYY H:mm" [min] = "minDate" max="2025-12-31" formControlName="dateEnds" ></ion-datetime>\n\n        </ion-item>\n\n\n\n        <ion-item>\n\n          <ion-label>Sitzplätze</ion-label>\n\n          <ion-select formControlName="seats">\n\n            <ion-option value="1">1</ion-option>\n\n          <ion-option value="2">2</ion-option>\n\n          <ion-option value="3">3</ion-option>\n\n          <ion-option value="4">4</ion-option>\n\n          </ion-select>\n\n\n\n        </ion-item>\n\n        <button ion-button (click)="searchCars()" block>Prüfen </button>\n\n      </form>\n\n\n\n  </div>\n\n</ion-content>\n\n\n\n<style>\n\n  ion-list:first-child {\n\n    margin-top: 32px;\n\n  }\n\n  ion-list + ion-list {\n\n    margin-top: 0;\n\n  }\n\n</style>\n\n\n\n'/*ion-inline-end:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */],
@@ -1610,9 +1631,64 @@ var MyBookingsPage = /** @class */ (function () {
     MyBookingsPage.prototype.getBookingData = function () {
         return this.bookingData;
     };
+    MyBookingsPage.prototype.editSeats = function (data1) {
+        var _this = this;
+        var createToast = this.toastCtrl.create({
+            message: 'Sitzplätze erfolgreich geändert',
+            duration: 3000
+        });
+        var num_seat = data1.seat;
+        var prompt = this.alertCtrl.create({
+            title: 'Ändern',
+            message: "Hier können Sie Buchung der Sitze ändern:",
+            inputs: [
+                {
+                    name: 'seat',
+                    placeholder: 'Sitze',
+                    value: num_seat
+                },
+            ],
+            buttons: [
+                {
+                    text: 'Abbrechen',
+                    handler: function (data) {
+                        console.log('Cancel clicked');
+                    }
+                },
+                {
+                    text: 'Ändern',
+                    handler: function (bookingData) {
+                        bookingData.seat = Number(num_seat);
+                        if (data1.seat <= data1.sitze && data1.seat != 0) {
+                            var bookingRef = _this.af.collection('bookings').ref.where('bookingID', '==', data1.bookingID);
+                            bookingRef.get().then(function (result) {
+                                result.forEach(function (doc) {
+                                    //console.log(doc.data());
+                                    _this.bookingCollectionRef.doc(doc.id).update(bookingData);
+                                    createToast.present();
+                                });
+                            });
+                        }
+                        else {
+                            var toast = _this.toastCtrl.create({
+                                message: 'Ungültige Eingabe',
+                                duration: 3000,
+                                position: 'buttom'
+                            });
+                            toast.onDidDismiss(function () {
+                                console.log('Dismissed toast');
+                            });
+                            toast.present();
+                        }
+                    }
+                }
+            ]
+        });
+        prompt.present();
+    };
     MyBookingsPage = MyBookingsPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-my-bookings',template:/*ion-inline-start:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/my-bookings/my-bookings.html"*/'<ion-header>\n  <ion-navbar no-border-bottom>\n    <ion-title align="middle">\n      <img  class="capgeminiLogo" src="../assets/imgs/logoCapgemini.png" align="middle" height="30px" width="auto" />\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="logoutUser()">\n        <ion-icon name="log-out"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n  <ion-toolbar no-border-top>\n    <ion-segment [(ngModel)]="bookings1">\n      <ion-segment-button value="currentbookings">\n        Aktuelle Buchungen\n      </ion-segment-button>\n      <ion-segment-button value="bookinghistory">\n        Buchungshistorie\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content padding>\n  <div [ngSwitch]="bookings1">\n    <ion-list *ngSwitchCase="\'currentbookings\'">\n      <div>\n        <ion-item>\n          Buchung\n        </ion-item>\n        <ion-item-sliding *ngFor="let data of carArray "#item>\n             <ion-item *ngIf="data.userID == checkuID() && data.dateStart > checkCurrentDate()">\n\n               <ion-col style="text-align: left">\n                <ion-grid>\n                  <ion-row>\n                    <ion-col>\n                      <p>{{data.marke}} {{data.modell}} {{data.kennzeichen}}</p>\n                      <p>Startdatum: {{data.dateStart | date: \'dd/MM/yyyy\'}}</p>\n                      <p>Startzeit: {{data.dateStart | date: \'HH:mm\'}}</p>\n                    </ion-col>\n                    <ion-col>\n                      <p> Enddatum: {{data.dateEnd | date: \'dd/MM/yyyy\'}} </p>\n                      <p>Endzeit: {{data.dateEnd | date: \'HH:mm\'}}</p>\n                    </ion-col>\n                  </ion-row>\n                </ion-grid>\n              </ion-col>\n             </ion-item>\n\n\n          <ion-item-options side="right">\n            <button ion-button large icon-only (click)="goToProtocoll()">\n                    <ion-icon name="clipboard"></ion-icon>\n            </button>\n            <button color="danger" ion-button large icon-only (click)="deleteBooking(data)">\n                    <ion-icon name="close-circle"></ion-icon>\n            </button>\n          </ion-item-options>\n\n        </ion-item-sliding>\n      </div>\n\n    </ion-list>\n\n    <ion-list *ngSwitchCase="\'bookinghistory\'">\n      <div>\n        <ion-item>\n          Buchung\n        </ion-item>\n        <ion-item-sliding *ngFor="let data of carArray "#item>\n          <ion-item *ngIf="data.userID == checkuID() && data.dateStart < checkCurrentDate()">\n            <ion-col style="text-align: left">\n                  <ion-grid>\n                    <ion-row>\n                      <ion-col>\n                        <p>{{data.marke}} {{data.modell}} {{data.kennzeichen}}</p>\n                        <p>Startdatum: {{data.dateStart | date: \'dd/MM/yyyy\'}}</p>\n                        <p>Startzeit: {{data.dateStart | date: \'HH:mm\'}}</p>\n                      </ion-col>\n                      <ion-col>\n                        <p> Enddatum: {{data.dateEnd | date: \'dd/MM/yyyy\'}} </p>\n                        <p>Endzeit: {{data.dateEnd | date: \'HH:mm\'}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-grid>\n            </ion-col>\n          </ion-item>\n          <ion-item-options side="right">\n              <button ion-button large icon-only (click)="goToProtocoll(data)">\n                      <ion-icon name="clipboard"></ion-icon>\n              </button>\n            </ion-item-options>\n      </ion-item-sliding>\n     </div>\n    </ion-list>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/artjomschreiner/AppcodeProjects/newIonic/src/pages/my-bookings/my-bookings.html"*/,
+            selector: 'page-my-bookings',template:/*ion-inline-start:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\my-bookings\my-bookings.html"*/'<ion-header>\n\n  <ion-navbar no-border-bottom>\n\n    <ion-title align="middle">\n\n      <img  class="capgeminiLogo" src="../assets/imgs/logoCapgemini.png" align="middle" height="30px" width="auto" />\n\n    </ion-title>\n\n    <ion-buttons end>\n\n      <button ion-button icon-only (click)="logoutUser()">\n\n        <ion-icon name="log-out"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n  <ion-toolbar no-border-top>\n\n    <ion-segment [(ngModel)]="bookings1">\n\n      <ion-segment-button value="currentbookings">\n\n        Aktuelle Buchungen\n\n      </ion-segment-button>\n\n      <ion-segment-button value="bookinghistory">\n\n        Buchungshistorie\n\n      </ion-segment-button>\n\n    </ion-segment>\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <div [ngSwitch]="bookings1">\n\n    <ion-list *ngSwitchCase="\'currentbookings\'">\n\n      <div>\n\n        <ion-item>\n\n          Buchung\n\n        </ion-item>\n\n        <ion-item-sliding *ngFor="let data of carArray "#item>\n\n             <ion-item *ngIf="data.userID == checkuID() && data.dateStart > checkCurrentDate()">\n\n\n\n               <ion-col style="text-align: left">\n\n                <ion-grid>\n\n                  <ion-row>\n\n                    <ion-col>\n\n                      <p>{{data.marke}} {{data.modell}} {{data.kennzeichen}}</p>\n\n                      <p>Startdatum: {{data.dateStart | date: \'dd/MM/yyyy\'}}</p>\n\n                      <p>Startzeit: {{data.dateStart | date: \'HH:mm\'}}</p>\n\n                    </ion-col>\n\n                    <ion-col>\n\n                      <p> Enddatum: {{data.dateEnd | date: \'dd/MM/yyyy\'}} </p>\n\n                      <p>Endzeit: {{data.dateEnd | date: \'HH:mm\'}}</p>\n\n                    </ion-col>\n\n                  </ion-row>\n\n                </ion-grid>\n\n              </ion-col>\n\n             </ion-item>\n\n\n\n\n\n          <ion-item-options side="right">\n\n            <button ion-button large icon-only (click)="editSeats(data)">\n\n            <ion-icon ios="ios-people" md="md-people"></ion-icon>\n\n            </button>\n\n\n\n            <button ion-button large icon-only (click)="goToProtocoll()">\n\n                    <ion-icon name="clipboard"></ion-icon>\n\n            </button>\n\n            <button color="danger" ion-button large icon-only (click)="deleteBooking(data)">\n\n                    <ion-icon name="close-circle"></ion-icon>\n\n            </button>\n\n          </ion-item-options>\n\n\n\n        </ion-item-sliding>\n\n      </div>\n\n\n\n    </ion-list>\n\n\n\n    <ion-list *ngSwitchCase="\'bookinghistory\'">\n\n      <div>\n\n        <ion-item>\n\n          Buchung\n\n        </ion-item>\n\n        <ion-item-sliding *ngFor="let data of carArray "#item>\n\n          <ion-item *ngIf="data.userID == checkuID() && data.dateStart < checkCurrentDate()">\n\n            <ion-col style="text-align: left">\n\n                  <ion-grid>\n\n                    <ion-row>\n\n                      <ion-col>\n\n                        <p>{{data.marke}} {{data.modell}} {{data.kennzeichen}}</p>\n\n                        <p>Startdatum: {{data.dateStart | date: \'dd/MM/yyyy\'}}</p>\n\n                        <p>Startzeit: {{data.dateStart | date: \'HH:mm\'}}</p>\n\n                      </ion-col>\n\n                      <ion-col>\n\n                        <p> Enddatum: {{data.dateEnd | date: \'dd/MM/yyyy\'}} </p>\n\n                        <p>Endzeit: {{data.dateEnd | date: \'HH:mm\'}}</p>\n\n                      </ion-col>\n\n                    </ion-row>\n\n                  </ion-grid>\n\n            </ion-col>\n\n          </ion-item>\n\n          <ion-item-options side="right">\n\n              <button ion-button large icon-only (click)="goToProtocoll(data)">\n\n                      <ion-icon name="clipboard"></ion-icon>\n\n              </button>\n\n            </ion-item-options>\n\n      </ion-item-sliding>\n\n     </div>\n\n    </ion-list>\n\n  </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\Vitalstuttgarter\PycharmProjects\newIonic_test_2\newIonic\src\pages\my-bookings\my-bookings.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
