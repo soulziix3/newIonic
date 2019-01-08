@@ -187,6 +187,65 @@ export class MyBookingsPage {
     getBookingData(): any {
         return this.bookingData
     }
+
+    editSeats(data1) {
+        const createToast = this.toastCtrl.create({
+            message: 'Sitzplätze erfolgreich geändert',
+            duration: 3000
+        });
+        var num_seat = data1.seat
+        const prompt = this.alertCtrl.create({
+            title: 'Ändern',
+            message: "Hier können Sie Buchung der Sitze ändern:",
+            inputs: [
+                {
+                    name: 'seat',
+                    placeholder: 'Sitze',
+                    value: num_seat
+                },
+            ],
+            buttons: [
+                {
+                    text: 'Abbrechen',
+                    handler: data => {
+                        console.log('Cancel clicked');
+                    }
+
+                },
+                {
+                    text: 'Ändern',
+                    handler: bookingData => {
+                        bookingData.seat = Number(num_seat)
+                        if (data1.seat <= data1.sitze && data1.seat != 0) {
+                            let bookingRef = this.af.collection('bookings').ref.where('bookingID', '==', data1.bookingID);
+                            bookingRef.get().then((result) => {
+                                result.forEach(doc => {
+                                    //console.log(doc.data());
+                                    this.bookingCollectionRef.doc(doc.id).update(bookingData);
+                                    createToast.present();
+                                })
+                            });
+                        } else {
+                            let toast = this.toastCtrl.create({
+                                message: 'Ungültige Eingabe',
+                                duration: 3000,
+                                position: 'buttom'
+                            });
+
+                            toast.onDidDismiss(() => {
+                                console.log('Dismissed toast');
+                            });
+
+                            toast.present();
+                        }
+
+
+                    }
+                }
+            ]
+        });
+        prompt.present();
+    }
 }
 
 

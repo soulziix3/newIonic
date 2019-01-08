@@ -54,6 +54,7 @@ export class BookCarPage {
     timeStart: string;
     timeEnd: string;
     seat: string;
+    destination: string;
     carID: string;
     carlist: Car[];
     dataCar: any;
@@ -68,6 +69,7 @@ export class BookCarPage {
     public bookings = this.bookingCollectionRef.valueChanges();
     public carArray1:any = [];
     public newArray: any = [];
+    public availableCars: boolean;
 
 
     constructor(
@@ -84,25 +86,17 @@ export class BookCarPage {
         this.timeStart = navParams.get("tStart");
         this.timeEnd = navParams.get("tEnd");
         this.seat = navParams.get("seat");
+        this.destination = navParams.get("destination")
         this.dataCar = this.bookingCollectionRef.valueChanges();
 
         this.getAllPosts().subscribe((data)=>{
             this.data = data;
             let test = this.checkCarAndBookingData(data)
-            //console.log(test)
-            //console.log(this.data)
-            //this.data = JSON.parse(this.data)
         });
 
         this.getAllDocuments().subscribe((data)=>{
             this.dataBooking = data;
-            //
-            //this.checkCarAndBookingData(data);
         });
-
-        //var doc = this.getInformation();
-        //console.log(doc);
-        //console.log(this.dataBooking);
     }
 
     test(test) {
@@ -136,17 +130,9 @@ export class BookCarPage {
         let af = this.af;
         let datestart = new Date(this.dateStart).getTime();
         let dateend = new Date(this.dateEnd).getTime();
+        let seat = this.seat
 
         this.getAllDocuments().subscribe((data)=>{
-            console.log(data)
-            if (data.length == 0) {
-                for (let i = 0; i < carData.length; i++) {
-                    BookCarPage.prototype.pushData(carData[i]);
-                    carArray.push(carData[i])
-                }
-            };
-            //
-            //this.checkCarAndBookingData(data);
         });
 
 
@@ -154,23 +140,27 @@ export class BookCarPage {
 
             let bookRef = this.af.collection('bookings').ref.where('carID', '==', carData[i].carid);
             //console.log(bookRef)
+
             if (bookRef != undefined){
 
                 bookRef.get().then((result) => {
-                    //console.log(result)
+                    if(result.size > 0) {
                     result.forEach(doc => {
 
                         console.log("Keine Daten")
-                    })
 
+                    })
+                    } else{
+
+                        if (this.seat <= carData[i].sitze) {
+                            this.availableCars = true
+                            BookCarPage.prototype.pushData(carData[i]);
+                            carArray.push(carData[i])
+                            console.log(carArray, "keine buchung")
+                        }
+                    }
                 });
             }
-            else{
-                BookCarPage.prototype.pushData(carData[i]);
-                carArray.push(carData[i])
-            }
-            //BookCarPage.prototype.pushData(carData[i]);
-            //carArray.push(carData[i])
         }
 
         af.collection("bookings").ref
@@ -188,9 +178,11 @@ export class BookCarPage {
                                         (datestart < bookingDoc.get('dateEnd')) ){
                                         if ((dateend < bookingDoc.get("dateStart")&&
                                             ( dateend < bookingDoc.get("dateEnd")))){
-                                            BookCarPage.prototype.pushData(carDoc.data());
-                                            carArray.push(carDoc.data())
-                                            //console.log(carArray)
+                                            if (seat <= carDoc.get('sitze')) {
+                                                BookCarPage.prototype.pushData(carDoc.data());
+                                                carArray.push(carDoc.data())
+                                                console.log(carArray, "buchung <")
+                                            }
                                         }
 
                                         //BookCarPage.prototype.pushData(carDoc)
@@ -198,22 +190,25 @@ export class BookCarPage {
                                         (datestart > bookingDoc.get('dateEnd')) ) {
                                         if ((dateend > bookingDoc.get("dateStart")&&
                                             ( dateend > bookingDoc.get("dateEnd")))) {
-                                            BookCarPage.prototype.pushData(carDoc.data());
-                                            carArray.push(carDoc.data())
-                                            //console.log(carArray)
+                                            if (seat <= carDoc.get('sitze')) {
+                                                BookCarPage.prototype.pushData(carDoc.data());
+                                                carArray.push(carDoc.data())
+                                                console.log(carArray, "buchung >")
+                                            }
                                         }
-
                                     }
-
-
                                 } else {
-                                    BookCarPage.prototype.pushData(carDoc.data());
-                                    carArray.push(carDoc.data())
-                                    //console.log(carArray)
                                 }
                             });
-                            //carArray.push(carArray)
+                            if (carArray.length != 0) {
+                                console.log("data found")
+                                BookCarPage.prototype.availableCars = true
 
+                            } else {
+                                console.log("no data")
+                                BookCarPage.prototype.availableCars = false
+
+                            }
                         });
                 });
 
@@ -221,20 +216,16 @@ export class BookCarPage {
             .catch(function(error) {
                 console.log("Error getting documents: ", error);
             });
-        //this.carArray1.push(carArray)
-        //console.log(this.carArray1)
     }
 
     pushData(data) {
         this.carArray1 = []
         this.carArray1.push(data);
-        //console.log(this.test2(this.carArray1))
-        console.log(this.carArray1)
+        //console.log(this.carArray1)
     }
 
-    test2(data){
-
-        return data
+    returnBoolCarData(array){
+        //this.availableCars = true
     }
 
     bookCar(data) {
