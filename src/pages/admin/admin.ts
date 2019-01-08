@@ -5,6 +5,7 @@ import { AlertController, NavController, ToastController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
+import NumberFormat = Intl.NumberFormat;
 //import {map} from "rxjs/operators";
 //import {DatabaseProvider} from "../../providers/auth/database";
 
@@ -144,7 +145,7 @@ export class AdminPage {
             this.carCollectionRef.add({
                 marke: this.carcreateForm.value.marke,
                 modell: this.carcreateForm.value.modell,
-                sitze: parseInt(this.carcreateForm.value.sitze),
+                sitze: Number(this.carcreateForm.value.sitze),
                 farbe: this.carcreateForm.value.farbe,
                 kennzeichen: this.carcreateForm.value.kennzeichen,
                 reserviert: 0,
@@ -190,7 +191,7 @@ export class AdminPage {
               {
                   name: 'sitze',
                   placeholder: 'Sitze',
-                  value: data1.sitze
+                  value: data1.sitze,
               },
               {
                   name: 'farbe',
@@ -209,6 +210,7 @@ export class AdminPage {
               {
                   text: 'Ändern',
                   handler: cardata => {
+                      cardata.sitze = parseInt(cardata.sitze)
                       let carRef = this.af.collection('cars').ref.where('carid', '==', data1.carid);
                       carRef.get().then((result) => {
                           result.forEach(doc => {

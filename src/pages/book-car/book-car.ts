@@ -151,7 +151,7 @@ export class BookCarPage {
 
                     })
                     } else{
-
+                        //debugger
                         if (this.seat <= carData[i].sitze) {
                             this.availableCars = true
                             BookCarPage.prototype.pushData(carData[i]);
@@ -172,6 +172,8 @@ export class BookCarPage {
                         .then(function(querySnapshot) {
 
                             querySnapshot.forEach(function(carDoc) {
+                                //debugger
+                                var checkCar:boolean = true
                                 if (bookingDoc.get('carID') === carDoc.get("carid")) {
 
                                     if ((datestart < bookingDoc.get('dateStart')) &&
@@ -179,9 +181,18 @@ export class BookCarPage {
                                         if ((dateend < bookingDoc.get("dateStart")&&
                                             ( dateend < bookingDoc.get("dateEnd")))){
                                             if (seat <= carDoc.get('sitze')) {
-                                                BookCarPage.prototype.pushData(carDoc.data());
-                                                carArray.push(carDoc.data())
-                                                console.log(carArray, "buchung <")
+                                                for(let i = 0; i < carArray.length; i++) {
+                                                    if (carDoc.get('carid') == carArray[i].carid) {
+                                                        checkCar = false
+                                                    }
+                                                }
+                                                if (checkCar == true) {
+                                                    BookCarPage.prototype.pushData(carDoc.data());
+                                                    carArray.push(carDoc.data())
+                                                    console.log(carArray, "buchung <")
+                                                } else {
+                                                    checkCar = true
+                                                }
                                             }
                                         }
 
@@ -191,9 +202,18 @@ export class BookCarPage {
                                         if ((dateend > bookingDoc.get("dateStart")&&
                                             ( dateend > bookingDoc.get("dateEnd")))) {
                                             if (seat <= carDoc.get('sitze')) {
-                                                BookCarPage.prototype.pushData(carDoc.data());
-                                                carArray.push(carDoc.data())
-                                                console.log(carArray, "buchung >")
+                                                for(let i = 0; i < carArray.length; i++) {
+                                                    if (carDoc.get('carid') == carArray[i].carid) {
+                                                        checkCar = false
+                                                    }
+                                                }
+                                                if (checkCar == true) {
+                                                    BookCarPage.prototype.pushData(carDoc.data());
+                                                    carArray.push(carDoc.data())
+                                                    console.log(carArray, "buchung <")
+                                                } else {
+                                                    checkCar = true
+                                                }
                                             }
                                         }
                                     }
