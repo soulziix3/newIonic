@@ -1,461 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b132b09e-2e20-4d5f-9901-f5ae73a791d1" name="Default Changelist" comment="Buchen von Autos ist nun möglich.">
+    <list default="true" id="b132b09e-2e20-4d5f-9901-f5ae73a791d1" name="Default Changelist" comment="Bilder können nun hochgeladen werden (Protokoll) Teil 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/angularfire2.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/angularfire2.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/angularfire2.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/angularfire2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/angularfire2.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/angularfire2.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/auth/auth.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/auth/auth.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/auth/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/auth/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/auth/auth.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/auth/auth.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/auth/auth.module.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/auth/auth.module.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/auth/auth.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/auth/auth.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/auth/auth.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/auth/auth.module.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/auth/es2015/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/auth/es2015/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/auth/es2015/auth.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/auth/es2015/auth.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/auth/es2015/auth.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/auth/es2015/auth.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/auth/es2015/auth.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/auth/es2015/auth.module.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/auth/es2015/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/auth/es2015/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/auth/es2015/public_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/auth/es2015/public_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/auth/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/auth/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/auth/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/auth/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/auth/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/auth/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/auth/public_api.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/auth/public_api.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/auth/public_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/auth/public_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/bundles/auth.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/bundles/auth.umd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/bundles/core.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/bundles/core.umd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/bundles/database-deprecated.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/bundles/database-deprecated.umd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/bundles/database.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/bundles/database.umd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/bundles/firestore.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/bundles/firestore.umd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/bundles/functions.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/bundles/functions.umd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/bundles/messaging.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/bundles/messaging.umd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/bundles/storage.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/bundles/storage.umd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/database.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/database.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/database.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/database.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/database.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/database.module.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/database.module.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/database.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/database.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/database.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/database.module.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/database.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/database.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/database.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/database.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/database.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/database.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/database.module.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/firebase_list_factory.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/firebase_list_factory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/firebase_list_factory.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/firebase_list_factory.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/firebase_list_observable.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/firebase_list_observable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/firebase_list_observable.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/firebase_list_observable.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/firebase_object_factory.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/firebase_object_factory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/firebase_object_factory.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/firebase_object_factory.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/firebase_object_observable.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/firebase_object_observable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/firebase_object_observable.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/firebase_object_observable.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/interfaces.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/interfaces.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/interfaces.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/interfaces.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/public_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/public_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/query_observable.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/query_observable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/query_observable.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/query_observable.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/utils.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/es2015/utils.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_list_factory.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_list_factory.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_list_factory.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_list_factory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_list_factory.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_list_factory.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_list_observable.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_list_observable.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_list_observable.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_list_observable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_list_observable.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_list_observable.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_object_factory.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_object_factory.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_object_factory.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_object_factory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_object_factory.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_object_factory.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_object_observable.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_object_observable.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_object_observable.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_object_observable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_object_observable.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/firebase_object_observable.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/interfaces.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/interfaces.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/interfaces.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/interfaces.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/interfaces.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/interfaces.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/public_api.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/public_api.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/public_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/public_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/query_observable.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/query_observable.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/query_observable.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/query_observable.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/query_observable.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/query_observable.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/utils.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/utils.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/utils.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database-deprecated/utils.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/database.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/database.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/database.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/database.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/database.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/database.module.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/database.module.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/database.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/database.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/database.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/database.module.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/database.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/database.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/database.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/database.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/database.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/database.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/database.module.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/interfaces.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/interfaces.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/interfaces.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/interfaces.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/audit-trail.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/audit-trail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/audit-trail.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/audit-trail.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/changes.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/changes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/changes.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/changes.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/create-reference.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/create-reference.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/create-reference.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/create-reference.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/data-operation.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/data-operation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/data-operation.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/data-operation.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/remove.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/remove.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/remove.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/remove.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/snapshot-changes.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/snapshot-changes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/snapshot-changes.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/snapshot-changes.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/state-changes.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/state-changes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/state-changes.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/state-changes.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/utils.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/list/utils.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/object/create-reference.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/object/create-reference.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/object/create-reference.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/object/create-reference.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/object/snapshot-changes.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/object/snapshot-changes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/object/snapshot-changes.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/object/snapshot-changes.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/observable/fromRef.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/observable/fromRef.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/observable/fromRef.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/observable/fromRef.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/public_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/public_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/utils.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/es2015/utils.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/interfaces.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/interfaces.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/interfaces.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/interfaces.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/interfaces.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/interfaces.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/audit-trail.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/audit-trail.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/audit-trail.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/audit-trail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/audit-trail.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/audit-trail.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/changes.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/changes.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/changes.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/changes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/changes.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/changes.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/changes.spec.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/changes.spec.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/changes.spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/changes.spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/changes.spec.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/changes.spec.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/create-reference.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/create-reference.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/create-reference.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/create-reference.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/create-reference.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/create-reference.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/data-operation.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/data-operation.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/data-operation.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/data-operation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/data-operation.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/data-operation.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/remove.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/remove.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/remove.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/remove.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/remove.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/remove.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/snapshot-changes.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/snapshot-changes.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/snapshot-changes.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/snapshot-changes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/snapshot-changes.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/snapshot-changes.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/state-changes.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/state-changes.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/state-changes.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/state-changes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/state-changes.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/state-changes.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/utils.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/utils.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/utils.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/list/utils.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/object/create-reference.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/object/create-reference.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/object/create-reference.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/object/create-reference.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/object/create-reference.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/object/create-reference.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/object/snapshot-changes.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/object/snapshot-changes.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/object/snapshot-changes.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/object/snapshot-changes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/object/snapshot-changes.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/object/snapshot-changes.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/observable/fromRef.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/observable/fromRef.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/observable/fromRef.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/observable/fromRef.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/observable/fromRef.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/observable/fromRef.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/public_api.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/public_api.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/public_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/public_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/utils.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/utils.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/database/utils.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/database/utils.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/auth/getting-started.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/auth/getting-started.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/deploying-angularfire-to-firebase.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/deploying-angularfire-to-firebase.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/firebase.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/firebase.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/firestore/collections.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/firestore/collections.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/firestore/documents.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/firestore/documents.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/firestore/offline-data.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/firestore/offline-data.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/firestore/querying-collections.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/firestore/querying-collections.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/functions/functions.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/functions/functions.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/install-and-setup.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/install-and-setup.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/install-angular-cli-windows10.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/install-angular-cli-windows10.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/ionic/authentication.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/ionic/authentication.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/ionic/cli.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/ionic/cli.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/ionic/v2.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/ionic/v2.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/ionic/v3.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/ionic/v3.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/messaging/messaging.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/messaging/messaging.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/rtdb/lists.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/rtdb/lists.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/rtdb/objects.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/rtdb/objects.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/rtdb/querying-lists.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/rtdb/querying-lists.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/storage/storage.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/storage/storage.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/universal/cloud-functions.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/universal/cloud-functions.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/universal/getting-started.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/universal/getting-started.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/universal/prerendering.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/universal/prerendering.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/version-4-upgrade.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/version-4-upgrade.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/docs/version-5-upgrade.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/docs/version-5-upgrade.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/es2015/angularfire2.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/es2015/angularfire2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/es2015/angularfire2.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/es2015/angularfire2.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/es2015/firebase.app.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/es2015/firebase.app.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/es2015/firebase.app.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/es2015/firebase.app.module.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/es2015/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/es2015/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/es2015/public_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/es2015/public_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firebase-node/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firebase-node/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firebase-node/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firebase-node/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firebase.app.module.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firebase.app.module.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firebase.app.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firebase.app.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firebase.app.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firebase.app.module.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/collection/changes.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/collection/changes.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/collection/changes.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/collection/changes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/collection/changes.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/collection/changes.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/collection/collection.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/collection/collection.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/collection/collection.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/collection/collection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/collection/collection.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/collection/collection.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/document/document.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/document/document.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/document/document.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/document/document.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/document/document.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/document/document.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/collection/changes.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/collection/changes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/collection/changes.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/collection/changes.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/collection/collection.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/collection/collection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/collection/collection.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/collection/collection.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/document/document.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/document/document.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/document/document.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/document/document.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/firestore.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/firestore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/firestore.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/firestore.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/firestore.metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/firestore.metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/firestore.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/firestore.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/firestore.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/firestore.module.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/firestore.module.metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/firestore.module.metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/interfaces.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/interfaces.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/interfaces.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/interfaces.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/interfaces.metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/interfaces.metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/observable/fromRef.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/observable/fromRef.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/observable/fromRef.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/observable/fromRef.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/public_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/es2015/public_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/firestore.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/firestore.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/firestore.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/firestore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/firestore.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/firestore.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/firestore.module.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/firestore.module.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/firestore.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/firestore.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/firestore.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/firestore.module.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/index.metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/index.metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/interfaces.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/interfaces.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/interfaces.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/interfaces.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/interfaces.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/interfaces.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/observable/fromRef.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/observable/fromRef.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/observable/fromRef.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/observable/fromRef.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/observable/fromRef.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/observable/fromRef.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/public_api.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/public_api.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/public_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/firestore/public_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/functions/es2015/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/functions/es2015/functions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/functions/es2015/functions.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/functions/es2015/functions.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/functions/es2015/functions.metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/functions/es2015/functions.metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/functions/es2015/functions.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/functions/es2015/functions.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/functions/es2015/functions.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/functions/es2015/functions.module.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/functions/es2015/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/functions/es2015/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/functions/es2015/public_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/functions/es2015/public_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/functions/functions.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/functions/functions.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/functions/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/functions/functions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/functions/functions.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/functions/functions.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/functions/functions.module.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/functions/functions.module.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/functions/functions.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/functions/functions.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/functions/functions.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/functions/functions.module.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/functions/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/functions/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/functions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/functions/index.metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/functions/index.metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/functions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/functions/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/functions/public_api.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/functions/public_api.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/functions/public_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/functions/public_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/index.metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/index.metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/es2015/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/es2015/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/es2015/messaging.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/es2015/messaging.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/es2015/messaging.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/es2015/messaging.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/es2015/messaging.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/es2015/messaging.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/es2015/messaging.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/es2015/messaging.module.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/es2015/public_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/es2015/public_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/messaging.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/messaging.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/messaging.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/messaging.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/messaging.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/messaging.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/messaging.module.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/messaging.module.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/messaging.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/messaging.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/messaging.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/messaging.module.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/public_api.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/public_api.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/public_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/messaging/public_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/public_api.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/public_api.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/public_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/public_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/interfaces.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/interfaces.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/observable/fromTask.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/observable/fromTask.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/observable/fromTask.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/observable/fromTask.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/public_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/public_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/ref.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/ref.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/ref.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/ref.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/storage.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/storage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/storage.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/storage.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/storage.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/storage.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/storage.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/storage.module.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/task.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/task.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/es2015/task.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/interfaces.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/interfaces.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/interfaces.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/interfaces.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/observable/fromTask.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/observable/fromTask.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/observable/fromTask.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/observable/fromTask.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/observable/fromTask.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/observable/fromTask.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/public_api.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/public_api.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/public_api.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/public_api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/ref.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/ref.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/ref.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/ref.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/ref.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/ref.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/storage.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/storage.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/storage.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/storage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/storage.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/storage.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/storage.module.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/storage.module.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/storage.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/storage.module.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/storage.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/storage.module.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/task.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/task.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/task.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@angular/fire/storage/task.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/fire/storage/task.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/index.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/index.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/index.esm.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/index.esm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/index.node.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/index.node.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/local/persistence_promise.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/local/persistence_promise.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/firestore_proto_api.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/firestore_proto_api.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/api/annotations.proto" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/api/annotations.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/api/http.proto" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/api/http.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/firestore/v1beta1/common.proto" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/firestore/v1beta1/common.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/firestore/v1beta1/document.proto" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/firestore/v1beta1/document.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/firestore/v1beta1/firestore.proto" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/firestore/v1beta1/firestore.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/firestore/v1beta1/query.proto" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/firestore/v1beta1/query.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/firestore/v1beta1/write.proto" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/firestore/v1beta1/write.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/protobuf/any.proto" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/protobuf/any.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/protobuf/empty.proto" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/protobuf/empty.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/protobuf/struct.proto" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/protobuf/struct.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/protobuf/timestamp.proto" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/protobuf/timestamp.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/protobuf/wrappers.proto" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/protobuf/wrappers.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/rpc/status.proto" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/rpc/status.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/type/latlng.proto" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/google/type/latlng.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/update.sh" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/protos/update.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/util/obj_map.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/util/obj_map.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/util/sorted_map.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/util/sorted_map.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/util/sorted_set.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/dist/src/util/sorted_set.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/firestore/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/firestore/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/storage/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/storage/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/storage/dist/index.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/storage/dist/index.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/storage/dist/index.esm.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/storage/dist/index.esm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@firebase/storage/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@firebase/storage/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/auth/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/auth/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/auth/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/auth/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/auth/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/auth/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/database-deprecated/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/database-deprecated/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/database-deprecated/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/database-deprecated/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/database-deprecated/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/database-deprecated/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/database/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/database/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/database/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/database/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/database/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/database/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/firebase-node/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/firebase-node/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/firebase-node/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/firebase-node/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/firebase-node/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/firebase-node/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/firestore/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/firestore/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/firestore/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/firestore/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/firestore/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/firestore/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/functions/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/functions/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/functions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/functions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/functions/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/messaging/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/messaging/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/messaging/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/messaging/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/messaging/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/messaging/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/storage/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/storage/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/storage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/storage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/angularfire2/storage/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/angularfire2/storage/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/app/dist/index.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/app/dist/index.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/app/dist/index.esm.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/app/dist/index.esm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/auth/dist/index.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/auth/dist/index.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/auth/dist/index.esm.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/auth/dist/index.esm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/auth/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/auth/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/database/dist/index.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/database/dist/index.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/database/dist/index.esm.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/database/dist/index.esm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/database/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/database/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/dist/index.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/dist/index.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/dist/index.esm.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/dist/index.esm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/dist/index.node.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/dist/index.node.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/dist/index.rn.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/dist/index.rn.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-app-externs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-app-externs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-app-internal-externs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-app-internal-externs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-auth-externs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-auth-externs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-client-auth-externs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-client-auth-externs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-database-externs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-database-externs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-database-internal-externs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-database-internal-externs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-error-externs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-error-externs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-externs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-externs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-firestore-externs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-firestore-externs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-messaging-externs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-messaging-externs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-storage-externs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/externs/firebase-storage-externs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/firebase-app.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/firebase-app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/firebase-app.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/firebase-app.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/firebase-auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/firebase-auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/firebase-auth.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/firebase-auth.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/firebase-database.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/firebase-database.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/firebase-database.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/firebase-database.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/firebase-firestore.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/firebase-firestore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/firebase-firestore.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/firebase-firestore.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/firebase-functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/firebase-functions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/firebase-functions.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/firebase-functions.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/firebase-messaging.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/firebase-messaging.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/firebase-messaging.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/firebase-messaging.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/firebase-storage.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/firebase-storage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/firebase-storage.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/firebase-storage.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/firebase.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/firestore/dist/index.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/firestore/dist/index.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/firestore/dist/index.esm.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/firestore/dist/index.esm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/firestore/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/firestore/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/functions/dist/index.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/functions/dist/index.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/functions/dist/index.esm.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/functions/dist/index.esm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/functions/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/functions/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/messaging/dist/index.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/messaging/dist/index.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/messaging/dist/index.esm.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/messaging/dist/index.esm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/messaging/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/messaging/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/storage/dist/index.cjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/storage/dist/index.cjs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/storage/dist/index.esm.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/storage/dist/index.esm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/firebase/storage/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/firebase/storage/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise-polyfill/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise-polyfill/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise-polyfill/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/dist/polyfill.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise-polyfill/dist/polyfill.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/dist/polyfill.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise-polyfill/dist/polyfill.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/dist/promise.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/dist/promise.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise-polyfill/lib/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/lib/polyfill.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise-polyfill/lib/polyfill.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise-polyfill/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise-polyfill/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/promise-polyfill/src/polyfill.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/promise-polyfill/src/polyfill.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/build/vendor.js" beforeDir="false" afterPath="$PROJECT_DIR$/www/build/vendor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/build/vendor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/www/build/vendor.js.map" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -610,23 +157,22 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1764943002">
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.create.new" value="1" />
+          <entry key="git.branch.merge" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/home/home.html">
+        <entry file="file://$PROJECT_DIR$/src/pages/book-car/book-car.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="38" selection-start-line="38" selection-end-line="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+            <state relative-caret-position="1005">
+              <caret line="67" selection-start-line="67" selection-end-line="67" />
             </state>
           </provider>
         </entry>
@@ -634,55 +180,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/my-bookings/my-bookings.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+            <state relative-caret-position="1560">
+              <caret line="104" selection-start-line="104" selection-end-line="104" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/tabs/tabs.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
-              <folding>
-                <element signature="e#0#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/about/protocol.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/tabs/tabs.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/home/home.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1207">
-              <caret line="78" column="7" selection-start-line="75" selection-start-column="39" selection-end-line="78" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#42#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/my-bookings/my-bookings.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2397">
-              <caret line="151" column="1" selection-start-line="151" selection-start-column="1" selection-end-line="151" selection-end-column="1" />
+            <state relative-caret-position="390">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
               </folding>
@@ -693,17 +201,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/admin/admin.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+            <state relative-caret-position="3075">
+              <caret line="212" column="60" selection-start-line="212" selection-start-column="60" selection-end-line="212" selection-end-column="60" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/admin/admin.html">
+        <entry file="file://$PROJECT_DIR$/src/pages/book-car/book-car.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1071">
-              <caret line="63" column="23" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
+            <state relative-caret-position="288">
+              <caret line="119" selection-start-line="119" selection-end-line="119" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+                <element signature="e#399#459#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/about/protocol.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#49#0" expanded="true" />
+                <element signature="e#196#259#0" expanded="true" />
+                <element signature="e#675#732#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="16" selection-start-line="22" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -719,6 +254,11 @@
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -778,6 +318,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -875,7 +416,110 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Cidr.FilesView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="newIonic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newIonic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newIonic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newIonic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newIonic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newIonic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newIonic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newIonic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newIonic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newIonic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="about" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newIonic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newIonic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newIonic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newIonic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="book-car" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newIonic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newIonic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newIonic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newIonic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newIonic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newIonic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="my-bookings" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newIonic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newIonic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="settings" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newIonic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newIonic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="signup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newIonic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newIonic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="tabs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newIonic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newIonic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="providers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newIonic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newIonic" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="providers" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -975,6 +619,9 @@
     <option name="localTasksCounter" value="9" />
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="751000" />
+  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -985,9 +632,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="17" width="1152" height="656" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49261993" visible="true" weight="0.18406594" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49261993" visible="true" weight="0.098712444" />
       <window_info id="Structure" order="1" sideWeight="0.50738007" side_tool="true" weight="0.10729614" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1001,7 +649,7 @@
       <window_info anchor="bottom" id="Version Control" internal_type="SLIDING" order="8" sideWeight="0.49925372" type="SLIDING" weight="0.71664375" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50074625" side_tool="true" weight="0.32970452" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2543021" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.37579617" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.23658872" />
       <window_info anchor="bottom" id="TypeScript" order="13" />
       <window_info anchor="bottom" id="Messages" order="14" />
@@ -1118,22 +766,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/book-car/book-car.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="111" column="22" lean-forward="true" selection-start-line="111" selection-start-column="22" selection-end-line="111" selection-end-column="22" />
+        <state relative-caret-position="288">
+          <caret line="119" selection-start-line="119" selection-end-line="119" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+            <element signature="e#399#459#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/book-car/book-car.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        <state relative-caret-position="1005">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
+        <state relative-caret-position="330">
+          <caret line="22" column="16" selection-start-line="22" selection-end-line="23" />
         </state>
       </provider>
     </entry>
@@ -1170,8 +822,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/my-bookings/my-bookings.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        <state relative-caret-position="1560">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
         </state>
       </provider>
     </entry>
@@ -1179,9 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1207,8 +856,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/my-bookings/my-bookings.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2397">
-          <caret line="151" column="1" selection-start-line="151" selection-start-column="1" selection-end-line="151" selection-end-column="1" />
+        <state relative-caret-position="390">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
           </folding>
@@ -1217,8 +866,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/admin/admin.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+        <state relative-caret-position="3075">
+          <caret line="212" column="60" selection-start-line="212" selection-start-column="60" selection-end-line="212" selection-end-column="60" />
         </state>
       </provider>
     </entry>
