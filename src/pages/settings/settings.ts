@@ -69,9 +69,6 @@ export class SettingsPage {
             SettingsPage.prototype.isAdmin = true
 
 
-
-
-
           }
           else{
             console.log("Ich hasse TS")
