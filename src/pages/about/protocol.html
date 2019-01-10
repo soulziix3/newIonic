@@ -12,7 +12,7 @@
             Fahrer A
         </ion-card-header>
         <ion-card-content>
-
+            <ion-textarea placeholder="Enter here" name="driverA"></ion-textarea>
         </ion-card-content>
     </ion-card>
 
@@ -21,8 +21,7 @@
             Fahrer B
         </ion-card-header>
         <ion-card-content>
-
-
+            <ion-textarea placeholder="Enter here" name="driverB"></ion-textarea>
         </ion-card-content>
     </ion-card>
 
@@ -31,7 +30,7 @@
             Unfallumstände
         </ion-card-header>
         <ion-card-content>
-
+            <ion-textarea placeholder="Enter here" name="circumstances"></ion-textarea>
         </ion-card-content>
     </ion-card>
 
@@ -49,5 +48,5 @@
         <button ion-button (click)="upload()" *ngIf="captureDataUrl">Upload</button>
     </ion-card>
 
-    
+    <button ion-button block type="">Speichern</button>
 </ion-content>

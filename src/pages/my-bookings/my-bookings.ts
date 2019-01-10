@@ -9,6 +9,7 @@ import {ProtocolPage} from "../about/protocol";
 import {HomePage} from "../home/home";
 import {Observable} from "../../../node_modules/rxjs/Observable";
 import {areAllEquivalent} from "@angular/compiler/src/output/output_ast";
+import {assertNumber} from "../../../node_modules/@angular/core/src/render3/assert";
 
 interface Booking {
     carID: string;
@@ -193,15 +194,18 @@ export class MyBookingsPage {
             message: 'Sitzplätze erfolgreich geändert',
             duration: 3000
         });
+
         var num_seat = data1.seat
         const prompt = this.alertCtrl.create({
             title: 'Ändern',
             message: "Hier können Sie Buchung der Sitze ändern:",
             inputs: [
-                {
-                    name: 'seat',
+                {   name: "Sitze",
                     placeholder: 'Sitze',
-                    value: num_seat
+                    type: "number",
+                    value: data1.seat,
+                    min: 1,
+                    max: data1.sitze,
                 },
             ],
             buttons: [
@@ -214,14 +218,16 @@ export class MyBookingsPage {
                 },
                 {
                     text: 'Ändern',
-                    handler: bookingData => {
-                        bookingData.seat = Number(num_seat)
+                    handler: userInput => {
+
+                        data1.seat = userInput.Sitze
+                        console.log(data1)
                         if (data1.seat <= data1.sitze && data1.seat != 0) {
                             let bookingRef = this.af.collection('bookings').ref.where('bookingID', '==', data1.bookingID);
                             bookingRef.get().then((result) => {
                                 result.forEach(doc => {
                                     //console.log(doc.data());
-                                    this.bookingCollectionRef.doc(doc.id).update(bookingData);
+                                    this.bookingCollectionRef.doc(doc.id).update(data1);
                                     createToast.present();
                                 })
                             });
@@ -247,5 +253,4 @@ export class MyBookingsPage {
         prompt.present();
     }
 }
-
 

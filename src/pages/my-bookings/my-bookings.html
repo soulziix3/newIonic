@@ -3,11 +3,6 @@
     <ion-title align="middle">
       <img  class="capgeminiLogo" src="../assets/imgs/logoCapgemini.png" align="middle" height="30px" width="auto" />
     </ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="logoutUser()">
-        <ion-icon name="log-out"></ion-icon>
-      </button>
-    </ion-buttons>
   </ion-navbar>
   <ion-toolbar no-border-top>
     <ion-segment [(ngModel)]="bookings1">
@@ -36,11 +31,13 @@
                 <ion-grid>
                   <ion-row>
                     <ion-col>
-                      <p>{{data.marke}} {{data.modell}} {{data.kennzeichen}}</p>
+                      <p><b>{{data.marke}} {{data.modell}} {{data.kennzeichen}} </b></p>
+                      <p>Max. Anzahl Sitzplätze: {{data.sitze}}</p>
                       <p>Startdatum: {{data.dateStart | date: 'dd/MM/yyyy'}}</p>
                       <p>Startzeit: {{data.dateStart | date: 'HH:mm'}}</p>
                     </ion-col>
                     <ion-col>
+                      <p>Gebuchte Sitzplätze: {{data.seat}}</p>
                       <p> Enddatum: {{data.dateEnd | date: 'dd/MM/yyyy'}} </p>
                       <p>Endzeit: {{data.dateEnd | date: 'HH:mm'}}</p>
                     </ion-col>
@@ -56,10 +53,10 @@
             </button>
 
             <button ion-button large icon-only (click)="goToProtocoll()">
-                    <ion-icon name="clipboard"></ion-icon>
+                    <ion-icon ios="ios-clipboard"  md="md-clipboard"></ion-icon>
             </button>
             <button color="danger" ion-button large icon-only (click)="deleteBooking(data)">
-                    <ion-icon name="close-circle"></ion-icon>
+                    <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
             </button>
           </ion-item-options>
 
@@ -93,7 +90,7 @@
           </ion-item>
           <ion-item-options side="right">
               <button ion-button large icon-only (click)="goToProtocoll(data)">
-                      <ion-icon name="clipboard"></ion-icon>
+                      <ion-icon ios="ios-clipboard"  md="md-clipboard"></ion-icon>
               </button>
             </ion-item-options>
       </ion-item-sliding>

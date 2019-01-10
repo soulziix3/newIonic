@@ -25,6 +25,7 @@ import { Camera } from '@ionic-native/camera';
 import { ImageProvider } from '../providers/image-provider';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Crop } from '@ionic-native/crop';
+import {UserAdminPage} from "../pages/user-admin/user-admin";
 
 const firebaseConfig = 
  {
@@ -51,7 +52,8 @@ const firebaseConfig =
     TabsPage,
     // CarProfilePage
     BookCarPage,
-    MyBookingsPage
+    MyBookingsPage,
+    UserAdminPage
   ],
   imports: [
     BrowserModule,
@@ -77,6 +79,7 @@ const firebaseConfig =
     //CarProfilePage
     BookCarPage,
     MyBookingsPage,
+    UserAdminPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
