@@ -1,0 +1,58 @@
+<!--
+  Generated template for the UserAdminPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Userverwaltung</ion-title>
+  </ion-navbar>
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="userlist">
+      <ion-segment-button value="users">
+        Users
+      </ion-segment-button>
+      <ion-segment-button value="admins">
+        Admins
+      </ion-segment-button>
+       <ion-segment-button value="developers">
+        Entwickler
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+   <div [ngSwitch] = "userlist">
+    <ion-list *ngSwitchCase="'users'">
+      <div *ngFor="let userData of users | async">
+        <ion-item *ngIf="userData.admin == false && userData.developer == false">
+          E-Mail: {{userData.userMail}}
+          <button ion-button color="blue" (click)="changeUser(userData)">Status ändern</button>
+
+        </ion-item>
+      </div>
+    </ion-list>
+    <ion-list *ngSwitchCase="'admins'">
+      <div *ngFor="let userData of users | async">
+        <ion-item *ngIf="userData.admin == true">
+          E-Mail: {{userData.userMail}}
+         <button ion-button color="blue" (click)="changeAdmin(userData)">Status ändern</button>
+        </ion-item>
+      </div>
+    </ion-list>
+    <ion-list *ngSwitchCase="'developers'">
+     <div *ngFor="let userData of users | async">
+        <ion-item *ngIf="userData.developer == true">
+          E-Mail: {{userData.userMail}}
+          <button ion-button color="blue" (click)="changeDev(userData)">Status ändern </button>
+        </ion-item>
+      </div>
+    </ion-list>
+  </div>
+
+
+
+</ion-content>
