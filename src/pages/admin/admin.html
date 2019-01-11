@@ -1,52 +1,57 @@
 <ion-header>
     <ion-navbar no-border-bottom>
-      <ion-title>
-        Admin Einstellungen 
-      </ion-title>
+        <ion-title>
+            Admin Einstellungen
+        </ion-title>
     </ion-navbar>
-  
-    <ion-toolbar no-border-top>
-      <ion-segment [(ngModel)]="admin">
-        <ion-segment-button value="car_create">
-          Anlegen
-        </ion-segment-button>
-        <ion-segment-button value="car_list">
-          Liste
-        </ion-segment-button>
-        <ion-segment-button value="booking">
-          Buchungen
-        </ion-segment-button>
-      </ion-segment>
-    </ion-toolbar>
-  </ion-header>
 
-  <ion-content padding>
+    <ion-toolbar no-border-top>
+        <ion-segment [(ngModel)]="admin">
+            <ion-segment-button value="car_create">
+                Anlegen
+            </ion-segment-button>
+            <ion-segment-button value="car_list">
+                Liste
+            </ion-segment-button>
+            <ion-segment-button value="booking">
+                Buchungen
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
     <div [ngSwitch]="admin">
         <ion-list *ngSwitchCase="'car_create'">
-        <form [formGroup]="carcreateForm" (submit)="createcar()" novalidate>
-          <ion-item>
-            <ion-label stacked>Modell</ion-label>
-            <ion-input formControlName="modell" type="text" value=""></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label stacked>Marke</ion-label>
-            <ion-input formControlName="marke" type="text" value=""></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label stacked>Sitze</ion-label>
-            <ion-input formControlName="sitze" type="number" value=""></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label stacked>Farbe</ion-label>
-            <ion-input formControlName="farbe" type="text" value=""></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label stacked>Kennzeichen</ion-label>
-            <ion-input formControlName="kennzeichen" type="text" value=""></ion-input>
-        </ion-item>
-        
-        <button ion-button block type="submit">Anlegen</button>
-        </form>
+            <form [formGroup]="carcreateForm" (submit)="createcar()" novalidate>
+                <ion-item>
+                    <ion-label stacked>Modell</ion-label>
+                    <ion-input formControlName="modell" type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Marke</ion-label>
+                    <ion-input formControlName="marke" type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Sitze</ion-label>
+                    <ion-input formControlName="sitze" type="number" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Farbe</ion-label>
+                    <ion-input formControlName="farbe" type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Kennzeichen</ion-label>
+                    <ion-input formControlName="kennzeichen" type="text" value=""></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label stacked>Bild optional * als URL angeben</ion-label>
+                    <ion-input formControlName="picture" type="text" value=""></ion-input>
+                </ion-item>
+
+
+                <button ion-button block type="submit">Anlegen</button>
+            </form>
 
         </ion-list>
         <ion-list *ngSwitchCase="'car_list'">
@@ -62,77 +67,77 @@
                 </ion-item-options>
 
             </ion-item-sliding>
-<!--
-          <ion-card (click)="goToCarProfile()" *ngFor="let data of cars | async">
-              <ion-card-header>
-                  {{data.marke}}, {{ data.modell }}
-                </ion-card-header>
-                <ion-card-content>
-                <p>Kennzeichen: {{data.kennzeichen}}</p>
-                <p>Sitze: {{data.sitze}}</p>
-                <p>Farbe: {{data.farbe}}</p>
-            </ion-card-content>
-          </ion-card>
+            <!--
+                      <ion-card (click)="goToCarProfile()" *ngFor="let data of cars | async">
+                          <ion-card-header>
+                              {{data.marke}}, {{ data.modell }}
+                            </ion-card-header>
+                            <ion-card-content>
+                            <p>Kennzeichen: {{data.kennzeichen}}</p>
+                            <p>Sitze: {{data.sitze}}</p>
+                            <p>Farbe: {{data.farbe}}</p>
+                        </ion-card-content>
+                      </ion-card>
+                    </ion-list>
+                    <ion-list *ngSwitchCase="'booking'">
+                        <ion-card>
+                            <ion-item>
+                              Buchung
+                              </ion-item>
+                                <p>Kennzeichen: Test</p>
+                                <p>Sitze: Test</p>
+                                <p>Farbe: Test</p>
+                              <button ion-button clear >
+                                <ion-icon ios="ios-trash" md="md-trash" (click)="deletecar()" danger></ion-icon>
+                                Löschen
+                              </button>
+
+                          </ion-card>
+                          -->
         </ion-list>
         <ion-list *ngSwitchCase="'booking'">
-            <ion-card>
+            <div>
                 <ion-item>
-                  Buchung
-                  </ion-item>
-                    <p>Kennzeichen: Test</p>
-                    <p>Sitze: Test</p>
-                    <p>Farbe: Test</p>
-                  <button ion-button clear >
-                    <ion-icon ios="ios-trash" md="md-trash" (click)="deletecar()" danger></ion-icon>
-                    Löschen
-                  </button>
-                
-              </ion-card>
-              -->
-        </ion-list>
-        <ion-list *ngSwitchCase="'booking'">
-          <div>
-            <ion-item>
-              Buchung
-            </ion-item>
-            <ion-item-sliding *ngFor="let data of bookingsComplete.booking| async "#item>
-                 <ion-item>
+                    Buchung
+                </ion-item>
+                <ion-item-sliding *ngFor="let data of bookingsComplete.booking| async "#item>
+                    <ion-item>
 
-                   <ion-col style="text-align: left">
-                    <ion-grid>
-                      <ion-row>
-                        <ion-col>
-                          <p>Startdatum: {{data.dateStart | date: 'dd/MM/yyyy'}}</p>
-                          <p>Startzeit: {{data.dateStart | date: 'HH:mm'}}</p>
+                        <ion-col style="text-align: left">
+                            <ion-grid>
+                                <ion-row>
+                                    <ion-col>
+                                        <p>Startdatum: {{data.dateStart | date: 'dd/MM/yyyy'}}</p>
+                                        <p>Startzeit: {{data.dateStart | date: 'HH:mm'}}</p>
+                                    </ion-col>
+                                    <ion-col>
+                                        <p> Enddatum: {{data.dateEnd | date: 'dd/MM/yyyy'}} </p>
+                                        <p>Endzeit: {{data.dateEnd | date: 'HH:mm'}}</p>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-grid>
                         </ion-col>
-                        <ion-col>
-                          <p> Enddatum: {{data.dateEnd | date: 'dd/MM/yyyy'}} </p>
-                          <p>Endzeit: {{data.dateEnd | date: 'HH:mm'}}</p>
-                        </ion-col>
-                      </ion-row>
-                    </ion-grid>
-                  </ion-col>
-                 </ion-item>
+                    </ion-item>
 
 
-              <ion-item-options side="right">
-                <button color="danger" ion-button large icon-only (click)="deleteBooking(data)">
-                        <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
-                </button>
-              </ion-item-options>
+                    <ion-item-options side="right">
+                        <button color="danger" ion-button large icon-only (click)="deleteBooking(data)">
+                            <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
+                        </button>
+                    </ion-item-options>
 
-            </ion-item-sliding>
-          </div>
+                </ion-item-sliding>
+            </div>
         </ion-list>
-      </div>
-    
-  </ion-content>
-  
-  <style>
+    </div>
+
+</ion-content>
+
+<style>
     ion-list:first-child {
-      margin-top: 32px;
+        margin-top: 32px;
     }
     ion-list + ion-list {
-      margin-top: 0;
+        margin-top: 0;
     }
-  </style>
+</style>

@@ -76,11 +76,13 @@
                   <ion-grid>
                     <ion-row>
                       <ion-col>
-                        <p>{{data.marke}} {{data.modell}} {{data.kennzeichen}}</p>
+                        <p><b>{{data.marke}} {{data.modell}} {{data.kennzeichen}} </b></p>
+                        <p>Max. Anzahl Sitzplätze: {{data.sitze}}</p>
                         <p>Startdatum: {{data.dateStart | date: 'dd/MM/yyyy'}}</p>
                         <p>Startzeit: {{data.dateStart | date: 'HH:mm'}}</p>
                       </ion-col>
                       <ion-col>
+                        <p>Gebuchte Sitzplätze: {{data.seat}}</p>
                         <p> Enddatum: {{data.dateEnd | date: 'dd/MM/yyyy'}} </p>
                         <p>Endzeit: {{data.dateEnd | date: 'HH:mm'}}</p>
                       </ion-col>

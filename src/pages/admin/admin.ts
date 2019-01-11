@@ -17,217 +17,226 @@ interface Booking {
     timeStart: string;
     seat: number;}
 
-interface Car { 
-  carid: string;
-  farbe: string; 
-  modell: string; 
-  marke: string; 
-  reserviert: number; 
-  sitze: number; 
-  kennzeichen: string;
-  gebucht: [string,string]}
+interface Car {
+    carid: string;
+    farbe: string;
+    modell: string;
+    marke: string;
+    reserviert: number;
+    sitze: number;
+    kennzeichen: string;
+    gebucht: [string,string];
+    picture: string;}
+
 
 @Component({
-  selector: 'page-admin',
-  templateUrl: 'admin.html',
+    selector: 'page-admin',
+    templateUrl: 'admin.html',
 })
 export class AdminPage {
-  data: any;
-  admin: string = 'car_create';
-  public bookingCollectionRef: AngularFirestoreCollection<Booking> = this.af.collection(
-    "bookings");
-  public carcreateForm: FormGroup;
-  public carData: Observable<Car[]>;
-  public bookings = this.bookingCollectionRef.valueChanges();
-  public carCollectionRef: AngularFirestoreCollection<Car> = this.af.collection('cars');
-  public cars = this.carCollectionRef.valueChanges();
-  //public carDoc: AngularFirestoreDocument<Car>;
-  //public  dbp: DatabaseProvider;
-  bookings1: string = "currentbookings";
-  bookingsComplete = {
-      booking: this.bookings,
-      car: this.cars
-  };
+    data: any;
+    admin: string = 'car_create';
+    public bookingCollectionRef: AngularFirestoreCollection<Booking> = this.af.collection(
+        "bookings");
+    public carcreateForm: FormGroup;
+    public carData: Observable<Car[]>;
+    public bookings = this.bookingCollectionRef.valueChanges();
+    public carCollectionRef: AngularFirestoreCollection<Car> = this.af.collection('cars');
+    public cars = this.carCollectionRef.valueChanges();
+    //public carDoc: AngularFirestoreDocument<Car>;
+    //public  dbp: DatabaseProvider;
+    bookings1: string = "currentbookings";
+    bookingsComplete = {
+        booking: this.bookings,
+        car: this.cars
+    };
 
     constructor(
-    public navCtrl: NavController,
-//    private readonly carDB: DatabaseProvider,
-    public db: AngularFireDatabase,
-    private af: AngularFirestore, 
-    public formBuilder: FormBuilder, 
-    public alertCtrl: AlertController,
-    public toastCtrl: ToastController) {
-    this.carData = this.carCollectionRef.valueChanges();
+        public navCtrl: NavController,
+        //    private readonly carDB: DatabaseProvider,
+        public db: AngularFireDatabase,
+        private af: AngularFirestore,
+        public formBuilder: FormBuilder,
+        public alertCtrl: AlertController,
+        public toastCtrl: ToastController) {
+        this.carData = this.carCollectionRef.valueChanges();
 
         this.getAllPosts().subscribe((data)=>{
-        this.data = data;
-        console.log(this.data);
-    });
+            this.data = data;
+            console.log(this.data);
+        });
 
-      //this.carCollectionRef = af.collection('cars');
-      //this.carData = this.carCollectionRef.valueChanges();
-      //console.log(this.carCollectionRef);
+        //this.carCollectionRef = af.collection('cars');
+        //this.carData = this.carCollectionRef.valueChanges();
+        //console.log(this.carCollectionRef);
 
-      this.carcreateForm = formBuilder.group({
-        marke: [''],
-        modell: [''],
-        sitze: [0],
-        farbe: [''],
-        kennzeichen: [''],
-        reserviert: ['0'],
-        gebucht: ['','']
-      });
+        this.carcreateForm = formBuilder.group({
+            marke: [''],
+            modell: [''],
+            sitze: [0],
+            farbe: [''],
+            kennzeichen: [''],
+            reserviert: ['0'],
+            gebucht: ['',''],
+            picture: ['']
+        });
     }
 
     getAllPosts (): Observable<any> {
-      return this.af.collection<any>("cars").valueChanges();
+        return this.af.collection<any>("cars").valueChanges();
     }
 
-  deleteBooking(data){
-    console.log("Buchung löschen");
+    deleteBooking(data){
+        console.log("Buchung löschen");
         const createToast = this.toastCtrl.create({
             message: 'Buchung erfolgreich storniert',
             duration: 3000
-            });
+        });
         const confirm = this.alertCtrl.create({
-              title: "Fahrzeug buchen",
-              message: "Wolllen Sie diese Buchung wirklich stornieren?",
-              buttons: [
+            title: "Fahrzeug buchen",
+            message: "Wolllen Sie diese Buchung wirklich stornieren?",
+            buttons: [
                 {
-                  text: "Nein",
-                  handler: () => {
-                    console.log("Not clicked");
-                  }
+                    text: "Nein",
+                    handler: () => {
+                        console.log("Not clicked");
+                    }
                 },
                 {
-                  text: "Ja ",
+                    text: "Ja ",
 
-                  handler: () => {
+                    handler: () => {
 
-                    let bookRef = this.af.collection('bookings').ref.where('bookingID', '==', data.bookingID);
-                    bookRef.get().then((result) => {
-                        result.forEach(doc => {
+                        let bookRef = this.af.collection('bookings').ref.where('bookingID', '==', data.bookingID);
+                        bookRef.get().then((result) => {
+                            result.forEach(doc => {
 
-                            console.log(doc.id);
-                            this.bookingCollectionRef.doc(doc.id).delete();
-                        })
-                    });
+                                console.log(doc.id);
+                                this.bookingCollectionRef.doc(doc.id).delete();
+                            })
+                        });
 
-                    createToast.present();
-                    this.navCtrl.setRoot(AdminPage);
-                  }
+                        createToast.present();
+                        this.navCtrl.setRoot(AdminPage);
+                    }
                 }
-              ]
+            ]
 
-            });
-            confirm.present();
+        });
+        confirm.present();
 
-  }
-  createcar() { 
-    const createToast = this.toastCtrl.create({
-      message: 'Fahrzeug erfolgreich angelegt',
-      duration: 3000
-    });
-    const confirm = this.alertCtrl.create({
-      title: 'Fahrzeug anlegen',
-      message: 'Wollen Sie dieses Fahrzeug wirklich anlegen?',
-      buttons: [
-        {
-          text: 'Nein',
-          handler: () => {
-            console.log('No clicked');
-          }
-        },
-        {
-          text: 'Ja',
-          handler: () => {
-            let carid = this.af.createId();
-            this.carCollectionRef.add({
-                marke: this.carcreateForm.value.marke,
-                modell: this.carcreateForm.value.modell,
-                sitze: Number(this.carcreateForm.value.sitze),
-                farbe: this.carcreateForm.value.farbe,
-                kennzeichen: this.carcreateForm.value.kennzeichen,
-                reserviert: 0,
-                gebucht: ['',''],
-                carid,
-            });
-            createToast.present();
-            this.carcreateForm.reset()
-          }
-        }
-      ]
-    });
-    confirm.present();
-  }
+    }
+    createcar() {
+        const createToast = this.toastCtrl.create({
+            message: 'Fahrzeug erfolgreich angelegt',
+            duration: 3000
+        });
+        const confirm = this.alertCtrl.create({
+            title: 'Fahrzeug anlegen',
+            message: 'Wollen Sie dieses Fahrzeug wirklich anlegen?',
+            buttons: [
+                {
+                    text: 'Nein',
+                    handler: () => {
+                        console.log('No clicked');
+                    }
+                },
+                {
+                    text: 'Ja',
+                    handler: () => {
+                        let carid = this.af.createId();
+                        this.carCollectionRef.add({
+                            marke: this.carcreateForm.value.marke,
+                            modell: this.carcreateForm.value.modell,
+                            sitze: Number(this.carcreateForm.value.sitze),
+                            farbe: this.carcreateForm.value.farbe,
+                            kennzeichen: this.carcreateForm.value.kennzeichen,
+                            reserviert: 0,
+                            gebucht: ['',''],
+                            carid,
+                            picture: this.carcreateForm.value.picture,
+                        });
+                        createToast.present();
+                        this.carcreateForm.reset()
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    }
 
 
-  editcar(data1) {
-      console.log(data1);
-      const createToast = this.toastCtrl.create({
-          message: 'Fahrzeug erfolgreich geändert',
-          duration: 3000
-      });
-      const prompt = this.alertCtrl.create({
-          title: 'Ändern',
-          message: "Hier können Sie Änderungen am Fahrzeug durchführen:",
-          inputs: [
-              {
-                  name: 'marke',
-                  placeholder: 'Marke',
-                  value: data1.marke
+    editcar(data1) {
+        console.log(data1);
+        const createToast = this.toastCtrl.create({
+            message: 'Fahrzeug erfolgreich geändert',
+            duration: 3000
+        });
+        const prompt = this.alertCtrl.create({
+            title: 'Ändern',
+            message: "Hier können Sie Änderungen am Fahrzeug durchführen:",
+            inputs: [
+                {
+                    name: 'marke',
+                    placeholder: 'Marke',
+                    value: data1.marke
 
-              },
-              {
-                  name: 'modell',
-                  placeholder: 'Modell',
-                  value: data1.modell
-              },
-              {
-                  name: 'kennzeichen',
-                  placeholder: 'Kennzeichen',
-                  value: data1.kennzeichen
-              },
-              {
-                  name: 'sitze',
-                  placeholder: 'Sitze',
-                  value: data1.sitze,
-              },
-              {
-                  name: 'farbe',
-                  placeholder: 'Farbe',
-                  value: data1.farbe
-              },
-          ],
-          buttons: [
-              {
-                  text: 'Abbrechen',
-                  handler: data => {
-                      console.log('Cancel clicked');
-                  }
+                },
+                {
+                    name: 'modell',
+                    placeholder: 'Modell',
+                    value: data1.modell
+                },
+                {
+                    name: 'kennzeichen',
+                    placeholder: 'Kennzeichen',
+                    value: data1.kennzeichen
+                },
+                {
+                    name: 'sitze',
+                    placeholder: 'Sitze',
+                    value: data1.sitze,
+                },
+                {
+                    name: 'farbe',
+                    placeholder: 'Farbe',
+                    value: data1.farbe
+                },
+                {
+                    name: "picture",
+                    placeholder: "URL zum Bild",
+                    value: data1.picture
+                }
+            ],
+            buttons: [
+                {
+                    text: 'Abbrechen',
+                    handler: data => {
+                        console.log('Cancel clicked');
+                    }
 
-              },
-              {
-                  text: 'Ändern',
-                  handler: cardata => {
-                      cardata.sitze = parseInt(cardata.sitze)
-                      let carRef = this.af.collection('cars').ref.where('carid', '==', data1.carid);
-                      carRef.get().then((result) => {
-                          result.forEach(doc => {
-                              //console.log(doc.data());
-                              //added benefit of getting the document id / key
-                              console.log(doc.id);
-                              this.carCollectionRef.doc(doc.id).update(cardata);
-                          })
-                      });
+                },
+                {
+                    text: 'Ändern',
+                    handler: cardata => {
+                        cardata.sitze = parseInt(cardata.sitze)
+                        let carRef = this.af.collection('cars').ref.where('carid', '==', data1.carid);
+                        carRef.get().then((result) => {
+                            result.forEach(doc => {
+                                //console.log(doc.data());
+                                //added benefit of getting the document id / key
+                                console.log(doc.id);
+                                this.carCollectionRef.doc(doc.id).update(cardata);
+                            })
+                        });
 
-                      createToast.present();
-                  }
-              }
-          ]
-      });
-      prompt.present();
-  }
+                        createToast.present();
+                    }
+                }
+            ]
+        });
+        prompt.present();
+    }
 
 
 
@@ -263,5 +272,4 @@ export class AdminPage {
 
         createToast.present();
     }
-  }
-  
+}

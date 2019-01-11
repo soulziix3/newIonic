@@ -85,12 +85,26 @@ export class MyBookingsPage {
                         .then(function(querySnapshot) {
 
                             querySnapshot.forEach(function(bookingDoc) {
+                                var checkCar:boolean = true
+
+
                                 if (bookingDoc.get('carID') === carDoc.get('carid')) {
                                     merge = Object.assign(carDoc.data(), bookingDoc.data());
 
                                     if (typeof merge !== 'undefined') {
-                                        MyBookingsPage.prototype.pushMergedData(merge)
-                                        carArray.push(merge)
+
+                                        for(let i = 0; i < carArray.length; i++) {
+                                            if (carDoc.get('bookingID') === carArray[i].bookingID) {
+                                                checkCar = false
+                                            }
+                                        }
+                                        if (checkCar === true) {
+                                            MyBookingsPage.prototype.pushMergedData(merge)
+                                            carArray.push(merge)
+                                            console.log(merge)
+                                        } else {
+                                            checkCar = true
+                                        }
                                     }
                                 }
                             });
@@ -189,6 +203,7 @@ export class MyBookingsPage {
         return this.bookingData
     }
 
+
     editSeats(data1) {
         const createToast = this.toastCtrl.create({
             message: 'Sitzplätze erfolgreich geändert',
@@ -219,15 +234,25 @@ export class MyBookingsPage {
                 {
                     text: 'Ändern',
                     handler: userInput => {
+                        let array = {
+                            "userID": data1.userID,
+                            "bookingID": data1.bookingID,
+                            "dateStart": data1.dateStart,
+                            "dateEnd": data1.dateEnd,
+                            "carID": data1.carID,
+                            "seat": Number(userInput.Sitze)
+                        }
+
+
 
                         data1.seat = userInput.Sitze
-                        console.log(data1)
+
                         if (data1.seat <= data1.sitze && data1.seat != 0) {
                             let bookingRef = this.af.collection('bookings').ref.where('bookingID', '==', data1.bookingID);
                             bookingRef.get().then((result) => {
                                 result.forEach(doc => {
                                     //console.log(doc.data());
-                                    this.bookingCollectionRef.doc(doc.id).update(data1);
+                                    this.bookingCollectionRef.doc(doc.id).update(array);
                                     createToast.present();
                                 })
                             });
@@ -252,5 +277,7 @@ export class MyBookingsPage {
         });
         prompt.present();
     }
+
+
 }
 

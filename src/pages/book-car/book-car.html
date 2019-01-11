@@ -53,11 +53,19 @@
           <ion-row>
             <ion-col style="text-align: left">
               <p>Kennzeichen: {{dataCar.kennzeichen}}</p>
-              <p>Sitze: {{dataCar.sitze}}</p>
+              <p>Verfügbare Sitzplätze: {{dataCar.sitze}}</p>
               <p>Farbe: {{dataCar.farbe}}</p>
-            </ion-col>
-            <ion-col style="text-align: right">
               <button ion-button (click)="bookCar(dataCar)" >Buchen</button>
+            </ion-col>
+            <ion-col>
+              <div *ngIf="dataCar.picture !== null || dataCar.picture !== '' " style="text-align: right">
+                <img width="20%" src="{{dataCar.picture}}">
+              </div>
+              <div *ngIf="dataCar.picture == null || dataCar.picture == '' " style="text-align: center">
+                <i><p>Kein Bild verfügbar</p></i>
+              </div>
+
+
             </ion-col>
           </ion-row>
         </ion-card-content>
