@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {AlertController, App, IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {AngularFireDatabase} from "angularfire2/database"
@@ -8,8 +8,7 @@ import {LoginPage} from "../login/login";
 import {ProtocolPage} from "../about/protocol";
 import {HomePage} from "../home/home";
 import {Observable} from "../../../node_modules/rxjs/Observable";
-import {areAllEquivalent} from "@angular/compiler/src/output/output_ast";
-import {assertNumber} from "../../../node_modules/@angular/core/src/render3/assert";
+
 
 interface Booking {
     carID: string;
@@ -35,7 +34,7 @@ declare const bookingData;
     selector: 'page-my-bookings',
     templateUrl: 'my-bookings.html',
 })
-export class MyBookingsPage {
+export class MyBookingsPage implements OnInit{
     public bookingCollectionRef: AngularFirestoreCollection<Booking> = this.af.collection(
         "bookings");
     public bookings = this.bookingCollectionRef.valueChanges();
@@ -43,7 +42,8 @@ export class MyBookingsPage {
     public cars = this.carCollectionRef.valueChanges();
     public date = new Date();
     bookings1: string = "currentbookings";
-    public bookingData = window["bookingData"]
+    public bookingData = window["bookingData"];
+    public availableBookings: boolean
 
     public carArray:any[] = [];
     //bookingsComplete = {
@@ -62,15 +62,18 @@ export class MyBookingsPage {
                 private af: AngularFirestore,
                 public db: AngularFireDatabase) {
 
+
+    }
+
+    ngOnInit() {
         this.getAllDocuments().subscribe((data)=>{
-            //this.dataBooking = data;
-            this.mergeCarAndBookingData(data);
-            //console.log(this.carArray)
-            //console.log(this.dataBooking)
+            this.mergeCarAndBookingData();
         });
     }
 
-    mergeCarAndBookingData(test){
+    mergeCarAndBookingData(){
+        this.carArray = [];
+        //debugger;
         let merge: any;
         let af = this.af;
         let carArray = this.carArray;
@@ -88,22 +91,29 @@ export class MyBookingsPage {
                                 var checkCar:boolean = true
 
 
+
                                 if (bookingDoc.get('carID') === carDoc.get('carid')) {
                                     merge = Object.assign(carDoc.data(), bookingDoc.data());
 
                                     if (typeof merge !== 'undefined') {
-
+                                        //debugger
                                         for(let i = 0; i < carArray.length; i++) {
                                             if (carDoc.get('bookingID') === carArray[i].bookingID) {
                                                 checkCar = false
                                             }
                                         }
+
                                         if (checkCar === true) {
                                             MyBookingsPage.prototype.pushMergedData(merge)
                                             carArray.push(merge)
                                             console.log(merge)
                                         } else {
                                             checkCar = true
+                                        }
+                                        if (carArray.length === 0) {
+                                            MyBookingsPage.prototype.availableBookings = false
+                                        } else {
+                                            MyBookingsPage.prototype.availableBookings = true
                                         }
                                     }
                                 }
@@ -253,6 +263,7 @@ export class MyBookingsPage {
                                 result.forEach(doc => {
                                     //console.log(doc.data());
                                     this.bookingCollectionRef.doc(doc.id).update(array);
+                                    console.log(this.carArray)
                                     createToast.present();
                                 })
                             });

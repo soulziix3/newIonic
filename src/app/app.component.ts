@@ -6,6 +6,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
+import { HomePage} from '../pages/home/home'
 
 
 @Component({

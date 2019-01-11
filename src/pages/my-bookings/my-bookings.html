@@ -21,9 +21,6 @@
   <div [ngSwitch]="bookings1">
     <ion-list *ngSwitchCase="'currentbookings'">
       <div>
-        <ion-item>
-          Buchung
-        </ion-item>
         <ion-item-sliding *ngFor="let data of carArray "#item>
              <ion-item *ngIf="data.userID == checkuID() && data.dateStart > checkCurrentDate()">
 
@@ -62,14 +59,14 @@
 
         </ion-item-sliding>
       </div>
+      <div *ngIf="availableBookings === false">
+        Test
+      </div>
 
     </ion-list>
 
     <ion-list *ngSwitchCase="'bookinghistory'">
       <div>
-        <ion-item>
-          Buchung
-        </ion-item>
         <ion-item-sliding *ngFor="let data of carArray "#item>
           <ion-item *ngIf="data.userID == checkuID() && data.dateStart < checkCurrentDate()">
             <ion-col style="text-align: left">
@@ -96,6 +93,9 @@
               </button>
             </ion-item-options>
       </ion-item-sliding>
+        <div *ngIf="availableBookings === false && data.userID == checkuID()">
+          Test
+        </div>
      </div>
     </ion-list>
   </div>

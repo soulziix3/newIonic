@@ -59,7 +59,7 @@
             </ion-col>
             <ion-col>
               <div *ngIf="dataCar.picture !== null || dataCar.picture !== '' " style="text-align: right">
-                <img width="20%" src="{{dataCar.picture}}">
+                <img width="150px" class="carPicture" src="{{dataCar.picture}}">
               </div>
               <div *ngIf="dataCar.picture == null || dataCar.picture == '' " style="text-align: center">
                 <i><p>Kein Bild verfügbar</p></i>
