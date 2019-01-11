@@ -65,13 +65,13 @@ export class SettingsPage {
         querySnapshot.forEach(function (userDoc) {
           console.log("Test");
           if (userDoc.get("admin") == true){
-            console.log("Fick dich TS")
+            console.log("TS NEIN")
             SettingsPage.prototype.isAdmin = true
 
 
           }
           else{
-            console.log("Ich hasse TS")
+            console.log("BUH")
             return false
           }
         })

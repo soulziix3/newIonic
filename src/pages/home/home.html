@@ -13,31 +13,33 @@
 
 <ion-content padding>
   <div>
-      <form [formGroup]="bookcarForm" (ngSubmite)= "searchCars()">
+    <form [formGroup]="bookcarForm" (ngSubmite)= "searchCars()">
 
-        <ion-item >
-          <ion-label >Buchungsbeginn</ion-label>
-          <ion-datetime displayFormat="DD MMM YYYY H:mm" [min] = "minDate" max="2025-10-31" formControlName="dateStarts"> </ion-datetime>
-        </ion-item>
+      <ion-item >
+        <ion-label >Buchungsbeginn</ion-label>
+        <ion-datetime  displayFormat="DD MMM YYYY H:mm" [min] = "minDate" max="2025-10-31" formControlName="dateStarts" [ngModel]="minDate"> </ion-datetime>
+      </ion-item>
 
 
-        <ion-item>
-          <ion-label>Buchungsende</ion-label>
-          <ion-datetime displayFormat="DD MMM YYYY H:mm" [min] = "minDate" max="2025-12-31" formControlName="dateEnds" ></ion-datetime>
-        </ion-item>
+      <ion-item>
+        <ion-label>Buchungsende</ion-label>
+        <ion-datetime displayFormat="DD MMM YYYY H:mm" [min] = "minDate" max="2025-12-31" formControlName="dateEnds"  [ngModel]="minDate"></ion-datetime>
+      </ion-item>
 
-        <ion-item>
-          <ion-label>Sitzplätze</ion-label>
-          <ion-select formControlName="seats">
-            <ion-option value="1">1</ion-option>
+      <ion-item>
+        <ion-label>Sitzplätze</ion-label>
+        <ion-select formControlName="seats" [ngModel]="1">
+          <ion-option value="1">1</ion-option>
           <ion-option value="2">2</ion-option>
           <ion-option value="3">3</ion-option>
           <ion-option value="4">4</ion-option>
-          </ion-select>
+          <ion-option value="5">5</ion-option>
 
-        </ion-item>
-        <button ion-button (click)="searchCars()" block>Prüfen </button>
-      </form>
+        </ion-select>
+
+      </ion-item>
+      <button ion-button (click)="searchCars()" block>Prüfen </button>
+    </form>
 
   </div>
 </ion-content>
