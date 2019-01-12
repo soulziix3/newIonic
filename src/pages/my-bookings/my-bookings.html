@@ -59,15 +59,15 @@
 
         </ion-item-sliding>
       </div>
-      <div *ngIf="availableBookings === false">
-        Test
+      <div *ngIf="availableBookings == false">
+        Keine aktuellen Buchungen verfügbar
       </div>
 
     </ion-list>
 
     <ion-list *ngSwitchCase="'bookinghistory'">
       <div>
-        <ion-item-sliding *ngFor="let data of carArray "#item>
+        <ion-item-sliding *ngFor="let data of carArray_history "#item>
           <ion-item *ngIf="data.userID == checkuID() && data.dateStart < checkCurrentDate()">
             <ion-col style="text-align: left">
                   <ion-grid>
@@ -93,8 +93,8 @@
               </button>
             </ion-item-options>
       </ion-item-sliding>
-        <div *ngIf="availableBookings === false && data.userID == checkuID()">
-          Test
+        <div *ngIf="bookingHistory == false">
+          Keine Buchungen in der Historie verfügbar
         </div>
      </div>
     </ion-list>

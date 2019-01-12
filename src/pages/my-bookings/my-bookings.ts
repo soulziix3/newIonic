@@ -43,9 +43,10 @@ export class MyBookingsPage implements OnInit{
     public date = new Date();
     bookings1: string = "currentbookings";
     public bookingData = window["bookingData"];
-    public availableBookings: boolean
-
+    public availableBookings: boolean;
+    public bookingHistory: boolean;
     public carArray:any[] = [];
+    public carArray_history:any[] = [];
     //bookingsComplete = {
     //    booking: this.bookings,
     //    car: this.cars,
@@ -73,10 +74,13 @@ export class MyBookingsPage implements OnInit{
 
     mergeCarAndBookingData(){
         this.carArray = [];
+        this.carArray_history = [];
         //debugger;
         let merge: any;
         let af = this.af;
         let carArray = this.carArray;
+        let carArray_history = this.carArray_history;
+        let date = this.date
 
         this.af.collection("cars").ref
             .get()
@@ -88,34 +92,36 @@ export class MyBookingsPage implements OnInit{
                         .then(function(querySnapshot) {
 
                             querySnapshot.forEach(function(bookingDoc) {
-                                var checkCar:boolean = true
+                                //var checkCar:boolean
+                                //debugger
 
-
-
-                                if (bookingDoc.get('carID') === carDoc.get('carid')) {
+                                if (bookingDoc.get('carID') === carDoc.get('carid') &&
+                                    bookingDoc.get('userID') === firebase.auth().currentUser.uid) {
                                     merge = Object.assign(carDoc.data(), bookingDoc.data());
 
+                                    MyBookingsPage.prototype.pushMergedData(merge);
                                     if (typeof merge !== 'undefined') {
-                                        //debugger
-                                        for(let i = 0; i < carArray.length; i++) {
-                                            if (carDoc.get('bookingID') === carArray[i].bookingID) {
-                                                checkCar = false
-                                            }
-                                        }
-
-                                        if (checkCar === true) {
-                                            MyBookingsPage.prototype.pushMergedData(merge)
-                                            carArray.push(merge)
-                                            console.log(merge)
-                                        } else {
-                                            checkCar = true
-                                        }
-                                        if (carArray.length === 0) {
-                                            MyBookingsPage.prototype.availableBookings = false
-                                        } else {
-                                            MyBookingsPage.prototype.availableBookings = true
-                                        }
+                                        carArray.push(merge);
+                                            //var currDate = MyBookingsPage.prototype.checkCurrentDate();
                                     }
+                                }
+                                for(let i = 0; i < carArray.length; i++) {
+                                    //debugger
+                                    if (carArray[i].dateStart < date.getTime()) {
+                                        carArray_history.push(carArray[i])
+                                        carArray.splice(i,1)
+                                    }
+                                }
+                                if (carArray_history.length === 0) {
+                                    MyBookingsPage.prototype.bookingHistory = false
+                                } else {
+                                    MyBookingsPage.prototype.bookingHistory = true
+                                }
+
+                                if (carArray.length === 0) {
+                                    MyBookingsPage.prototype.availableBookings = false
+                                } else {
+                                    MyBookingsPage.prototype.availableBookings = true
                                 }
                             });
                         });
@@ -138,7 +144,6 @@ export class MyBookingsPage implements OnInit{
 
     checkuID(){
         return firebase.auth().currentUser.uid;
-
     }
 
     getAllDocuments(): Observable<any>{
@@ -177,7 +182,7 @@ export class MyBookingsPage implements OnInit{
                         });
 
                         createToast.present();
-                        this.navCtrl.setRoot(HomePage);
+                        //this.navCtrl.setRoot(HomePage);
                     }
                 }
             ]
