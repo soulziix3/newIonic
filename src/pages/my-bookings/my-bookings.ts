@@ -209,9 +209,12 @@ export class MyBookingsPage implements OnInit{
         return this.date;
 
     }
-    goToProtocoll(data){
-        this.bookingData = data;
-        this.navCtrl.push(ProtocolPage)
+    goToProtocoll(data) {
+      this.bookingData = data;
+      console.log(data);
+      this.navCtrl.push(ProtocolPage, {
+        bookingId: data,
+      })
     }
 
     getBookingData(): any {

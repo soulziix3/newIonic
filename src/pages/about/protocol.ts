@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { FormGroup, FormBuilder } from '@angular/forms';
 //import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage';
 import { ImageProvider } from '../../providers/image-provider';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { NavController, AlertController, ToastController, Loading, LoadingController } from 'ionic-angular';
+import { NavController,NavParams, AlertController, ToastController, Loading, LoadingController } from 'ionic-angular';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Crop } from '@ionic-native/crop';
 import firebase from 'firebase';
@@ -11,38 +12,35 @@ import {MyBookingsPage} from "../my-bookings/my-bookings";
 //import { bookingData } from "../my-bookings/my-bookings";
 import {AngularFireDatabase} from "angularfire2/database"
 import {AngularFirestore, AngularFirestoreCollection} from "angularfire2/firestore"
+import {Observable} from "rxjs";
+import {HomePage} from "../home/home";
 
+interface Protocol {
+    driverA: string;
+    driverB: string;
+    circumstances: string;
+    protocolid: any
+    bookingID: any}
 
 @Component({
     templateUrl: 'protocol.html'
 })
 export class ProtocolPage {
-    question1: string;
-    question2: string;
-    question3: string;
-    question4: string;
-    question5: string;
-    question6: string;
-    question7: string;
-    question8: string;
-    question9: string;
-    question10: string;
-    question11: string;
-    question12: string;
-    question13: string;
-    question14: string;
-    question15: string;
-    question16: string;
-    question17: string;
+
 
     private images = [];
     captureDataUrl: string;
 
     imageUrls = [];
     photos:any;
+    bookingID : any;
+    protocolid: any;
 
     //public loginForm:FormGroup;
     public loading:Loading;
+    public protocolcreateForm: FormGroup;
+  public protocolData: Observable<Protocol[]>;
+  public protocolCollectionRef: AngularFirestoreCollection<Protocol> = this.af.collection('protocol');
 /*
     cameraOptions: CameraOptions = {
         quality: 50,
@@ -65,17 +63,25 @@ export class ProtocolPage {
                 private imagePicker: ImagePicker,
                 private cropService: Crop,
                 public toastCtrl: ToastController,
-                //public af: AngularFirestore,
+                public af: AngularFirestore,
                 //public db: AngularFireDatabase,
                 //public loginForm:FormGroup,
-                public loadingCtrl:LoadingController) {
+                public formBuilder: FormBuilder,
+                public loadingCtrl:LoadingController,
+                public navParams: NavParams,) {
 
+        this.bookingID = navParams.get("bookingId");
         let data = localStorage.getItem('images');
         if (data) {
             this.images = JSON.parse(data);
 
             this.alertCtrl = alertCtrl
         }
+        this.protocolcreateForm = formBuilder.group({
+          driverA: [''],
+          driverB: [''],
+          circumstances: [''],
+    });
     }
 
 
@@ -158,8 +164,23 @@ export class ProtocolPage {
         // clear the previous photo data in the variable
         this.captureDataUrl = "";
     }
+    createprotocol() {
 
-    }
+    console.log(this.bookingID)
+      var protocolid = this.af.createId();
+      this.protocolCollectionRef.add({
+        bookingID :this.bookingID,
+        driverA: this.protocolcreateForm.value.driverA,
+        driverB: this.protocolcreateForm.value.driverB,
+        circumstances: this.protocolcreateForm.value.circumstances,
+        protocolid,
+      });
+      this.navCtrl.setRoot(MyBookingsPage);
+
+  }
+
+}
+
 
 
 

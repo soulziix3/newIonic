@@ -7,32 +7,24 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-card>
-        <ion-card-header>
-            Fahrer A
-        </ion-card-header>
-        <ion-card-content>
-            <ion-textarea placeholder="Enter here" name="driverA"></ion-textarea>
-        </ion-card-content>
-    </ion-card>
+    <ion-list>
+        <form [formGroup]="protocolcreateForm" (submit)="createprotocol()">
+          <ion-item>
+            <ion-label stacked>Fahrer A</ion-label>
+            <ion-input formControlName="driverA" type="text" value=""></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Fahrer B</ion-label>
+            <ion-input formControlName="driverB" type="text" value=""></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Umstände</ion-label>
+            <ion-input formControlName="circumstances" type="text" value=""></ion-input>
+        </ion-item>
+          <button ion-button block type="submit">Anlegen</button>
+        </form>
 
-    <ion-card>
-        <ion-card-header>
-            Fahrer B
-        </ion-card-header>
-        <ion-card-content>
-            <ion-textarea placeholder="Enter here" name="driverB"></ion-textarea>
-        </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-        <ion-card-header>
-            Unfallumstände
-        </ion-card-header>
-        <ion-card-content>
-            <ion-textarea placeholder="Enter here" name="circumstances"></ion-textarea>
-        </ion-card-content>
-    </ion-card>
+    </ion-list>
 
     <ion-row class="center">
         <button ion-button large icon-only (click)="takePhoto()">
