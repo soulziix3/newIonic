@@ -22,23 +22,22 @@
     </ion-segment>
   </ion-toolbar>
 </ion-header>
-
-
 <ion-content padding>
    <div [ngSwitch] = "userlist">
     <ion-list *ngSwitchCase="'users'">
       <div *ngFor="let userData of users | async">
         <ion-item *ngIf="userData.admin == false && userData.developer == false">
-          E-Mail: {{userData.userMail}}
+          E-Mail: <br>
+          {{userData.userMail}} <br>
           <button ion-button color="blue" (click)="changeUser(userData)">Status ändern</button>
-
         </ion-item>
       </div>
     </ion-list>
     <ion-list *ngSwitchCase="'admins'">
       <div *ngFor="let userData of users | async">
         <ion-item *ngIf="userData.admin == true">
-          E-Mail: {{userData.userMail}}
+          E-Mail: <br>
+          {{userData.userMail}}<br>
          <button ion-button color="blue" (click)="changeAdmin(userData)">Status ändern</button>
         </ion-item>
       </div>
@@ -46,13 +45,11 @@
     <ion-list *ngSwitchCase="'developers'">
      <div *ngFor="let userData of users | async">
         <ion-item *ngIf="userData.developer == true">
-          E-Mail: {{userData.userMail}}
+          E-Mail: <br>
+          {{userData.userMail}} <br>
           <button ion-button color="blue" (click)="changeDev(userData)">Status ändern </button>
         </ion-item>
       </div>
     </ion-list>
   </div>
-
-
-
 </ion-content>

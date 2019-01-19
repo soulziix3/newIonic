@@ -36,8 +36,6 @@
     <ion-item>
       <label>Anzahl Sitzplätze: {{seat}}</label>
     </ion-item>
-
-
   </div>
   <br>
   <div>
@@ -55,17 +53,20 @@
               <p>Kennzeichen: {{dataCar.kennzeichen}}</p>
               <p>Verfügbare Sitzplätze: {{dataCar.sitze}}</p>
               <p>Farbe: {{dataCar.farbe}}</p>
-              <button ion-button (click)="bookCar(dataCar)" >Buchen</button>
+              <div *ngFor="let userData of users | async">
+              <div *ngIf="userData.admin == false && checkCurrentUser(userData.userMail) == true ">
+                <div>
+                  <button ion-button (click)="bookCar(dataCar)" >Buchen</button>
+              </div>
+              </div>
+              </div>
             </ion-col>
             <ion-col>
               <div *ngIf="dataCar.picture !== null || dataCar.picture !== '' " style="text-align: right">
-                <img width="150px" class="carPicture" src="{{dataCar.picture}}">
               </div>
               <div *ngIf="dataCar.picture == null || dataCar.picture == '' " style="text-align: center">
                 <i><p>Kein Bild verfügbar</p></i>
               </div>
-
-
             </ion-col>
           </ion-row>
         </ion-card-content>

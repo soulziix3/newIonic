@@ -39,6 +39,12 @@ interface Booking {
     dateStart: any;
     seat: number;
     bookingID: string;
+
+}
+interface User {
+  email: string,
+  admin: boolean,
+  developer: boolean,
 }
 
 @Component({
@@ -66,6 +72,8 @@ export class BookCarPage {
     public cars = this.carCollectionRef.valueChanges();
     public bookingCollectionRef: AngularFirestoreCollection<Booking> = this.af.collection(
         "bookings");
+    public userCollectionRef: AngularFirestoreCollection<User> = this.af.collection("users");
+    users = this.userCollectionRef.valueChanges()
     public bookings = this.bookingCollectionRef.valueChanges();
     public carArray1:any = [];
     public newArray: any = [];
@@ -88,6 +96,12 @@ export class BookCarPage {
         this.seat = navParams.get("seat");
         this.destination = navParams.get("destination")
         this.dataCar = this.bookingCollectionRef.valueChanges();
+        this.dateEnd = new Date(this.dateEnd)
+        this.dateEnd.setHours(this.dateEnd.getHours() - 1)
+        this.dateEnd = this.dateEnd.getTime()
+        this.dateStart = new Date(this.dateStart)
+        this.dateStart.setHours(this.dateStart.getHours() - 1)
+        this.dateStart = this.dateStart.getTime()
 
         this.getAllPosts().subscribe((data)=>{
             this.data = data;
@@ -128,9 +142,13 @@ export class BookCarPage {
     checkCarAndBookingData(carData){
         var carArray = this.carArray1
         let af = this.af;
-        let datestart = new Date(this.dateStart).getTime();
-        let dateend = new Date(this.dateEnd).getTime();
+        let datestart = this.dateStart
+        let dateend = this.dateEnd
         let seat = this.seat
+        console.log(datestart)
+        console.log(dateend)
+
+
 
         this.getAllDocuments().subscribe((data)=>{
         });
@@ -270,6 +288,8 @@ export class BookCarPage {
 
                     handler: () => {
 
+
+
                         let carRef = this.af.collection('cars').ref.where('carid', '==', data.carid);
                         carRef.get().then((result) => {
                             result.forEach(doc => {
@@ -278,8 +298,8 @@ export class BookCarPage {
 
                                 this.bookingCollectionRef.add({
                                     carID: data.carid,
-                                    dateEnd: new Date(this.dateEnd).getTime(),
-                                    dateStart: new Date(this.dateStart).getTime(),
+                                    dateEnd: this.dateEnd,
+                                    dateStart: this.dateStart,
                                     seat: parseInt(this.seat),
                                     userID: firebase.auth().currentUser.uid,
                                     bookingID: id,
@@ -299,6 +319,30 @@ export class BookCarPage {
         confirm.present();
 
 
+    }
+    getCarImg(kennzeichen){
+
+      const carImgRef = firebase.storage().ref().child('cars/'+ kennzeichen+".jpg");
+      carImgRef.getDownloadURL().then(url => {
+        return url
+        });
+
+
+
+    }
+     checkCurrentUser(mail){
+     let user = firebase.auth().currentUser;
+     let userMail =  user.email
+      console.log(userMail)
+      console.log(mail)
+
+     if (mail == userMail){
+       console.log("user ist angemeldet")
+       return true
+     }
+     else {
+       return false
+     }
     }
 
 }

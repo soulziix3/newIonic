@@ -55,10 +55,15 @@
 
         </ion-list>
         <ion-list *ngSwitchCase="'car_list'">
-
-            <ion-item-sliding *ngFor="let data1 of cars | async" #item>
+            <div *ngFor="let data1 of cars | async" #item>
+              <ion-item-sliding >
                 <ion-item>
-                    {{data1.marke}}, {{ data1.modell }}, {{data1.kennzeichen}}
+                    {{data1.marke}}, {{ data1.modell }}, {{data1.kennzeichen}} <br>
+                  <button ion-button large icon-only (click)="getPicture(0, data1.carid)">
+                    <ion-icon ios="ios-images" md="md-images"></ion-icon>
+                  </button>
+                  <img [src]="captureDataUrl" *ngIf="captureDataUrl && picVar == data1.carid"/> <br>
+                  <button ion-button (click)="upload(data1)" *ngIf="captureDataUrl">Upload</button>
                 </ion-item>
 
                 <ion-item-options side="right">
@@ -66,7 +71,10 @@
                     <button ion-button color="danger" (click)="deletecar(data1)">Löschen</button>
                 </ion-item-options>
 
+
             </ion-item-sliding>
+            </div>
+
             <!--
                       <ion-card (click)="goToCarProfile()" *ngFor="let data of cars | async">
                           <ion-card-header>

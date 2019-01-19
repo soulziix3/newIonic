@@ -6,6 +6,7 @@ import firebase from "firebase";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {AngularFireDatabase} from "angularfire2/database"
 import {AngularFirestore, AngularFirestoreCollection} from "angularfire2/firestore"
+import {DateTime} from "ionic-angular";
 
 
 interface Booking {
@@ -36,7 +37,8 @@ export class HomePage {
   public carCollectionRef: AngularFirestoreCollection<Car> =  this.af.collection("cars");
   public cars = this.carCollectionRef.valueChanges();
   public date: string = new Date().toDateString();
-  minDate: string = new Date().toISOString();
+  myDate = new Date();
+  minDate: String = new Date(this.myDate.getTime() - this.myDate.getTimezoneOffset()*60000).toISOString();
 
 
   private bookcarForm: FormGroup;
@@ -70,13 +72,38 @@ export class HomePage {
   };
 
   searchCars() {
-    console.log(this.bookcarForm.value);
-    this.navCtrl.push(BookCarPage, {
+    const createToast1 = this.toastCtrl.create({
+            message: 'Der Startzeitpunkt liegt nach dem Endzeitpunkt.',
+            duration: 3000
+        });
+    const createToast2 = this.toastCtrl.create({
+            message: 'Der Startzeitpunkt entspricht dem Endzeitpunkt.',
+            duration: 3000
+        });
+
+
+    let dateStart = this.bookcarForm.value["dateStarts"]
+    let dateEnds = this.bookcarForm.value["dateEnds"]
+
+    if (dateStart > dateEnds) {
+      createToast1.present()
+    }
+
+    else if (dateStart == dateEnds){
+      createToast2.present()
+    }
+
+
+    else{
+      this.navCtrl.push(BookCarPage, {
       dStart: this.bookcarForm.value["dateStarts"],
       dEnd: this.bookcarForm.value["dateEnds"],
       seat: this.bookcarForm.value["seats"],
 
     });
+    }
+    console.log(this.bookcarForm.value);
+
 
   }
   checkuID(){

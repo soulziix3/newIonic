@@ -9,19 +9,11 @@ import {AngularFirestoreCollection} from "angularfire2/firestore";
 import firebase from "firebase";
 import {AngularFireDatabase} from "angularfire2/database";
 
-
-/**
- * Generated class for the UserAdminPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 interface Users {
   userMail: string;
   admin: boolean;
   developer: boolean;
 }
-
 @IonicPage()
 @Component({
   selector: 'page-user-admin',
@@ -36,11 +28,9 @@ export class UserAdminPage {
               private af: AngularFirestore,
               public db: AngularFireDatabase,
               public alertCtrl: AlertController,
-            public toastCtrl: ToastController
+            public toastCtrl: ToastController){
 
-  )  {
   }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad UserAdminPage');
   }
@@ -75,7 +65,6 @@ export class UserAdminPage {
         {
           text: "Ändern",
           handler: userInput => {
-
             if (userInput == "admin"){
               userData.admin = true
               userData.developer = false
@@ -88,8 +77,6 @@ export class UserAdminPage {
               userData.admin = false
             }
             console.log(userData)
-
-
             let userRef = this.af.collection('users').ref.where('userMail', '==', userData.userMail);
                             userRef.get().then((result) => {
                                 result.forEach(doc => {
@@ -99,9 +86,7 @@ export class UserAdminPage {
                                      })
                             });
           }
-        }
-      ]
-
+        }]
     })
     prompt.present()
   }
@@ -137,19 +122,15 @@ export class UserAdminPage {
         {
           text: "Ändern",
           handler: userInput => {
-
             if (userInput == "user"){
               userData.admin = false
               userData.developer = false
-
             }
             else if(userInput == "developer"){
               userData.developer = true
               userData.admin = false
             }
             console.log(userData)
-
-
             let userRef = this.af.collection('users').ref.where('userMail', '==', userData.userMail);
                             userRef.get().then((result) => {
                                 result.forEach(doc => {
@@ -159,9 +140,7 @@ export class UserAdminPage {
                                      })
                             });
           }
-        }
-      ]
-
+        }]
     })
     prompt.present()
   }
@@ -196,19 +175,15 @@ export class UserAdminPage {
         {
           text: "Ändern",
           handler: userInput => {
-
             if (userInput == "user"){
               userData.admin = false
               userData.developer = false
-
             }
             else if(userInput == "admin"){
               userData.developer = false
               userData.admin = true
             }
             console.log(userData)
-
-
             let userRef = this.af.collection('users').ref.where('userMail', '==', userData.userMail);
                             userRef.get().then((result) => {
                                 result.forEach(doc => {
@@ -218,15 +193,8 @@ export class UserAdminPage {
                                      })
                             });
           }
-        }
-      ]
-
+        }]
     })
     prompt.present()
   }
-
-
-
-
-
 }

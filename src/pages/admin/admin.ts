@@ -1,11 +1,19 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { AlertController, NavController, ToastController } from 'ionic-angular';
+import {AlertController, Loading, LoadingController, NavController, ToastController} from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+//import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage';
+import { ImageProvider } from '../../providers/image-provider';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { Crop } from '@ionic-native/crop';
 import NumberFormat = Intl.NumberFormat;
+import {AngularFireAuth} from "angularfire2/auth";
+import firebase from "firebase";
+import {MyBookingsPage} from "../my-bookings/my-bookings";
 //import {map} from "rxjs/operators";
 //import {DatabaseProvider} from "../../providers/auth/database";
 
@@ -34,7 +42,11 @@ interface Car {
     templateUrl: 'admin.html',
 })
 export class AdminPage {
+    public loading:Loading;
     data: any;
+    picVar: string;
+    private images = [];
+    captureDataUrl: string
     admin: string = 'car_create';
     public bookingCollectionRef: AngularFirestoreCollection<Booking> = this.af.collection(
         "bookings");
@@ -53,13 +65,20 @@ export class AdminPage {
 
     constructor(
         public navCtrl: NavController,
-        //    private readonly carDB: DatabaseProvider,
         public db: AngularFireDatabase,
         private af: AngularFirestore,
         public formBuilder: FormBuilder,
         public alertCtrl: AlertController,
-        public toastCtrl: ToastController) {
+        public toastCtrl: ToastController,
+        private camera: Camera,
+        private imageSrv: ImageProvider,
+        private afAuth: AngularFireAuth,
+        private imagePicker: ImagePicker,
+        private cropService: Crop,
+        public loadingCtrl:LoadingController,
+        ) {
         this.carData = this.carCollectionRef.valueChanges();
+
 
         this.getAllPosts().subscribe((data)=>{
             this.data = data;
@@ -80,6 +99,13 @@ export class AdminPage {
             gebucht: ['',''],
             picture: ['']
         });
+        let data = localStorage.getItem('images');
+        if (data) {
+            this.images = JSON.parse(data);
+
+            this.alertCtrl = alertCtrl
+        }
+
     }
 
     getAllPosts (): Observable<any> {
@@ -272,4 +298,67 @@ export class AdminPage {
 
         createToast.present();
     }
+
+    @Input('useURI') useURI: Boolean = true;
+
+
+
+    getPicture(sourceType, carid){
+        const cameraOptions: CameraOptions = {
+            quality: 75,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE,
+            sourceType: sourceType
+        };
+
+        this.camera.getPicture(cameraOptions)
+            .then((data) => {
+                this.captureDataUrl = 'data:image/jpeg;base64,' + data;
+            }, (err) => {
+                console.log(err);
+            });
+        this.picVar = carid
+    }
+    upload(carData) {
+
+        this.loading = this.loadingCtrl.create({
+            //duration: 5000,
+        });
+        this.loading.present();
+
+        let storageRef = firebase.storage().ref();
+        // Create a timestamp as filename
+        const filename = carData.kennzeichen;
+
+        // Create a reference to 'images/todays-date.jpg'
+        const imageRef = storageRef.child(`/cars/${filename}.jpg`);
+
+        imageRef.putString(this.captureDataUrl, firebase.storage.StringFormat.DATA_URL)
+            .then((snapshot)=> {
+                this.loading.dismissAll()
+                // Do something here when the data is succesfully uploaded!
+                this.showSuccesfulUploadAlert();
+            });
+    }
+    showSuccesfulUploadAlert() {
+
+        const createToast = this.toastCtrl.create({
+            message: 'Bild erfolgreich hochgeladen',
+            duration: 3000
+        });
+        createToast.present();
+
+        // clear the previous photo data in the variable
+        this.captureDataUrl = "";
+    }
+
+
+
+
+
 }
+
+
+
+

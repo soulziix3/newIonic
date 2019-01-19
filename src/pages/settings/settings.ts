@@ -28,14 +28,12 @@ export class SettingsPage {
   public userCollectionRef: AngularFirestoreCollection<User> = this.af.collection("users");
   users = this.userCollectionRef.valueChanges()
   public isAdmin: any
-  users1 = this.af.collection("users").ref.where("email", "==" , this.user.email)
-
-
 
   constructor(public navCtrl: NavController,
               public af: AngularFirestore,
               public db: AngularFireDatabase
   ) {
+
 
     this.checkAdmin()
 
@@ -60,26 +58,38 @@ export class SettingsPage {
   checkAdmin(){
 
     let user = firebase.auth().currentUser;
-    let userRef = this.af.collection("users").ref.where("email", "==" , user.email)
     this.af.collection("users").ref.get().then(function (querySnapshot) {
         querySnapshot.forEach(function (userDoc) {
-          console.log("Test");
-          if (userDoc.get("admin") == true){
-            console.log("TS NEIN")
+          if (userDoc.get("admin") == true && userDoc.get("userMail") == user.email ){
+            console.log("Ein Admin ist angemeldet")
             SettingsPage.prototype.isAdmin = true
+
 
 
           }
           else{
-            console.log("BUH")
-            return false
+
+
           }
+
         })
 
       })
 
+    }
+    checkCurrentUser(mail){
+     let user = firebase.auth().currentUser;
+     let userMail =  user.email
+      console.log(userMail)
+      console.log(mail)
 
-
+     if (mail == userMail){
+       console.log("user ist angemeldet")
+       return true
+     }
+     else {
+       return false
+     }
     }
 }
 

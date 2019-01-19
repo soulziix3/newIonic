@@ -7,13 +7,16 @@
   </ion-header>
   
   <ion-content>
+    <ion-footer padding>
+      <div *ngFor="let userData of users | async">
 
-
-      <ion-footer *ngIf="isAdmin == true" padding>
-                  <div>
-                      <button ion-button (click)="gotoUserAdmin()" block>Userverwaltung</button>
-                      <button ion-button (click)="gotoadmin()" block>Admin</button>
-                  </div>
+          <div *ngIf="userData.admin == true && checkCurrentUser(userData.userMail) == true ">
+            <div>
+              <button ion-button (click)="gotoUserAdmin()" block>Userverwaltung</button>
+              <button ion-button (click)="gotoadmin()" block>Admin</button>
+            </div>
+          </div>
+      </div>
 
       </ion-footer>
 
