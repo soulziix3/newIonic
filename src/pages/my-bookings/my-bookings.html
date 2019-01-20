@@ -37,6 +37,9 @@
                       <p>Gebuchte Sitzplätze: {{data.seat}}</p>
                       <p> Enddatum: {{data.dateEnd | date: 'dd/MM/yyyy'}} </p>
                       <p>Endzeit: {{data.dateEnd | date: 'HH:mm'}}</p>
+                      <div *ngIf="data.protocol== true">
+                          <p><i>Unfallprotokoll vorhanden</i></p>
+                      </div>
                     </ion-col>
                   </ion-row>
                 </ion-grid>
@@ -49,9 +52,16 @@
             <ion-icon ios="ios-people" md="md-people"></ion-icon>
             </button>
 
-            <button color="secondary" ion-button large icon-only (click)="goToProtocoll()">
-                    <ion-icon ios="ios-clipboard"  md="md-clipboard"></ion-icon>
-            </button>
+            <div *ngIf="data.protocol== false|| data.protocol==null">
+              <button color="secondary" ion-button large icon-only (click)="goToProtocoll(data)">
+                      <ion-icon ios="ios-clipboard"  md="md-clipboard"></ion-icon>
+              </button>
+            </div>
+            <div *ngIf="data.protocol== true">
+              <button color="secondary" ion-button large icon-only (click)="viewProtocoll(data)">
+                      <ion-icon ios="ios-clipboard"  md="md-clipboard"></ion-icon>
+              </button>
+            </div>
             <button color="danger" ion-button large icon-only (click)="deleteBooking(data)">
                     <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
             </button>
@@ -82,15 +92,25 @@
                         <p>Gebuchte Sitzplätze: {{data.seat}}</p>
                         <p> Enddatum: {{data.dateEnd | date: 'dd/MM/yyyy'}} </p>
                         <p>Endzeit: {{data.dateEnd | date: 'HH:mm'}}</p>
+                        <div *ngIf="data.protocol== true">
+                          <p><i>Unfallprotokoll vorhanden</i></p>
+                      </div>
                       </ion-col>
                     </ion-row>
                   </ion-grid>
             </ion-col>
           </ion-item>
           <ion-item-options side="right">
+              <div *ngIf="data.protocol== false|| data.protocol==null">
               <button color="secondary" ion-button large icon-only (click)="goToProtocoll(data)">
                       <ion-icon ios="ios-clipboard"  md="md-clipboard"></ion-icon>
               </button>
+            </div>
+            <div *ngIf="data.protocol== true">
+              <button color="secondary" ion-button large icon-only (click)="viewProtocoll(data)">
+                      <ion-icon ios="ios-clipboard"  md="md-clipboard"></ion-icon>
+              </button>
+            </div>
             </ion-item-options>
       </ion-item-sliding>
         <div *ngIf="bookingHistory == false">

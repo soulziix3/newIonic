@@ -15,6 +15,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { ProtocolPage } from '../pages/about/protocol';
 import {BookCarPage} from "../pages/book-car/book-car";
+import {ViewprotocolPage} from "../pages/viewprotocol/viewprotocol";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -27,9 +28,10 @@ import { ImagePicker } from '@ionic-native/image-picker';
 import { Crop } from '@ionic-native/crop';
 import {UserAdminPage} from "../pages/user-admin/user-admin";
 import {ContactPage} from "../pages/contact/contact";
-import {Push} from '@ionic-native/push';
+//import {Push} from '@ionic-native/push';
 import { FcmProvider } from '../providers/fcm/fcm';
 import { Firebase } from '@ionic-native/firebase';
+
 
 const firebaseConfig = 
  {
@@ -58,7 +60,8 @@ const firebaseConfig =
     BookCarPage,
     MyBookingsPage,
     UserAdminPage,
-    ContactPage
+    ContactPage,
+    ViewprotocolPage
   ],
   imports: [
     BrowserModule,
@@ -84,7 +87,8 @@ const firebaseConfig =
     //CarProfilePage
     BookCarPage,
     MyBookingsPage,
-    UserAdminPage
+    UserAdminPage,
+    ViewprotocolPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
@@ -96,7 +100,7 @@ const firebaseConfig =
     ImageProvider,
       ImagePicker,
       Crop,
-      Push,
+      //Push,
     FcmProvider,
       Firebase
   ]

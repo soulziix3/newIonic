@@ -6,6 +6,7 @@ import {AngularFirestore, AngularFirestoreCollection} from "angularfire2/firesto
 import firebase, {app} from "firebase";
 import {LoginPage} from "../login/login";
 import {ProtocolPage} from "../about/protocol";
+import {ViewprotocolPage} from "../viewprotocol/viewprotocol";
 import {HomePage} from "../home/home";
 import {Observable} from "../../../node_modules/rxjs/Observable";
 
@@ -15,6 +16,7 @@ interface Booking {
     dateEnd: string;
     dateStart: string;
     seat: number;
+    protocol: boolean;
 }
 
 interface Car {
@@ -47,6 +49,11 @@ export class MyBookingsPage implements OnInit{
     public bookingHistory: boolean;
     public carArray:any[] = [];
     public carArray_history:any[] = [];
+    driverA : any = [];
+    driverB : any = [];
+    circumstances : any = [];
+    protocoldata: any;
+    protocolboolean: boolean = true;
     //bookingsComplete = {
     //    booking: this.bookings,
     //    car: this.cars,
@@ -62,8 +69,12 @@ export class MyBookingsPage implements OnInit{
                 //private formBuilder: FormBuilder,
                 private af: AngularFirestore,
                 public db: AngularFireDatabase) {
-
-
+      this.protocoldata = {
+      "driverA": this.driverA,
+      "driverB": this.driverB,
+      "circumstances": this.circumstances,
+      "protocolboolean": this.protocolboolean,
+    }
     }
 
     ngOnInit() {
@@ -211,9 +222,21 @@ export class MyBookingsPage implements OnInit{
     }
     goToProtocoll(data) {
       this.bookingData = data;
+      console.log(this.protocoldata);
+      //console.log(this.protocoldata);
       console.log(data);
       this.navCtrl.push(ProtocolPage, {
-        bookingId: data,
+        protocoldata: this.protocoldata,
+        data: data,
+        //protocol: data1,
+      })
+    }
+    viewProtocoll(data) {
+      this.bookingData = data;
+      console.log(data);
+      this.navCtrl.push(ViewprotocolPage, {
+        data: data,
+        //protocol: data1,
       })
     }
 

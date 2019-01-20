@@ -8,20 +8,49 @@
 
 <ion-content padding>
     <ion-list>
+        <form [formGroup]="protocolcreateForm" (submit)="updateprotocol()">
+              <div *ngFor="let protocoldata of protocoldata2| async">
+                <div *ngIf="checkprotocolID(protocoldata.bookingID) == true">
+                      <ion-item>
+                        <ion-label stacked>Fahrer A</ion-label>
+                        <ion-input  formControlName="driverA" type="text" value= {{protocoldata.driverA}} ></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label stacked>Fahrer B</ion-label>
+                        <ion-input formControlName="driverB" type="text" value={{protocoldata.driverB}}></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label stacked>Umstände</ion-label>
+                        <ion-input formControlName="circumstances" type="text" value={{protocoldata.circumstances}}></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label stacked>Bild optional * als URL angeben</ion-label>
+                        <ion-input formControlName="picture" type="text" value=""></ion-input>
+                    </ion-item>
+                      <button ion-button block type="submit">Anlegen</button>
+                </div>
+            </div>
+        </form>
         <form [formGroup]="protocolcreateForm" (submit)="createprotocol()">
-          <ion-item>
-            <ion-label stacked>Fahrer A</ion-label>
-            <ion-input formControlName="driverA" type="text" value=""></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label stacked>Fahrer B</ion-label>
-            <ion-input formControlName="driverB" type="text" value=""></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label stacked>Umstände</ion-label>
-            <ion-input formControlName="circumstances" type="text" value=""></ion-input>
-        </ion-item>
-          <button ion-button block type="submit">Anlegen</button>
+          <div *ngIf="protocolboolean == true">
+                    <ion-item>
+                        <ion-label stacked>Fahrer A</ion-label>
+                        <ion-input  formControlName="driverA" type="text" value= "" ></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label stacked>Fahrer B</ion-label>
+                        <ion-input formControlName="driverB" type="text" value=""></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label stacked>Umstände</ion-label>
+                        <ion-input formControlName="circumstances" type="text" value=""></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label stacked>Bild optional * als URL angeben</ion-label>
+                        <ion-input formControlName="picture" type="text" value=""></ion-input>
+                    </ion-item>
+                      <button ion-button block type="submit">Anlegen</button>
+          </div>
         </form>
 
     </ion-list>

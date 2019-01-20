@@ -39,6 +39,7 @@ interface Booking {
     dateStart: any;
     seat: number;
     bookingID: string;
+    protocol:boolean;
 
 }
 interface User {
@@ -303,7 +304,7 @@ export class BookCarPage {
                                     seat: parseInt(this.seat),
                                     userID: firebase.auth().currentUser.uid,
                                     bookingID: id,
-
+                                    protocol: false,
                                 });
 
                             })

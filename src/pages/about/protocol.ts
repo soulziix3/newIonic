@@ -6,6 +6,7 @@ import { ImageProvider } from '../../providers/image-provider';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { NavController,NavParams, AlertController, ToastController, Loading, LoadingController } from 'ionic-angular';
 import { ImagePicker } from '@ionic-native/image-picker';
+import {ViewprotocolPage} from "../viewprotocol/viewprotocol";
 import { Crop } from '@ionic-native/crop';
 import firebase from 'firebase';
 import {MyBookingsPage} from "../my-bookings/my-bookings";
@@ -15,6 +16,13 @@ import {AngularFirestore, AngularFirestoreCollection} from "angularfire2/firesto
 import {Observable} from "rxjs";
 import {HomePage} from "../home/home";
 
+interface Booking {
+  carID: string;
+  dateEnd: string;
+  dateStart: string;
+  seat: number;
+  protocol: boolean;
+}
 interface Protocol {
     driverA: string;
     driverB: string;
@@ -35,13 +43,26 @@ export class ProtocolPage {
     photos:any;
     bookingID : any;
     protocolid: any;
+    bookingdata: any;
+    protocoldata:any;
+    driverA: any;
+    driverB: any;
+    circumstances: any;
+    protocoldriverA: any;
+    protocoldriverB: any;
+    protocolcircumstances : any;
+    protocolarray: any = [];
+    protocolboolean: boolean;
 
     //public loginForm:FormGroup;
     public loading:Loading;
     public protocolcreateForm: FormGroup;
   public protocolData: Observable<Protocol[]>;
+  public bookingCollectionRef: AngularFirestoreCollection<Booking> = this.af.collection(
+        "bookings");
   public protocolCollectionRef: AngularFirestoreCollection<Protocol> = this.af.collection('protocol');
-/*
+  public protocoldata2 = this.protocolCollectionRef.valueChanges();
+  /*
     cameraOptions: CameraOptions = {
         quality: 50,
         targetHeight: 600,
@@ -70,7 +91,18 @@ export class ProtocolPage {
                 public loadingCtrl:LoadingController,
                 public navParams: NavParams,) {
 
-        this.bookingID = navParams.get("bookingId");
+        this.bookingdata = navParams.get("data");
+        this.protocoldata = navParams.get("protocoldata");
+        this.bookingID = this.bookingdata.bookingID;
+        this.protocoldriverA = this.protocoldata.driverA;
+        this.protocoldriverB = this.protocoldata.driverB;
+        this.protocolcircumstances = this.protocoldata.circumstances;
+        this.protocolboolean = false;
+        this.protocolboolean = this.protocoldata.protocolboolean;
+        console.log(this.protocolboolean)
+        this.driverA = [];
+        this.driverB =[];
+        this.circumstances = [];
         let data = localStorage.getItem('images');
         if (data) {
             this.images = JSON.parse(data);
@@ -81,9 +113,13 @@ export class ProtocolPage {
           driverA: [''],
           driverB: [''],
           circumstances: [''],
+          picture: ['']
     });
     }
-
+    checkprotocolID(pbookingID){
+      if(this.bookingID== pbookingID)
+        {return true}
+    }
 
    takePhoto() {
        const cameraOptions: CameraOptions = {
@@ -167,8 +203,25 @@ export class ProtocolPage {
         this.captureDataUrl = "";
     }
     createprotocol() {
+      let array = {
+        "userID": this.bookingdata.userID,
+        "bookingID": this.bookingdata.bookingID,
+        "dateStart": this.bookingdata.dateStart,
+        "dateEnd": this.bookingdata.dateEnd,
+        "carID": this.bookingdata.carID,
+        "seat": this.bookingdata.seat,
+        "protocol": true,
+      }
+      let bookingRef = this.af.collection('bookings').ref.where('bookingID', '==', array.bookingID);
+                            bookingRef.get().then((result) => {
+                                result.forEach(doc => {
+                                    //console.log(doc.data());
+                                    this.bookingCollectionRef.doc(doc.id).update(array);
 
-    console.log(this.bookingID)
+
+                                })
+                            });
+      console.log(this.bookingID)
       var protocolid = this.af.createId();
       this.protocolCollectionRef.add({
         bookingID :this.bookingID,
@@ -177,9 +230,34 @@ export class ProtocolPage {
         circumstances: this.protocolcreateForm.value.circumstances,
         protocolid,
       });
-      this.navCtrl.setRoot(MyBookingsPage);
-
+      this.navCtrl.push(ViewprotocolPage, {
+        data: this.bookingdata
+      });
   }
+  updateprotocol() {
+        let array = {
+        "userID": this.bookingdata.userID,
+        "bookingID": this.bookingdata.bookingID,
+        "dateStart": this.bookingdata.dateStart,
+        "dateEnd": this.bookingdata.dateEnd,
+        "carID": this.bookingdata.carID,
+        "seat": this.bookingdata.seat,
+        "protocol": true,
+        "driverA": this.protocolcreateForm.value.driverA,
+        "driverB": this.protocolcreateForm.value.driverB,
+        "circumstances": this.protocolcreateForm.value.circumstances,
+      }
+      let protocolRef = this.af.collection('protocol').ref.where('bookingID', '==', array.bookingID);
+                            protocolRef.get().then((result) => {
+                                result.forEach(doc => {
+                                  //console.log(doc.data());
+                                  this.protocolCollectionRef.doc(doc.id).update(array);
+                                })
+                            });
+       this.navCtrl.push(ViewprotocolPage, {
+        data: this.bookingdata
+      });
+    }
 
 }
 
