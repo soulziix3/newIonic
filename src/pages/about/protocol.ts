@@ -88,6 +88,8 @@ export class ProtocolPage {
    takePhoto() {
        const cameraOptions: CameraOptions = {
            quality: 75,
+           targetWidth: 600,
+           targetHeight: 900,
            destinationType: this.camera.DestinationType.DATA_URL,
            encodingType: this.camera.EncodingType.JPEG,
            mediaType: this.camera.MediaType.PICTURE,

@@ -6,7 +6,11 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
-import { HomePage} from '../pages/home/home'
+import { FcmProvider } from '../providers/fcm/fcm';
+import { ToastController } from 'ionic-angular';
+import { Subject } from 'rxjs/Subject';
+import { tap } from 'rxjs/operators';
+import {pipe} from "rxjs";
 
 
 @Component({
@@ -18,14 +22,19 @@ export class MyApp {
   constructor(platform: Platform, 
     statusBar: StatusBar, 
     splashScreen: SplashScreen, 
-    afAuth: AngularFireAuth) {
+    afAuth: AngularFireAuth,
+    fcm: FcmProvider,
+    toastCtrl: ToastController) {
     
     platform.ready().then(() => {
+        fcm.getToken()
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+
     });
+
    
     const authObserver = afAuth.authState.subscribe( user => {
       if (user) {
@@ -37,6 +46,7 @@ export class MyApp {
       }
     });
   }
+
 
 }
 

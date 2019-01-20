@@ -4,7 +4,7 @@ import { MyBookingsPage } from './my-bookings';
 
 @NgModule({
   declarations: [
-    MyBookingsPage,
+    //MyBookingsPage,
   ],
   imports: [
     IonicPageModule.forChild(MyBookingsPage),

@@ -26,6 +26,10 @@ import { ImageProvider } from '../providers/image-provider';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Crop } from '@ionic-native/crop';
 import {UserAdminPage} from "../pages/user-admin/user-admin";
+import {ContactPage} from "../pages/contact/contact";
+import {Push} from '@ionic-native/push';
+import { FcmProvider } from '../providers/fcm/fcm';
+import { Firebase } from '@ionic-native/firebase';
 
 const firebaseConfig = 
  {
@@ -53,7 +57,8 @@ const firebaseConfig =
     // CarProfilePage
     BookCarPage,
     MyBookingsPage,
-    UserAdminPage
+    UserAdminPage,
+    ContactPage
   ],
   imports: [
     BrowserModule,
@@ -90,7 +95,10 @@ const firebaseConfig =
     Camera,
     ImageProvider,
       ImagePicker,
-      Crop
+      Crop,
+      Push,
+    FcmProvider,
+      Firebase
   ]
 })
 export class AppModule {

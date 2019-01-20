@@ -16,17 +16,17 @@ import {AngularFirestore} from "angularfire2/firestore";
 
 @NgModule({
  declarations: [
-    MyApp,
-    WelcomePage,
+    //MyApp,
+    //WelcomePage,
     //LoginPage,
-    SignupPage,
-    SettingsPage,
-    AdminPage,
-    AboutPage,
+    //SignupPage,
+    //SettingsPage,
+    //AdminPage,
+    //AboutPage,
     //ContactPage,
-    HomePage,
-    TabsPage,
-    BookCarPage
+    //HomePage,
+    //TabsPage,
+    //BookCarPage
   ],
   imports: [
     IonicPageModule.forChild(BookCarPage),
