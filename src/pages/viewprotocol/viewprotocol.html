@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Protokoll
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+    <ion-content padding>
+      <div *ngFor="let protocoldata of protocol| async">
+        <div *ngIf="checkprotocolID(protocoldata.bookingID) == true">
+          <p>Fahrer A:{{ protocoldata.driverA}}</p>
+          <p>Fahrer B:{{ protocoldata.driverB}}</p>
+          <p>Umstände: {{ protocoldata.circumstances}}</p>
+          <button color="danger" ion-button large icon-only (click)="editProtocoll(protocoldata)">
+                            <ion-icon ios="ios-brush-outline" md="md-brush"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </ion-content>
+
