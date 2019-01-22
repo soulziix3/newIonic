@@ -25674,6 +25674,10 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+page-book-car .carPicture {
+  width: 150px;
+}
+
 page-signup form {
   margin-bottom: 32px;
 }

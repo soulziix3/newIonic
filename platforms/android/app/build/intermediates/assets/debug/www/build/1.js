@@ -1,14 +1,14 @@
 webpackJsonp([1],{
 
-/***/ 529:
+/***/ 531:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserAdminPageModule", function() { return UserAdminPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ViewprotocolPageModule", function() { return ViewprotocolPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_admin__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__viewprotocol__ = __webpack_require__(175);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var UserAdminPageModule = /** @class */ (function () {
-    function UserAdminPageModule() {
+var ViewprotocolPageModule = /** @class */ (function () {
+    function ViewprotocolPageModule() {
     }
-    UserAdminPageModule = __decorate([
+    ViewprotocolPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__user_admin__["a" /* UserAdminPage */],
+                __WEBPACK_IMPORTED_MODULE_2__viewprotocol__["a" /* ViewprotocolPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__user_admin__["a" /* UserAdminPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__viewprotocol__["a" /* ViewprotocolPage */]),
             ],
         })
-    ], UserAdminPageModule);
-    return UserAdminPageModule;
+    ], ViewprotocolPageModule);
+    return ViewprotocolPageModule;
 }());
 
-//# sourceMappingURL=user-admin.module.js.map
+//# sourceMappingURL=viewprotocol.module.js.map
 
 /***/ })
 
