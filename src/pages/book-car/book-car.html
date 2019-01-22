@@ -53,6 +53,8 @@
               <p>Kennzeichen: {{dataCar.kennzeichen}}</p>
               <p>Verfügbare Sitzplätze: {{dataCar.sitze}}</p>
               <p>Farbe: {{dataCar.farbe}}</p>
+              
+
               <div *ngFor="let userData of users | async">
               <div *ngIf="userData.admin == false && checkCurrentUser(userData.userMail) == true ">
                 <div>
@@ -62,11 +64,8 @@
               </div>
             </ion-col>
             <ion-col>
-              <div *ngIf="dataCar.picture !== null || dataCar.picture !== '' " style="text-align: right">
-              </div>
-              <div *ngIf="dataCar.picture == null || dataCar.picture == '' " style="text-align: center">
-                <i><p>Kein Bild verfügbar</p></i>
-              </div>
+              <img [src]="dataCar.imgUrl" >
+
             </ion-col>
           </ion-row>
         </ion-card-content>

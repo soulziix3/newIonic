@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import {AlertController, Loading, LoadingController, NavController, ToastController} from 'ionic-angular';
@@ -23,8 +23,7 @@ interface Booking {
     dateStart: string;
     timeEnd: string;
     timeStart: string;
-    seat: number;
-    userMail: string}
+    seat: number;}
 
 interface Car {
     carid: string;
@@ -35,275 +34,233 @@ interface Car {
     sitze: number;
     kennzeichen: string;
     gebucht: [string,string];
-    picture: string;}
+    imgUrl: string}
 
 
 @Component({
     selector: 'page-admin',
     templateUrl: 'admin.html',
 })
-export class AdminPage implements OnInit{
-    public loading:Loading;
-    data: any;
-    picVar: string;
-    private images = [];
-    captureDataUrl: string
-    admin: string = 'car_create';
-    public bookingCollectionRef: AngularFirestoreCollection<Booking> = this.af.collection(
-        "bookings");
-    public carcreateForm: FormGroup;
-    public carData: Observable<Car[]>;
-    public bookings = this.bookingCollectionRef.valueChanges();
-    public carCollectionRef: AngularFirestoreCollection<Car> = this.af.collection('cars');
-    public cars = this.carCollectionRef.valueChanges();
-    //public carDoc: AngularFirestoreDocument<Car>;
-    //public  dbp: DatabaseProvider;
-    bookings1: string = "currentbookings";
-    bookingsComplete = {
-        booking: this.bookings,
-        car: this.cars
-    };
-    public carArray:any[] = [];
+export class AdminPage {
+  public loading: Loading;
+  data: any;
+  picVar: string;
+  private images = [];
+  captureDataUrl: string
+  admin: string = 'car_create';
+  public bookingCollectionRef: AngularFirestoreCollection<Booking> = this.af.collection(
+    "bookings");
+  public carcreateForm: FormGroup;
+  public carData: Observable<Car[]>;
+  public bookings = this.bookingCollectionRef.valueChanges();
+  public carCollectionRef: AngularFirestoreCollection<Car> = this.af.collection('cars');
+  public cars = this.carCollectionRef.valueChanges();
+  //public carDoc: AngularFirestoreDocument<Car>;
+  //public  dbp: DatabaseProvider;
+  bookings1: string = "currentbookings";
+  bookingsComplete = {
+    booking: this.bookings,
+    car: this.cars
+  };
 
-    constructor(
-        public navCtrl: NavController,
-        public db: AngularFireDatabase,
-        private af: AngularFirestore,
-        public formBuilder: FormBuilder,
-        public alertCtrl: AlertController,
-        public toastCtrl: ToastController,
-        private camera: Camera,
-        private imageSrv: ImageProvider,
-        private afAuth: AngularFireAuth,
-        private imagePicker: ImagePicker,
-        private cropService: Crop,
-        public loadingCtrl:LoadingController,
-    ) {
-        this.carData = this.carCollectionRef.valueChanges();
+  constructor(
+    public navCtrl: NavController,
+    public db: AngularFireDatabase,
+    private af: AngularFirestore,
+    public formBuilder: FormBuilder,
+    public alertCtrl: AlertController,
+    public toastCtrl: ToastController,
+    private camera: Camera,
+    private imageSrv: ImageProvider,
+    private afAuth: AngularFireAuth,
+    private imagePicker: ImagePicker,
+    private cropService: Crop,
+    public loadingCtrl: LoadingController,
+  ) {
+    this.carData = this.carCollectionRef.valueChanges();
 
 
-        this.getAllPosts().subscribe((data)=>{
-            this.data = data;
-            console.log(this.data);
-        });
+    this.getAllPosts().subscribe((data) => {
+      this.data = data;
+      console.log(this.data);
+    });
 
-        //this.carCollectionRef = af.collection('cars');
-        //this.carData = this.carCollectionRef.valueChanges();
-        //console.log(this.carCollectionRef);
+    //this.carCollectionRef = af.collection('cars');
+    //this.carData = this.carCollectionRef.valueChanges();
+    //console.log(this.carCollectionRef);
 
-        this.carcreateForm = formBuilder.group({
-            marke: [''],
-            modell: [''],
-            sitze: [0],
-            farbe: [''],
-            kennzeichen: [''],
-            reserviert: ['0'],
-            gebucht: ['',''],
-            picture: ['']
-        });
-        let data = localStorage.getItem('images');
-        if (data) {
-            this.images = JSON.parse(data);
+    this.carcreateForm = formBuilder.group({
+      marke: [''],
+      modell: [''],
+      sitze: [0],
+      farbe: [''],
+      kennzeichen: [''],
+      reserviert: ['0'],
+      gebucht: ['', ''],
+      picture: ['']
+    });
+    let data = localStorage.getItem('images');
+    if (data) {
+      this.images = JSON.parse(data);
 
-            this.alertCtrl = alertCtrl
+      this.alertCtrl = alertCtrl
+    }
+
+  }
+
+  getAllPosts(): Observable<any> {
+    return this.af.collection<any>("cars").valueChanges();
+  }
+
+  deleteBooking(data) {
+    console.log("Buchung löschen");
+    const createToast = this.toastCtrl.create({
+      message: 'Buchung erfolgreich storniert',
+      duration: 3000
+    });
+    const confirm = this.alertCtrl.create({
+      title: "Fahrzeug buchen",
+      message: "Wolllen Sie diese Buchung wirklich stornieren?",
+      buttons: [
+        {
+          text: "Nein",
+          handler: () => {
+            console.log("Not clicked");
+          }
+        },
+        {
+          text: "Ja ",
+
+          handler: () => {
+
+            let bookRef = this.af.collection('bookings').ref.where('bookingID', '==', data.bookingID);
+            bookRef.get().then((result) => {
+              result.forEach(doc => {
+
+                console.log(doc.id);
+                this.bookingCollectionRef.doc(doc.id).delete();
+              })
+            });
+
+            createToast.present();
+            this.navCtrl.setRoot(AdminPage);
+          }
         }
+      ]
 
-    }
+    });
+    confirm.present();
 
-    ngOnInit() {
+  }
 
-        this.carArray = [];
-        var af = this.af;
-        var merge: any;
-        var carArray = this.carArray;
-        this.af.collection("bookings").ref.orderBy('dateStart')
-            .get()
-            .then(function(querySnapshot) {
-                querySnapshot.forEach(function(bookingDoc) {
+  createcar() {
+    const createToast = this.toastCtrl.create({
+      message: 'Fahrzeug erfolgreich angelegt',
+      duration: 3000
+    });
+    const confirm = this.alertCtrl.create({
+      title: 'Fahrzeug anlegen',
+      message: 'Wollen Sie dieses Fahrzeug wirklich anlegen?',
+      buttons: [
+        {
+          text: 'Nein',
+          handler: () => {
+            console.log('No clicked');
+          }
+        },
+        {
+          text: 'Ja',
+          handler: () => {
+            let carid = this.af.createId();
+            this.carCollectionRef.add({
+              marke: this.carcreateForm.value.marke,
+              modell: this.carcreateForm.value.modell,
+              sitze: Number(this.carcreateForm.value.sitze),
+              farbe: this.carcreateForm.value.farbe,
+              kennzeichen: this.carcreateForm.value.kennzeichen,
+              reserviert: 0,
+              gebucht: ['', ''],
+              carid,
+              imgUrl: ""
 
-                    af.collection("cars").ref
-                        .get()
-                        .then(function(querySnapshot) {
-
-                            querySnapshot.forEach(function(carDoc) {
-                                //debugger
-                                //var checkCar:boolean
-                                if(bookingDoc.get('carID') == carDoc.get('carid')) {
-                                    merge = Object.assign(carDoc.data(), bookingDoc.data());
-                                    AdminPage.prototype.pushMergedData(merge);
-                                    carArray.push(merge)
-                                    //console.log(carArray)
-                                }
-
-                            });
-                        });
-
-                });
-            })
-    }
-
-    pushMergedData(carArr) {
-        this.carArray = [];
-        this.carArray.push(carArr);
-        //console.log(this.carArray)
-    }
-
-    getAllPosts (): Observable<any> {
-        return this.af.collection<any>("cars").valueChanges();
-    }
-
-    deleteBooking(data){
-        //console.log("Buchung löschen");
-        const createToast = this.toastCtrl.create({
-            message: 'Buchung erfolgreich storniert',
-            duration: 3000
-        });
-        const confirm = this.alertCtrl.create({
-            title: "Fahrzeug buchen",
-            message: "Wolllen Sie diese Buchung wirklich stornieren?",
-            buttons: [
-                {
-                    text: "Nein",
-                    handler: () => {
-                        console.log("Not clicked");
-                    }
-                },
-                {
-                    text: "Ja ",
-
-                    handler: () => {
-
-                        let bookRef = this.af.collection('bookings').ref.where('bookingID', '==', data.bookingID);
-                        bookRef.get().then((result) => {
-                            result.forEach(doc => {
-
-                                //console.log(doc.id);
-                                this.bookingCollectionRef.doc(doc.id).delete();
-                            })
-                        });
-
-                        createToast.present();
-                        this.navCtrl.setRoot(AdminPage);
-                    }
-                }
-            ]
-
-        });
-        confirm.present();
-
-    }
-    createcar() {
-        const createToast = this.toastCtrl.create({
-            message: 'Fahrzeug erfolgreich angelegt',
-            duration: 3000
-        });
-        const confirm = this.alertCtrl.create({
-            title: 'Fahrzeug anlegen',
-            message: 'Wollen Sie dieses Fahrzeug wirklich anlegen?',
-            buttons: [
-                {
-                    text: 'Nein',
-                    handler: () => {
-                        console.log('No clicked');
-                    }
-                },
-                {
-                    text: 'Ja',
-                    handler: () => {
-                        let carid = this.af.createId();
-                        this.carCollectionRef.add({
-                            marke: this.carcreateForm.value.marke,
-                            modell: this.carcreateForm.value.modell,
-                            sitze: Number(this.carcreateForm.value.sitze),
-                            farbe: this.carcreateForm.value.farbe,
-                            kennzeichen: this.carcreateForm.value.kennzeichen,
-                            reserviert: 0,
-                            gebucht: ['',''],
-                            carid,
-                            picture: this.carcreateForm.value.picture,
-                        });
-                        createToast.present();
-                        this.carcreateForm.reset()
-                    }
-                }
-            ]
-        });
-        confirm.present();
-    }
+            });
+            createToast.present();
+            this.carcreateForm.reset()
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
 
 
-    editcar(data1) {
-        //console.log(data1);
-        const createToast = this.toastCtrl.create({
-            message: 'Fahrzeug erfolgreich geändert',
-            duration: 3000
-        });
-        const prompt = this.alertCtrl.create({
-            title: 'Ändern',
-            message: "Hier können Sie Änderungen am Fahrzeug durchführen:",
-            inputs: [
-                {
-                    name: 'marke',
-                    placeholder: 'Marke',
-                    value: data1.marke
+  editcar(data1) {
+    console.log(data1);
+    const createToast = this.toastCtrl.create({
+      message: 'Fahrzeug erfolgreich geändert',
+      duration: 3000
+    });
+    const prompt = this.alertCtrl.create({
+      title: 'Ändern',
+      message: "Hier können Sie Änderungen am Fahrzeug durchführen:",
+      inputs: [
+        {
+          name: 'marke',
+          placeholder: 'Marke',
+          value: data1.marke
 
-                },
-                {
-                    name: 'modell',
-                    placeholder: 'Modell',
-                    value: data1.modell
-                },
-                {
-                    name: 'kennzeichen',
-                    placeholder: 'Kennzeichen',
-                    value: data1.kennzeichen
-                },
-                {
-                    name: 'sitze',
-                    placeholder: 'Sitze',
-                    value: data1.sitze,
-                },
-                {
-                    name: 'farbe',
-                    placeholder: 'Farbe',
-                    value: data1.farbe
-                },
-                {
-                    name: "picture",
-                    placeholder: "URL zum Bild",
-                    value: data1.picture
-                }
-            ],
-            buttons: [
-                {
-                    text: 'Abbrechen',
-                    handler: data => {
-                        console.log('Cancel clicked');
-                    }
+        },
+        {
+          name: 'modell',
+          placeholder: 'Modell',
+          value: data1.modell
+        },
+        {
+          name: 'kennzeichen',
+          placeholder: 'Kennzeichen',
+          value: data1.kennzeichen
+        },
+        {
+          name: 'sitze',
+          placeholder: 'Sitze',
+          value: data1.sitze,
+        },
+        {
+          name: 'farbe',
+          placeholder: 'Farbe',
+          value: data1.farbe
+        },
 
-                },
-                {
-                    text: 'Ändern',
-                    handler: cardata => {
-                        cardata.sitze = parseInt(cardata.sitze)
-                        let carRef = this.af.collection('cars').ref.where('carid', '==', data1.carid);
-                        carRef.get().then((result) => {
-                            result.forEach(doc => {
-                                //console.log(doc.data());
-                                //added benefit of getting the document id / key
-                                //console.log(doc.id);
-                                this.carCollectionRef.doc(doc.id).update(cardata);
-                            })
-                        });
+      ],
+      buttons: [
+        {
+          text: 'Abbrechen',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
 
-                        createToast.present();
-                    }
-                }
-            ]
-        });
-        prompt.present();
-    }
+        },
+        {
+          text: 'Ändern',
+          handler: cardata => {
+            cardata.sitze = parseInt(cardata.sitze)
+            let carRef = this.af.collection('cars').ref.where('carid', '==', data1.carid);
+            carRef.get().then((result) => {
+              result.forEach(doc => {
+                //console.log(doc.data());
+                //added benefit of getting the document id / key
+                console.log(doc.id);
+                this.carCollectionRef.doc(doc.id).update(cardata);
+              })
+            });
 
+            createToast.present();
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
 
 
 //      this.carCollectionRef.doc('Caxf4WsmhhIjlZrpUIRY').ref.get().then(function(doc) {
@@ -319,77 +276,124 @@ export class AdminPage implements OnInit{
 //      });
 
 
+  deletecar(data1) {
+    const createToast = this.toastCtrl.create({
+      message: 'Fahrzeug erfolgreich gelöscht',
+      duration: 3000
+    });
+    let carRef = this.af.collection('cars').ref.where('carid', '==', data1.carid);
+    carRef.get().then((result) => {
+      result.forEach(doc => {
+        //console.log(doc.data());
+        //added benefit of getting the document id / key
+        console.log(doc.id);
+        this.carCollectionRef.doc(doc.id).delete();
+      })
+    });
+
+    createToast.present();
+  }
+
+  @Input('useURI') useURI: Boolean = true;
 
 
-    deletecar(data1) {
-        const createToast = this.toastCtrl.create({
-            message: 'Fahrzeug erfolgreich gelöscht',
-            duration: 3000
-        });
-        let carRef = this.af.collection('cars').ref.where('carid', '==', data1.carid);
-        carRef.get().then((result) => {
-            result.forEach(doc => {
-                //console.log(doc.data());
-                //added benefit of getting the document id / key
-                //console.log(doc.id);
-                this.carCollectionRef.doc(doc.id).delete();
-            })
-        });
+  getPicture(sourceType, carid) {
+    const cameraOptions: CameraOptions = {
+      quality: 75,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      sourceType: sourceType
+    };
 
-        createToast.present();
-    }
+    this.camera.getPicture(cameraOptions)
+      .then((data) => {
+        this.captureDataUrl = 'data:image/jpeg;base64,' + data;
+      }, (err) => {
+        console.log(err);
+      });
+    this.picVar = carid
+  }
 
-    @Input('useURI') useURI: Boolean = true;
+  upload(carData) {
+
+    this.loading = this.loadingCtrl.create({
+      //duration: 5000,
+    });
+    this.loading.present();
+
+    let storageRef = firebase.storage().ref();
+    // Create a timestamp as filename
+    const filename = carData.kennzeichen;
+
+    // Create a reference to 'images/todays-date.jpg'
+    const imageRef = storageRef.child(`/cars/${filename}.jpg`);
+
+    imageRef.putString(this.captureDataUrl, firebase.storage.StringFormat.DATA_URL)
+      .then((snapshot) => {
+        this.savephotoURL(carData)
+        this.loading.dismissAll()
+        // Do something here when the data is succesfully uploaded!
+        this.showSuccesfulUploadAlert();
+
+      });
 
 
+  }
 
-    getPicture(sourceType, carid){
-        const cameraOptions: CameraOptions = {
-            quality: 75,
-            destinationType: this.camera.DestinationType.DATA_URL,
-            encodingType: this.camera.EncodingType.JPEG,
-            mediaType: this.camera.MediaType.PICTURE,
-            sourceType: sourceType
-        };
+  showSuccesfulUploadAlert() {
 
-        this.camera.getPicture(cameraOptions)
-            .then((data) => {
-                this.captureDataUrl = 'data:image/jpeg;base64,' + data;
-            }, (err) => {
-                console.log(err);
-            });
-        this.picVar = carid
-    }
-    upload(carData) {
+    const createToast = this.toastCtrl.create({
+      message: 'Bild erfolgreich hochgeladen',
+      duration: 3000
+    });
+    createToast.present();
 
-        this.loading = this.loadingCtrl.create({
-            //duration: 5000,
-        });
-        this.loading.present();
+    // clear the previous photo data in the variable
+    this.captureDataUrl = "";
+  }
 
-        let storageRef = firebase.storage().ref();
-        // Create a timestamp as filename
-        const filename = carData.kennzeichen;
+  savephotoURL(carData) {
+    const imgRef = firebase.storage().ref().child('cars/' + carData.kennzeichen + ".jpg").getDownloadURL().then(function (url) {
+      console.log("the URL Image is: " + url);
+      let imageURL = url
+      return imageURL
+    }).then((imageURL) => {
+      let carRef = this.af.collection('cars').ref.where('carid', '==', carData.carid);
+      carRef.get().then((result) => {
+        result.forEach(doc => {
+          //console.log(doc.data());
+          //added benefit of getting the document id / key
+          console.log(doc.id);
+          let newArray = {
+            "imgUrl": imageURL
+          }
+          this.carCollectionRef.doc(doc.id).update(newArray);
+        })
+      });
+    })// save url in Firestore database realtime
+  }
 
-        // Create a reference to 'images/todays-date.jpg'
-        const imageRef = storageRef.child(`/cars/${filename}.jpg`);
+  deleteImg(carData) {
 
-        imageRef.putString(this.captureDataUrl, firebase.storage.StringFormat.DATA_URL)
-            .then((snapshot)=> {
-                this.loading.dismissAll()
-                // Do something here when the data is succesfully uploaded!
-                this.showSuccesfulUploadAlert();
-            });
-    }
-    showSuccesfulUploadAlert() {
+    let newArray = {
+      "imgUrl": "",
+    };
+    let carRef = this.af.collection('cars').ref.where('carid', '==', carData.carid);
+    carRef.get().then((result) => {
+      result.forEach(doc => {
 
-        const createToast = this.toastCtrl.create({
-            message: 'Bild erfolgreich hochgeladen',
-            duration: 3000
-        });
-        createToast.present();
+        this.carCollectionRef.doc(doc.id).update(newArray);
+      })
+    })
+    const imgRef = firebase.storage().ref().child('cars/' + carData.kennzeichen + ".jpg")
+    imgRef.delete();
+    firebase.storage().ref().child('cars/' + carData.kennzeichen + ".jpg").delete()
 
-        // clear the previous photo data in the variable
-        this.captureDataUrl = "";
-    }
+
+  }
+
+  updateImg() {
+
+  }
 }
