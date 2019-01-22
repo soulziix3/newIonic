@@ -116,6 +116,7 @@ export class MyBookingsPage implements OnInit{
                                             //var currDate = MyBookingsPage.prototype.checkCurrentDate();
                                     }
                                 }
+
                                 for(let i = 0; i < carArray.length; i++) {
                                     //debugger
                                     if (carArray[i].dateEnd < date.getTime()) {
