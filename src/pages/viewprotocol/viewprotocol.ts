@@ -36,6 +36,7 @@ interface Booking {
     dateStart: string;
     seat: number;
     protocol: boolean;
+    userMail: string;
 }
 /**
  * Generated class for the ViewprotocolPage page.

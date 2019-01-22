@@ -22,6 +22,7 @@ interface Booking {
   dateStart: string;
   seat: number;
   protocol: boolean;
+  userMail: string;
 }
 interface Protocol {
     driverA: string;
@@ -151,6 +152,7 @@ export class ProtocolPage {
         "carID": this.bookingdata.carID,
         "seat": this.bookingdata.seat,
         "protocol": true,
+        "userMail": this.bookingdata.userMail,
       }
       let bookingRef = this.af.collection('bookings').ref.where('bookingID', '==', array.bookingID);
                             bookingRef.get().then((result) => {
@@ -187,6 +189,7 @@ export class ProtocolPage {
         "dateStart": this.bookingdata.dateStart,
         "dateEnd": this.bookingdata.dateEnd,
         "carID": this.bookingdata.carID,
+        "userMail": this.bookingdata.userMail,
         "seat": this.bookingdata.seat,
         "protocol": true,
         "driverA": this.protocolcreateForm.value.driverA,

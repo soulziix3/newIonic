@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import {AlertController, Loading, LoadingController, NavController, ToastController} from 'ionic-angular';
@@ -23,7 +23,8 @@ interface Booking {
     dateStart: string;
     timeEnd: string;
     timeStart: string;
-    seat: number;}
+    seat: number;
+    userMail: string}
 
 interface Car {
     carid: string;
@@ -41,7 +42,7 @@ interface Car {
     selector: 'page-admin',
     templateUrl: 'admin.html',
 })
-export class AdminPage {
+export class AdminPage implements OnInit{
     public loading:Loading;
     data: any;
     picVar: string;
@@ -62,6 +63,7 @@ export class AdminPage {
         booking: this.bookings,
         car: this.cars
     };
+    public carArray:any[] = [];
 
     constructor(
         public navCtrl: NavController,
@@ -76,7 +78,7 @@ export class AdminPage {
         private imagePicker: ImagePicker,
         private cropService: Crop,
         public loadingCtrl:LoadingController,
-        ) {
+    ) {
         this.carData = this.carCollectionRef.valueChanges();
 
 
@@ -108,12 +110,50 @@ export class AdminPage {
 
     }
 
+    ngOnInit() {
+
+        this.carArray = [];
+        var af = this.af;
+        var merge: any;
+        var carArray = this.carArray;
+        this.af.collection("bookings").ref.orderBy('dateStart')
+            .get()
+            .then(function(querySnapshot) {
+                querySnapshot.forEach(function(bookingDoc) {
+
+                    af.collection("cars").ref
+                        .get()
+                        .then(function(querySnapshot) {
+
+                            querySnapshot.forEach(function(carDoc) {
+                                //debugger
+                                //var checkCar:boolean
+                                if(bookingDoc.get('carID') == carDoc.get('carid')) {
+                                    merge = Object.assign(carDoc.data(), bookingDoc.data());
+                                    AdminPage.prototype.pushMergedData(merge);
+                                    carArray.push(merge)
+                                    //console.log(carArray)
+                                }
+
+                            });
+                        });
+
+                });
+            })
+    }
+
+    pushMergedData(carArr) {
+        this.carArray = [];
+        this.carArray.push(carArr);
+        //console.log(this.carArray)
+    }
+
     getAllPosts (): Observable<any> {
         return this.af.collection<any>("cars").valueChanges();
     }
 
     deleteBooking(data){
-        console.log("Buchung löschen");
+        //console.log("Buchung löschen");
         const createToast = this.toastCtrl.create({
             message: 'Buchung erfolgreich storniert',
             duration: 3000
@@ -137,7 +177,7 @@ export class AdminPage {
                         bookRef.get().then((result) => {
                             result.forEach(doc => {
 
-                                console.log(doc.id);
+                                //console.log(doc.id);
                                 this.bookingCollectionRef.doc(doc.id).delete();
                             })
                         });
@@ -193,7 +233,7 @@ export class AdminPage {
 
 
     editcar(data1) {
-        console.log(data1);
+        //console.log(data1);
         const createToast = this.toastCtrl.create({
             message: 'Fahrzeug erfolgreich geändert',
             duration: 3000
@@ -251,7 +291,7 @@ export class AdminPage {
                             result.forEach(doc => {
                                 //console.log(doc.data());
                                 //added benefit of getting the document id / key
-                                console.log(doc.id);
+                                //console.log(doc.id);
                                 this.carCollectionRef.doc(doc.id).update(cardata);
                             })
                         });
@@ -291,7 +331,7 @@ export class AdminPage {
             result.forEach(doc => {
                 //console.log(doc.data());
                 //added benefit of getting the document id / key
-                console.log(doc.id);
+                //console.log(doc.id);
                 this.carCollectionRef.doc(doc.id).delete();
             })
         });
@@ -352,13 +392,4 @@ export class AdminPage {
         // clear the previous photo data in the variable
         this.captureDataUrl = "";
     }
-
-
-
-
-
 }
-
-
-
-

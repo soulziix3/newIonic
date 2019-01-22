@@ -40,6 +40,7 @@ interface Booking {
     seat: number;
     bookingID: string;
     protocol:boolean;
+    userMail: string;
 
 }
 interface User {
@@ -305,6 +306,8 @@ export class BookCarPage {
                                     userID: firebase.auth().currentUser.uid,
                                     bookingID: id,
                                     protocol: false,
+                                    userMail: firebase.auth().currentUser.email
+
                                 });
 
                             })

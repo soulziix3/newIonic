@@ -56,23 +56,23 @@
         </ion-list>
         <ion-list *ngSwitchCase="'car_list'">
             <div *ngFor="let data1 of cars | async" #item>
-              <ion-item-sliding >
-                <ion-item>
-                    {{data1.marke}}, {{ data1.modell }}, {{data1.kennzeichen}} <br>
-                  <button ion-button large icon-only (click)="getPicture(0, data1.carid)">
-                    <ion-icon ios="ios-images" md="md-images"></ion-icon>
-                  </button>
-                  <img [src]="captureDataUrl" *ngIf="captureDataUrl && picVar == data1.carid"/> <br>
-                  <button ion-button (click)="upload(data1)" *ngIf="captureDataUrl">Upload</button>
-                </ion-item>
+                <ion-item-sliding >
+                    <ion-item>
+                        {{data1.marke}}, {{ data1.modell }}, {{data1.kennzeichen}} <br>
+                        <button ion-button large icon-only (click)="getPicture(0, data1.carid)">
+                            <ion-icon ios="ios-images" md="md-images"></ion-icon>
+                        </button>
+                        <img [src]="captureDataUrl" *ngIf="captureDataUrl && picVar == data1.carid"/> <br>
+                        <button ion-button (click)="upload(data1)" *ngIf="captureDataUrl">Upload</button>
+                    </ion-item>
 
-                <ion-item-options side="right">
-                    <button ion-button (click)="editcar(data1)">Ändern</button>
-                    <button ion-button color="danger" (click)="deletecar(data1)">Löschen</button>
-                </ion-item-options>
+                    <ion-item-options side="right">
+                        <button ion-button (click)="editcar(data1)">Ändern</button>
+                        <button ion-button color="danger" (click)="deletecar(data1)">Löschen</button>
+                    </ion-item-options>
 
 
-            </ion-item-sliding>
+                </ion-item-sliding>
             </div>
 
             <!--
@@ -108,17 +108,21 @@
                 <ion-item>
                     Buchung
                 </ion-item>
-                <ion-item-sliding *ngFor="let data of bookingsComplete.booking| async "#item>
+                <ion-item-sliding *ngFor="let data of carArray"#item>
                     <ion-item>
 
                         <ion-col style="text-align: left">
                             <ion-grid>
                                 <ion-row>
                                     <ion-col>
+                                        <p><b>{{data.marke}} {{data.modell}} {{data.kennzeichen}} </b></p>
+                                        <p>Max. Anzahl Sitzplätze: {{data.sitze}}</p>
                                         <p>Startdatum: {{data.dateStart | date: 'dd/MM/yyyy'}}</p>
                                         <p>Startzeit: {{data.dateStart | date: 'HH:mm'}}</p>
                                     </ion-col>
                                     <ion-col>
+                                        <p><b> Email: {{ data.userMail }} </b></p>
+                                        <p>Gebuchte Sitzplätze: {{data.seat}} </p>
                                         <p> Enddatum: {{data.dateEnd | date: 'dd/MM/yyyy'}} </p>
                                         <p>Endzeit: {{data.dateEnd | date: 'HH:mm'}}</p>
                                     </ion-col>

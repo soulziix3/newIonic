@@ -17,6 +17,7 @@ interface Booking {
     dateStart: string;
     seat: number;
     protocol: boolean;
+    userMail: string
 }
 
 interface Car {
@@ -292,7 +293,8 @@ export class MyBookingsPage implements OnInit{
                             "dateStart": data1.dateStart,
                             "dateEnd": data1.dateEnd,
                             "carID": data1.carID,
-                            "seat": Number(userInput.Sitze)
+                            "seat": Number(userInput.Sitze),
+                            "userMail": firebase.auth().currentUser.email
                         }
 
 
