@@ -11,21 +11,39 @@
         <form [formGroup]="protocolcreateForm" (submit)="updateprotocol()">
               <div *ngFor="let protocoldata of protocoldata2| async">
                 <div *ngIf="checkprotocolID(protocoldata.bookingID) == true">
-                      <ion-item>
-                        <ion-label stacked>Fahrer A</ion-label>
-                        <ion-input  formControlName="driverA" type="text" value= {{protocoldata.driverA}} ></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label stacked>Fahrer B</ion-label>
-                        <ion-input formControlName="driverB" type="text" value={{protocoldata.driverB}}></ion-input>
-                    </ion-item>
+                      <ion-card>
+                        <ion-card-header>Fahrer A</ion-card-header>
+                        <ion-card-content>
+                            <ion-item>
+                                <ion-label stacked>Name Fahrer A</ion-label>
+                                <ion-input  formControlName="driverAName" type="text" value= {{protocoldata.driverAName}} ></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label stacked>Anschrift Fahrer A</ion-label>
+                                <ion-input  formControlName="driverAAnschrift" type="text" value= {{protocoldata.driverAAnschrift}} ></ion-input>
+                            </ion-item>
+                        </ion-card-content>
+                    </ion-card>
+                    <ion-card>
+                        <ion-card-header>Fahrer B</ion-card-header>
+                        <ion-card-content>
+                            <ion-item>
+                                <ion-label stacked>Name Fahrer B</ion-label>
+                                <ion-input  formControlName="driverBName" type="text" value= {{protocoldata.driverBName}} ></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label stacked>Anschrift Fahrer B</ion-label>
+                                <ion-input  formControlName="driverBAnschrift" type="text" value= {{protocoldata.driverBAnschrift}} ></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label stacked>Kennzeichen Fahrer B</ion-label>
+                                <ion-input  formControlName="driverBAnschrift" type="text" value= {{protocoldata.driverBAnschrift}} ></ion-input>
+                            </ion-item>
+                        </ion-card-content>
+                    </ion-card>
                     <ion-item>
                         <ion-label stacked>Umstände</ion-label>
                         <ion-input formControlName="circumstances" type="text" value={{protocoldata.circumstances}}></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label stacked>Bild optional * als URL angeben</ion-label>
-                        <ion-input formControlName="picture" type="text" value=""></ion-input>
                     </ion-item>
                       <button ion-button block type="submit">Anlegen</button>
                 </div>
@@ -33,41 +51,44 @@
         </form>
         <form [formGroup]="protocolcreateForm" (submit)="createprotocol()">
           <div *ngIf="protocolboolean == true">
-                    <ion-item>
-                        <ion-label stacked>Fahrer A</ion-label>
-                        <ion-input  formControlName="driverA" type="text" value= "" ></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label stacked>Fahrer B</ion-label>
-                        <ion-input formControlName="driverB" type="text" value=""></ion-input>
-                    </ion-item>
+                    <ion-card>
+                        <ion-card-header>Fahrer A</ion-card-header>
+                        <ion-card-content>
+                            <ion-item>
+                                <ion-label stacked>Name:</ion-label>
+                                <ion-input  formControlName="driverAName" type="text" value= "" ></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label stacked>Anschrift:</ion-label>
+                                <ion-input  formControlName="driverAAnschrift" type="text" value= "" ></ion-input>
+                            </ion-item>
+                        </ion-card-content>
+                    </ion-card>
+                    <ion-card>
+                        <ion-card-header>Fahrer B</ion-card-header>
+                        <ion-card-content>
+                            <ion-item>
+                                <ion-label stacked>Name:</ion-label>
+                                <ion-input  formControlName="driverBName" type="text" value= "" ></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label stacked>Anschrift:</ion-label>
+                                <ion-input  formControlName="driverBAnschrift" type="text" value= "" ></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-label stacked>Kennzeichen:</ion-label>
+                                <ion-input  formControlName="driverBAnschrift" type="text" value= "" ></ion-input>
+                            </ion-item>
+
+                        </ion-card-content>
+                    </ion-card>
                     <ion-item>
                         <ion-label stacked>Umstände</ion-label>
                         <ion-input formControlName="circumstances" type="text" value=""></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label stacked>Bild optional * als URL angeben</ion-label>
-                        <ion-input formControlName="picture" type="text" value=""></ion-input>
                     </ion-item>
                       <button ion-button block type="submit">Anlegen</button>
           </div>
         </form>
 
     </ion-list>
-
-    <ion-row class="center">
-        <button ion-button large icon-only (click)="takePhoto()">
-        <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
-        </button>
-    <button ion-button large icon-only (click)="getPicture(0)">
-        <ion-icon ios="ios-images" md="md-images"></ion-icon>
-    </button>
-
-    </ion-row>
-    <ion-card>
-        <img [src]="captureDataUrl" *ngIf="captureDataUrl"/>
-        <button ion-button (click)="upload()" *ngIf="captureDataUrl">Upload</button>
-    </ion-card>
-
-    <button ion-button block type="">Speichern</button>
 </ion-content>

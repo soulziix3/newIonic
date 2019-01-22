@@ -8,12 +8,52 @@
     <ion-content padding>
       <div *ngFor="let protocoldata of protocol| async">
         <div *ngIf="checkprotocolID(protocoldata.bookingID) == true">
-          <p>Fahrer A:{{ protocoldata.driverA}}</p>
-          <p>Fahrer B:{{ protocoldata.driverB}}</p>
-          <p>Umstände: {{ protocoldata.circumstances}}</p>
-          <button color="danger" ion-button large icon-only (click)="editProtocoll(protocoldata)">
+          <ion-card>
+            <ion-card-header>
+              Faher A:
+            </ion-card-header>
+            <ion-card-content>
+              {{ protocoldata.driverAName}}
+              {{ protocoldata.driverAAnschrift}}
+            </ion-card-content>
+          </ion-card>
+          <ion-card>
+            <ion-card-header>
+              Faher B:
+            </ion-card-header>
+            <ion-card-content>
+              {{ protocoldata.driverBName}}
+              {{ protocoldata.driverBAnschrift}}
+              {{ protocoldata.driverBKennzeichen}}
+            </ion-card-content>
+          </ion-card>
+          <ion-card>
+            <ion-card-header>
+              Umstände:
+            </ion-card-header>
+            <ion-card-content>
+              {{ protocoldata.circumstances}}
+            </ion-card-content>
+
+          </ion-card>
+          <ion-row class="center">
+                  <button ion-button large icon-only (click)="editProtocoll(protocoldata)">
                             <ion-icon ios="ios-brush-outline" md="md-brush"></ion-icon>
-          </button>
+                  </button>
+                  <button ion-button large icon-only (click)="takePhoto()">
+                  <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
+                  </button>
+                  <button ion-button large icon-only (click)="getPicture(0)">
+                      <ion-icon ios="ios-images" md="md-images"></ion-icon>
+                  </button>
+                  <button ion-button large icon-only (click)="gotoHome()">
+                      <ion-icon ios="ios-home" md="md-home"></ion-icon>
+                  </button>
+          </ion-row>
+        <ion-card>
+            <img [src]="captureDataUrl" *ngIf="captureDataUrl"/>
+            <button ion-button (click)="upload()" *ngIf="captureDataUrl">Upload</button>
+        </ion-card>
         </div>
       </div>
     </ion-content>

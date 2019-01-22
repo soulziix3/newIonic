@@ -51,6 +51,11 @@ export class MyBookingsPage implements OnInit{
     public carArray_history:any[] = [];
     driverA : any = [];
     driverB : any = [];
+    driverAAnschrift: any =[];
+    driverBAnschrift: any =[];
+    driverAName: any =[];
+    driverBName : any =[];
+    driverBKennzeichen : any =[];
     circumstances : any = [];
     protocoldata: any;
     protocolboolean: boolean = true;
@@ -73,6 +78,11 @@ export class MyBookingsPage implements OnInit{
       "driverA": this.driverA,
       "driverB": this.driverB,
       "circumstances": this.circumstances,
+      "driverAAnschrift": this.driverAAnschrift,
+      "driverBAnschrift": this.driverBAnschrift,
+      "driverAName": this.driverAName,
+      "driverBName": this.driverBName,
+      "driverBKennzeichen": this.driverBKennzeichen,
       "protocolboolean": this.protocolboolean,
     }
     }

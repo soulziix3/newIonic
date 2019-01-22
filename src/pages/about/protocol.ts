@@ -27,8 +27,13 @@ interface Protocol {
     driverA: string;
     driverB: string;
     circumstances: string;
-    protocolid: any
-    bookingID: any}
+    protocolid: any;
+    bookingID: any;
+    driverAAnschrift: any;
+    driverBAnschrift: any;
+    driverAName: any;
+    driverBName : any;
+    driverBKennzeichen : any;}
 
 @Component({
     templateUrl: 'protocol.html'
@@ -48,6 +53,11 @@ export class ProtocolPage {
     driverA: any;
     driverB: any;
     circumstances: any;
+    protocoldriverAAnschrift: any;
+    protocoldriverBAnschrift: any;
+    protocoldriverAName: any;
+    protocoldriverBName : any;
+    protocoldriverBKennzeichen : any;
     protocoldriverA: any;
     protocoldriverB: any;
     protocolcircumstances : any;
@@ -95,7 +105,12 @@ export class ProtocolPage {
         this.protocoldata = navParams.get("protocoldata");
         this.bookingID = this.bookingdata.bookingID;
         this.protocoldriverA = this.protocoldata.driverA;
+        this.protocoldriverAName = this.protocoldata.driverAName;
+        this.protocoldriverAAnschrift = this.protocoldata.driverAAnschrift;
         this.protocoldriverB = this.protocoldata.driverB;
+        this.protocoldriverBName = this.protocoldata.driverBName;
+        this.protocoldriverBAnschrift = this.protocoldata.driverBAnschrift;
+        this.protocoldriverBKennzeichen = this.protocoldata.driverBKennzeichen;
         this.protocolcircumstances = this.protocoldata.circumstances;
         this.protocolboolean = false;
         this.protocolboolean = this.protocoldata.protocolboolean;
@@ -113,7 +128,12 @@ export class ProtocolPage {
           driverA: [''],
           driverB: [''],
           circumstances: [''],
-          picture: ['']
+          picture: [''],
+          driverAAnschrift: [''],
+          driverBAnschrift:[''],
+          driverAName: [''],
+          driverBName : [''],
+          driverBKennzeichen : [''],
     });
     }
     checkprotocolID(pbookingID){
@@ -121,87 +141,7 @@ export class ProtocolPage {
         {return true}
     }
 
-   takePhoto() {
-       const cameraOptions: CameraOptions = {
-           quality: 75,
-           targetWidth: 600,
-           targetHeight: 900,
-           destinationType: this.camera.DestinationType.DATA_URL,
-           encodingType: this.camera.EncodingType.JPEG,
-           mediaType: this.camera.MediaType.PICTURE,
-           //sourceType: sourceType
-       };
 
-       this.camera.getPicture(cameraOptions)
-           .then(data => {
-               this.captureDataUrl = 'data:image/jpeg;base64,' + data;
-
-               //return this.imageSrv.uploadImage(base64Image, this.afAuth.auth.currentUser.uid);
-           })
-           .then(data => {
-               //this.images.push(data);
-               //localStorage.setItem('images', JSON.stringify(this.images));
-               //this.downloadImageUrls();
-           })
-           .catch(function(error) {
-               console.log("No image selected", error);
-           });
-
-       }
-
-    getPicture(sourceType){
-        const cameraOptions: CameraOptions = {
-            quality: 75,
-            destinationType: this.camera.DestinationType.DATA_URL,
-            encodingType: this.camera.EncodingType.JPEG,
-            mediaType: this.camera.MediaType.PICTURE,
-            sourceType: sourceType
-        };
-
-        this.camera.getPicture(cameraOptions)
-            .then((data) => {
-                this.captureDataUrl = 'data:image/jpeg;base64,' + data;
-            }, (err) => {
-                console.log(err);
-            });
-    }
-
-    upload() {
-
-        this.loading = this.loadingCtrl.create({
-            //duration: 5000,
-        });
-        this.loading.present();
-
-        let storageRef = firebase.storage().ref();
-        // Create a timestamp as filename
-        const filename = Math.floor(Date.now() / 1000);
-
-        let carArray = MyBookingsPage.prototype.carArray[0]
-        var bookingID = carArray['bookingID']
-
-        // Create a reference to 'images/todays-date.jpg'
-        const imageRef = storageRef.child(`/${bookingID}/${filename}.jpg`);
-
-        imageRef.putString(this.captureDataUrl, firebase.storage.StringFormat.DATA_URL)
-            .then((snapshot)=> {
-                this.loading.dismissAll()
-                // Do something here when the data is succesfully uploaded!
-                this.showSuccesfulUploadAlert();
-            });
-    }
-
-    showSuccesfulUploadAlert() {
-
-        const createToast = this.toastCtrl.create({
-            message: 'Bild erfolgreich hochgeladen',
-            duration: 3000
-        });
-        createToast.present();
-
-        // clear the previous photo data in the variable
-        this.captureDataUrl = "";
-    }
     createprotocol() {
       let array = {
         "userID": this.bookingdata.userID,
@@ -228,11 +168,17 @@ export class ProtocolPage {
         driverA: this.protocolcreateForm.value.driverA,
         driverB: this.protocolcreateForm.value.driverB,
         circumstances: this.protocolcreateForm.value.circumstances,
+        driverAAnschrift: this.protocolcreateForm.value.driverAAnschrift,
+        driverBAnschrift:this.protocolcreateForm.value.driverBAnschrift,
+        driverAName: this.protocolcreateForm.value.driverAName,
+        driverBName : this.protocolcreateForm.value.driverBName,
+        driverBKennzeichen : this.protocolcreateForm.value.driverBKennzeichen,
         protocolid,
       });
-      this.navCtrl.push(ViewprotocolPage, {
-        data: this.bookingdata
-      });
+      this.navCtrl.setRoot(MyBookingsPage);
+      //this.navCtrl.push(ViewprotocolPage, {
+        //data: this.bookingdata
+      //);
   }
   updateprotocol() {
         let array = {
@@ -246,6 +192,11 @@ export class ProtocolPage {
         "driverA": this.protocolcreateForm.value.driverA,
         "driverB": this.protocolcreateForm.value.driverB,
         "circumstances": this.protocolcreateForm.value.circumstances,
+        "driverAAnschrift": this.protocolcreateForm.value.driverAAnschrift,
+        "driverBAnschrift":this.protocolcreateForm.value.driverBAnschrift,
+        "driverAName": this.protocolcreateForm.value.driverAName,
+        "driverBName" : this.protocolcreateForm.value.driverBName,
+        "driverBKennzeichen" : this.protocolcreateForm.value.driverBKennzeichen,
       }
       let protocolRef = this.af.collection('protocol').ref.where('bookingID', '==', array.bookingID);
                             protocolRef.get().then((result) => {
@@ -254,9 +205,10 @@ export class ProtocolPage {
                                   this.protocolCollectionRef.doc(doc.id).update(array);
                                 })
                             });
-       this.navCtrl.push(ViewprotocolPage, {
-        data: this.bookingdata
-      });
+       this.navCtrl.setRoot(MyBookingsPage)
+       //this.navCtrl.push(ViewprotocolPage, {
+        //data: this.bookingdata
+        //});
     }
 
 }
