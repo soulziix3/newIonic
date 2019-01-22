@@ -56,22 +56,31 @@
                     {{data1.marke}}, {{ data1.modell }}, {{data1.kennzeichen}} <br>
                   <div *ngIf="data1.imgUrl != ''">
                     <img [src]="data1.imgUrl" height="100">
+
                   </div>
+                  <img height="100" [src]="captureDataUrl" *ngIf="captureDataUrl && picVar == data1.carid"/>
+                  <img src="../assets/imgs/noCarImg.png" height="100" *ngIf="data1.imgUrl  == ''">
                    <br>
-                  <button ion-button icon-only (click)="getPicture(0, data1.carid)">
+
+                  <button ion-button icon-only (click)="getPicture(0, data1)">
                     <ion-icon ios="ios-images" md="md-images"></ion-icon>
                   </button>
-                  <button ion-button (click)="deleteImg(data1)">
-                    Bild löschen
+                  <button ion-button icon-only (click)="takePhoto(data1)">
+                  <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
                   </button>
-                  <img [src]="captureDataUrl" *ngIf="captureDataUrl && picVar == data1.carid"/> <br>
-                  <button ion-button (click)="upload(data1)" *ngIf="captureDataUrl">Upload</button>
+                  <button ion-button color="danger" icon-only (click)="deleteImg(data1)" *ngIf="data1.imgUrl">
+                    <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
+                  </button>
+                  <button ion-button (click)="upload(data1)" *ngIf="captureDataUrl && picVar == data1.carid">Upload</button><br>
+
                 </ion-item>
+
 
                 <ion-item-options side="right">
                     <button ion-button (click)="editcar(data1)">Ändern</button>
                     <button ion-button color="danger" (click)="deletecar(data1)">Löschen</button>
                 </ion-item-options>
+
 
 
             </ion-item-sliding>

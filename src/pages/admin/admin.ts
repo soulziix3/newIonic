@@ -297,7 +297,7 @@ export class AdminPage {
   @Input('useURI') useURI: Boolean = true;
 
 
-  getPicture(sourceType, carid) {
+  getPicture(sourceType, cardata) {
     const cameraOptions: CameraOptions = {
       quality: 75,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -312,8 +312,37 @@ export class AdminPage {
       }, (err) => {
         console.log(err);
       });
-    this.picVar = carid
+    this.picVar = cardata.carid;
+
   }
+   takePhoto(cardata) {
+       const cameraOptions: CameraOptions = {
+           quality: 75,
+           targetWidth: 600,
+           targetHeight: 900,
+           destinationType: this.camera.DestinationType.DATA_URL,
+           encodingType: this.camera.EncodingType.JPEG,
+           mediaType: this.camera.MediaType.PICTURE,
+           //sourceType: sourceType
+       };
+
+       this.camera.getPicture(cameraOptions)
+           .then(data => {
+               this.captureDataUrl = 'data:image/jpeg;base64,' + data;
+
+               //return this.imageSrv.uploadImage(base64Image, this.afAuth.auth.currentUser.uid);
+           })
+           .then(data => {
+               //this.images.push(data);
+               //localStorage.setItem('images', JSON.stringify(this.images));
+               //this.downloadImageUrls();
+           })
+           .catch(function(error) {
+               console.log("No image selected", error);
+           });
+       this.picVar = cardata.carid;
+
+       }
 
   upload(carData) {
 
@@ -376,7 +405,25 @@ export class AdminPage {
 
   deleteImg(carData) {
 
-    let newArray = {
+    const creatToast = this.toastCtrl.create({
+      message: 'Bild erfolgreich gelöscht',
+            duration: 3000
+    })
+      const confirm = this.alertCtrl.create({
+            title: "Bild löschen",
+            message: "Wolllen Sie dieses Bild wirklich stornieren?",
+            buttons: [
+                {
+                    text: "Nein",
+                    handler: () => {
+                        console.log("Not clicked");
+                    }
+                },
+                {
+                    text: "Ja ",
+
+                    handler: () => {
+                      let newArray = {
       "imgUrl": "",
     };
     let carRef = this.af.collection('cars').ref.where('carid', '==', carData.carid);
@@ -389,6 +436,16 @@ export class AdminPage {
     const imgRef = firebase.storage().ref().child('cars/' + carData.kennzeichen + ".jpg")
     imgRef.delete();
     firebase.storage().ref().child('cars/' + carData.kennzeichen + ".jpg").delete()
+                      creatToast.present()
+                    }
+                }
+            ]
+
+        })
+    confirm.present()
+
+
+
 
 
   }
