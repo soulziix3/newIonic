@@ -1,3 +1,7 @@
+
+
+/*
+
 import { Injectable } from '@angular/core';
 import { Firebase } from '@ionic-native/firebase';
 import { Platform } from 'ionic-angular';
@@ -22,3 +26,4 @@ export class FcmProvider {
     listenToNotifications() {}
 
 }
+*/
