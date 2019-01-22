@@ -118,7 +118,7 @@ export class MyBookingsPage implements OnInit{
                                 }
                                 for(let i = 0; i < carArray.length; i++) {
                                     //debugger
-                                    if (carArray[i].dateStart < date.getTime()) {
+                                    if (carArray[i].dateEnd < date.getTime()) {
                                         carArray_history.push(carArray[i])
                                         carArray.splice(i,1)
                                     }
