@@ -33,8 +33,8 @@ export class MyApp {
 
     });
 
-   
     const authObserver = afAuth.authState.subscribe( user => {
+
       if (user) {
         this.rootPage = TabsPage;
         authObserver.unsubscribe();

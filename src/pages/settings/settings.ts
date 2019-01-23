@@ -68,7 +68,7 @@ export class SettingsPage implements OnInit{
 
     checkCurrentUser(mail){
      let user = firebase.auth().currentUser;
-     let userMail =  user.email
+     let userMail =  user.email;
       //console.log(userMail)
       //console.log(mail)
 

@@ -44,8 +44,6 @@ export class LoginPage {
   }
 */
 
-
-
   loginUser(){
     if (!this.loginForm.valid){
       console.log(this.loginForm.value);

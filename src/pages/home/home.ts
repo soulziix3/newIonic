@@ -24,7 +24,6 @@ interface Car {
   kennzeichen: string;
   gebucht: [string, string, string, string, string]
 
-
 }
 @Component({
   selector: 'page-home',
@@ -39,7 +38,7 @@ export class HomePage {
   public date: string = new Date().toDateString();
   myDate = new Date();
   minDate: String = new Date(this.myDate.getTime() - this.myDate.getTimezoneOffset()*60000).toISOString();
-
+  rootPage:any;
 
   private bookcarForm: FormGroup;
   car: string = "rent";
@@ -66,6 +65,9 @@ export class HomePage {
 
   logoutUser(): Promise<void> {
     this.navCtrl.push(LoginPage);
+    console.log(this.navCtrl)
+    location.reload()
+    //this.rootPage = LoginPage;
     return firebase.auth().signOut();
     //this.auth.logout();
     //this.authData.logoutUser();
@@ -81,7 +83,6 @@ export class HomePage {
             duration: 3000
         });
 
-
     let dateStart = this.bookcarForm.value["dateStarts"]
     let dateEnds = this.bookcarForm.value["dateEnds"]
 
@@ -93,7 +94,6 @@ export class HomePage {
       createToast2.present()
     }
 
-
     else{
       this.navCtrl.push(BookCarPage, {
       dStart: this.bookcarForm.value["dateStarts"],
@@ -102,12 +102,12 @@ export class HomePage {
 
     });
     }
-    console.log(this.bookcarForm.value);
+    //console.log(this.bookcarForm.value);
 
 
   }
   checkuID(){
-    console.log(firebase.auth().currentUser.uid);
+    //console.log(firebase.auth().currentUser.uid);
     return firebase.auth().currentUser.uid;
 
   }
@@ -121,7 +121,7 @@ export class HomePage {
         bookRef.get().then((result) => {
             result.forEach(doc => {
 
-                console.log(doc.id);
+                //console.log(doc.id);
                 this.bookingCollectionRef.doc(doc.id).delete();
             })
         });

@@ -10,7 +10,6 @@ import {ViewprotocolPage} from "../viewprotocol/viewprotocol";
 import {HomePage} from "../home/home";
 import {Observable} from "../../../node_modules/rxjs/Observable";
 
-
 interface Booking {
     carID: string;
     dateEnd: string;
@@ -27,7 +26,6 @@ interface Car {
     sitze: number;
     kennzeichen: string;
     gebucht: [string, string, string, string, string]
-
 }
 
 declare const bookingData;
@@ -66,7 +64,6 @@ export class MyBookingsPage implements OnInit{
     //    merge: this.carArray
     //};
     //public bookingData:any;
-
 
     constructor(public navCtrl: NavController,
                 //public app: App,
@@ -127,7 +124,6 @@ export class MyBookingsPage implements OnInit{
                                             //var currDate = MyBookingsPage.prototype.checkCurrentDate();
                                     }
                                 }
-
                                 for(let i = 0; i < carArray.length; i++) {
                                     //debugger
                                     if (carArray[i].dateEnd < date.getTime()) {
@@ -212,19 +208,16 @@ export class MyBookingsPage implements OnInit{
 
         });
         confirm.present();
-
     }
 
     pushMergedData(carArr) {
-        this.carArray = []
+        this.carArray = [];
         //console.log(this.bookingsComplete.merge)
         // if (typeof this.carArray !== 'undefined') {
         this.carArray.push(carArr)
         //this.bookingsComplete.merge.push(carArr)
         // }
-        console.log(this.carArray)
-
-
+        //console.log(this.carArray)
     }
 
     checkCurrentDate(){
@@ -243,6 +236,7 @@ export class MyBookingsPage implements OnInit{
         //protocol: data1,
       })
     }
+
     viewProtocoll(data) {
       this.bookingData = data;
       console.log(data);
@@ -256,14 +250,13 @@ export class MyBookingsPage implements OnInit{
         return this.bookingData
     }
 
-
     editSeats(data1) {
         const createToast = this.toastCtrl.create({
             message: 'Sitzplätze erfolgreich geändert',
             duration: 3000
         });
 
-        var num_seat = data1.seat
+        var num_seat = data1.seat;
         const prompt = this.alertCtrl.create({
             title: 'Ändern',
             message: "Hier können Sie Buchung der Sitze ändern:",
@@ -282,7 +275,6 @@ export class MyBookingsPage implements OnInit{
                     handler: data => {
                         console.log('Cancel clicked');
                     }
-
                 },
                 {
                     text: 'Ändern',
@@ -295,11 +287,9 @@ export class MyBookingsPage implements OnInit{
                             "carID": data1.carID,
                             "seat": Number(userInput.Sitze),
                             "userMail": firebase.auth().currentUser.email
-                        }
+                        };
 
-
-
-                        data1.seat = userInput.Sitze
+                        data1.seat = userInput.Sitze;
 
                         if (data1.seat <= data1.sitze && data1.seat != 0) {
                             let bookingRef = this.af.collection('bookings').ref.where('bookingID', '==', data1.bookingID);
@@ -321,18 +311,12 @@ export class MyBookingsPage implements OnInit{
                             toast.onDidDismiss(() => {
                                 console.log('Dismissed toast');
                             });
-
                             toast.present();
                         }
-
-
                     }
                 }
             ]
         });
         prompt.present();
     }
-
-
 }
-

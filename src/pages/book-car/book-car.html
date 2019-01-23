@@ -14,9 +14,6 @@
 
 <ion-content padding>
   <div>
-    <ion-title>
-      Buchungsinformationen
-    </ion-title>
     <ion-item>
       <label> Startdatum: {{dateStart | date: 'dd/MM/yyyy'}}</label>
     </ion-item>
@@ -39,9 +36,6 @@
   </div>
   <br>
   <div>
-    <ion-title>
-      Verfügbare Fahrzeuge {{carArray1}}
-    </ion-title>
     <form>
       <ion-card *ngFor="let dataCar of carArray1">
         <ion-card-header>
@@ -54,13 +48,10 @@
               <p>Verfügbare Sitzplätze: {{dataCar.sitze}}</p>
               <p>Farbe: {{dataCar.farbe}}</p>
 
-              <div *ngFor="let userData of users | async">
-              <div *ngIf="userData.admin == false && checkCurrentUser(userData.userMail) == true ">
-                <div>
+              <div *ngIf="userBool == true && adminBool == false">
                   <button ion-button (click)="bookCar(dataCar)" >Buchen</button>
               </div>
-              </div>
-              </div>
+
             </ion-col>
             <ion-col>
 

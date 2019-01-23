@@ -22,7 +22,6 @@ import {pipe} from "rxjs";
  * Ionic pages and navigation.
  */
 
-
 interface Car {
     farbe: string;
     modell: string;
@@ -80,7 +79,8 @@ export class BookCarPage implements OnInit{
     public carArray1:any = [];
     public newArray: any = [];
     public availableCars: boolean;
-
+    public userBool: boolean;
+    public adminBool: boolean;
 
     constructor(
 
@@ -105,9 +105,39 @@ export class BookCarPage implements OnInit{
         this.dateStart.setHours(this.dateStart.getHours() - 1);
         this.dateStart = this.dateStart.getTime()
 
+        this.getAdminBool()
     }
 
+    getAdminBool() {
+        let userRef = this.af.collection('users').ref.where('userMail', '==', firebase.auth().currentUser.email);
+        userRef.get().then((result) => {
+            if(result.size > 0) {
+                result.forEach(doc => {
+                    if(doc.get('admin') == true) {
+                        console.log('jup')
+                        //debugger
+                        //BookCarPage.prototype.setAdminBool(true);
+                        BookCarPage.prototype.adminBool = true;
+                        //console.log(BookCarPage.prototype.adminBool)
+                    }
+                    else {
+                    //    BookCarPage.prototype.setAdminBool(true);
+                        BookCarPage.prototype.adminBool = false
+                        //console.log(BookCarPage.prototype.adminBool)
+                    }
+                })
+            }
+        });
+        }
+
     ngOnInit() {
+        BookCarPage.prototype.userBool = this.checkCurrentUser(firebase.auth().currentUser.email);
+        console.log("Test ",BookCarPage.prototype.userBool)
+        console.log("Test2 ",BookCarPage.prototype.adminBool)
+        //console.log(BookCarPage.prototype.adminBool)
+        //console.log(this.adminBool)
+        //console.log(BookCarPage.prototype.adminBool)
+
         this.getAllPosts().subscribe((data)=>{
             this.data = data;
             this.checkCarAndBookingData(data)
@@ -118,6 +148,16 @@ export class BookCarPage implements OnInit{
         });
     }
 
+    setAdminBool(value) {
+        if(value == false){
+            this.adminBool = false;
+            BookCarPage.prototype.adminBool = false;
+        } else {
+            this.adminBool = true;
+            BookCarPage.prototype.adminBool = true;
+
+        }
+    }
     //test(test) {
     //    console.log(test);
     //}
@@ -136,13 +176,7 @@ export class BookCarPage implements OnInit{
             this.dataBooking = data;
             //this.test(this.dataBooking);
         });
-
     }
-
-    //testNew(carData)
-    //{
-    //    return true
-   //}
 
     checkCarAndBookingData(carData){
         var carArray = this.carArray1;
@@ -150,10 +184,6 @@ export class BookCarPage implements OnInit{
         let datestart = this.dateStart;
         let dateend = this.dateEnd;
         let seat = this.seat;
-        console.log(datestart);
-        console.log(dateend);
-
-
 
         this.getAllDocuments().subscribe((data)=>{
         });
@@ -179,7 +209,7 @@ export class BookCarPage implements OnInit{
                             this.availableCars = true;
                             BookCarPage.prototype.pushData(carData[i]);
                             carArray.push(carData[i]);
-                            console.log(carArray, "keine buchung")
+                            //console.log(carArray, "keine buchung")
                         }
                     }
                 });
@@ -212,14 +242,12 @@ export class BookCarPage implements OnInit{
                                                 if (checkCar == true) {
                                                     BookCarPage.prototype.pushData(carDoc.data());
                                                     carArray.push(carDoc.data());
-                                                    //console.log(carArray, "buchung <")
                                                 } else {
                                                     checkCar = true
                                                 }
                                             }
                                         }
 
-                                        //BookCarPage.prototype.pushData(carDoc)
                                     } else if ((datestart > bookingDoc.get('dateStart')) &&
                                         (datestart > bookingDoc.get('dateEnd')) ) {
                                         if ((dateend > bookingDoc.get("dateStart")&&
@@ -326,10 +354,8 @@ export class BookCarPage implements OnInit{
       carImgRef.getDownloadURL().then(url => {
         return url
         });
-
-
-
     }
+
      checkCurrentUser(mail){
      let user = firebase.auth().currentUser;
      let userMail =  user.email;
