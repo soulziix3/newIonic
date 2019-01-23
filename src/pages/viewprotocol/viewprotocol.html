@@ -34,16 +34,20 @@
             <ion-card-content>
               {{ protocoldata.circumstances}}
             </ion-card-content>
-
           </ion-card>
+
+            <div *ngIf="protocoldata.imgUrl != ''">
+                <img [src]="protocoldata.imgUrl" height="200">
+            </div>
+
           <ion-row class="center">
                   <button ion-button large icon-only (click)="editProtocoll(protocoldata)">
                             <ion-icon ios="ios-brush-outline" md="md-brush"></ion-icon>
                   </button>
-                  <button ion-button large icon-only (click)="takePhoto()">
+                  <button ion-button large icon-only (click)="takePhoto(protocoldata)">
                   <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
                   </button>
-                  <button ion-button large icon-only (click)="getPicture(0)">
+                  <button ion-button large icon-only (click)="getPicture(0, protocoldata)">
                       <ion-icon ios="ios-images" md="md-images"></ion-icon>
                   </button>
                   <button ion-button large icon-only (click)="gotoHome()">
@@ -52,7 +56,7 @@
           </ion-row>
         <ion-card>
             <img [src]="captureDataUrl" *ngIf="captureDataUrl"/>
-            <button ion-button (click)="upload()" *ngIf="captureDataUrl">Upload</button>
+            <button ion-button (click)="upload(protocoldata)" *ngIf="captureDataUrl">Upload</button>
         </ion-card>
         </div>
       </div>

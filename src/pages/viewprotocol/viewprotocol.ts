@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { IonicPage, Loading, LoadingController, NavController, NavParams } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { FormGroup, FormBuilder } from '@angular/forms';
@@ -28,7 +28,8 @@ interface Protocol {
     driverBAnschrift: any;
     driverAName: any;
     driverBName : any;
-    driverBKennzeichen : any;}
+    driverBKennzeichen : any;
+    imgUrl2:string}
 
 interface Booking {
     carID: string;
@@ -51,100 +52,74 @@ interface Booking {
 
 @IonicPage()
 @Component({
-  selector: 'page-viewprotocol',
-  templateUrl: 'viewprotocol.html',
+    selector: 'page-viewprotocol',
+    templateUrl: 'viewprotocol.html',
 })
 export class ViewprotocolPage {
-  private images = [];
-  captureDataUrl: string;
-
-  imageUrls = [];
-  photos:any;
-  public protocolData: Observable<Protocol[]>;
-  public protocolCollectionRef: AngularFirestoreCollection<Protocol> = this.af.collection(
+    private images = [];
+    captureDataUrl: string;
+    picVar: string;
+    photos:any;
+    public protocolData: Observable<Protocol[]>;
+    public protocolCollectionRef: AngularFirestoreCollection<Protocol> = this.af.collection(
         "protocol");
-  public bookingCollectionRef: AngularFirestoreCollection<Booking> = this.af.collection(
+    public bookingCollectionRef: AngularFirestoreCollection<Booking> = this.af.collection(
         "bookings");
-  public protocol = this.protocolCollectionRef.valueChanges();
-  bookingID : any;
-  protocolid: any;
-  bookingdata: any;
-  protocoldata: any;
-  public loading:Loading;
+    public protocol = this.protocolCollectionRef.valueChanges();
+    bookingID : any;
+    protocolid: any;
+    bookingdata: any;
+    protocoldata: any;
+    public loading:Loading;
 
-  constructor(
-    public alertCtrl: AlertController,
-    private camera: Camera,
-    private imageSrv: ImageProvider,
-     private imagePicker: ImagePicker,
-    private cropService: Crop,
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    private af: AngularFirestore,
-    public db: AngularFireDatabase,
-    public formBuilder: FormBuilder,
-    public loadingCtrl:LoadingController,
-    public toastCtrl: ToastController) {
-    this.bookingdata = navParams.get("data");
-    this.bookingID = this.bookingdata.bookingID;
-    this.protocoldata = this.protocolCollectionRef;
-    let data = localStorage.getItem('images');
-    if (data) {
+    constructor(
+        public alertCtrl: AlertController,
+        private camera: Camera,
+        private imageSrv: ImageProvider,
+        private imagePicker: ImagePicker,
+        private cropService: Crop,
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        private af: AngularFirestore,
+        public db: AngularFireDatabase,
+        public formBuilder: FormBuilder,
+        public loadingCtrl:LoadingController,
+        public toastCtrl: ToastController) {
+        this.bookingdata = navParams.get("data");
+        this.bookingID = this.bookingdata.bookingID;
+        this.protocoldata = this.protocolCollectionRef;
+        let data = localStorage.getItem('images');
+        if (data) {
             this.images = JSON.parse(data);
 
             this.alertCtrl = alertCtrl
         }
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ViewprotocolPage');
-  }
-  checkprotocolID(pbookingID){
-    if(this.bookingID== pbookingID)
-      {return true}
     }
 
-   editProtocoll(protocoldata) {
-      //this.bookingData = data;
-      console.log(protocoldata);
-      console.log(this.bookingdata)
-
-      //console.log(data1);
-      this.navCtrl.push(ProtocolPage, {
-        protocoldata: protocoldata,
-        data: this.bookingdata,
-        //protocol: data1,
-      })
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad ViewprotocolPage');
     }
-    takePhoto() {
-       const cameraOptions: CameraOptions = {
-           quality: 75,
-           targetWidth: 600,
-           targetHeight: 900,
-           destinationType: this.camera.DestinationType.DATA_URL,
-           encodingType: this.camera.EncodingType.JPEG,
-           mediaType: this.camera.MediaType.PICTURE,
-           //sourceType: sourceType
-       };
+    checkprotocolID(pbookingID){
+        if(this.bookingID== pbookingID)
+        {return true}
+    }
 
-       this.camera.getPicture(cameraOptions)
-           .then(data => {
-               this.captureDataUrl = 'data:image/jpeg;base64,' + data;
+    editProtocoll(protocoldata) {
+        //this.bookingData = data;
+        console.log(protocoldata);
+        console.log(this.bookingdata)
 
-               //return this.imageSrv.uploadImage(base64Image, this.afAuth.auth.currentUser.uid);
-           })
-           .then(data => {
-               //this.images.push(data);
-               //localStorage.setItem('images', JSON.stringify(this.images));
-               //this.downloadImageUrls();
-           })
-           .catch(function(error) {
-               console.log("No image selected", error);
-           });
+        //console.log(data1);
+        this.navCtrl.push(ProtocolPage, {
+            protocoldata: protocoldata,
+            data: this.bookingdata,
+            //protocol: data1,
+        })
+    }
+    @Input('useURI') useURI: Boolean = true;
 
-       }
 
-    getPicture(sourceType){
+    getPicture(sourceType, protocoldata) {
         const cameraOptions: CameraOptions = {
             quality: 75,
             destinationType: this.camera.DestinationType.DATA_URL,
@@ -159,9 +134,39 @@ export class ViewprotocolPage {
             }, (err) => {
                 console.log(err);
             });
+        this.picVar = protocoldata.protocolid;
+
+    }
+    takePhoto(protocoldata) {
+        const cameraOptions: CameraOptions = {
+            quality: 75,
+            targetWidth: 600,
+            targetHeight: 900,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE,
+            //sourceType: sourceType
+        };
+
+        this.camera.getPicture(cameraOptions)
+            .then(data => {
+                this.captureDataUrl = 'data:image/jpeg;base64,' + data;
+
+                //return this.imageSrv.uploadImage(base64Image, this.afAuth.auth.currentUser.uid);
+            })
+            .then(data => {
+                //this.images.push(data);
+                //localStorage.setItem('images', JSON.stringify(this.images));
+                //this.downloadImageUrls();
+            })
+            .catch(function(error) {
+                console.log("No image selected", error);
+            });
+        this.picVar = protocoldata.protocolid;
+
     }
 
-    upload() {
+    upload(protocolData) {
 
         this.loading = this.loadingCtrl.create({
             //duration: 5000,
@@ -170,24 +175,21 @@ export class ViewprotocolPage {
 
         let storageRef = firebase.storage().ref();
         // Create a timestamp as filename
-        const filename = Math.floor(Date.now() / 1000);
-
-        let carArray = MyBookingsPage.prototype.carArray[0]
-        var bookingID = carArray['bookingID']
+        const filename = protocolData.protocolid;
 
         // Create a reference to 'images/todays-date.jpg'
-        const imageRef = storageRef.child(`/${bookingID}/${filename}.jpg`);
+        const imageRef = storageRef.child(`/protocol/${filename}.jpg`);
 
         imageRef.putString(this.captureDataUrl, firebase.storage.StringFormat.DATA_URL)
-            .then((snapshot)=> {
+            .then((snapshot) => {
+                this.savephotoURL(protocolData)
                 this.loading.dismissAll()
                 // Do something here when the data is succesfully uploaded!
                 this.showSuccesfulUploadAlert();
-            });
-    }
 
-    gotoHome(){
-        this.navCtrl.setRoot(MyBookingsPage)
+            });
+
+
     }
 
     showSuccesfulUploadAlert() {
@@ -200,5 +202,26 @@ export class ViewprotocolPage {
 
         // clear the previous photo data in the variable
         this.captureDataUrl = "";
+    }
+
+    savephotoURL(protocolData) {
+        const imgRef = firebase.storage().ref().child('protocol/' + protocolData.protocolid + ".jpg").getDownloadURL().then(function (url) {
+            console.log("the URL Image is: " + url);
+            let imageURL = url
+            return imageURL
+        }).then((imageURL) => {
+            let protocolRef = this.af.collection('protocol').ref.where('protocolid', '==', protocolData.protocolid);
+            protocolRef.get().then((result) => {
+                result.forEach(doc => {
+                    //console.log(doc.data());
+                    //added benefit of getting the document id / key
+                    console.log(doc.id);
+                    let newArray = {
+                        "imgUrl": imageURL
+                    }
+                    this.protocolCollectionRef.doc(doc.id).update(newArray);
+                })
+            });
+        })// save url in Firestore database realtime
     }
 }
