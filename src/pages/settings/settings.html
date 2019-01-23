@@ -7,25 +7,30 @@
   </ion-header>
   
   <ion-content>
-    <ion-card>
-      <ion-card-header>Nutzerinformationen</ion-card-header>
-      <ion-card-content>
-        E-Mail Adresse: <br>
-        {{user.email}} <br>
-        Angemeldet als:
-        <div *ngFor="let userData of users | async">
+    <ion-list>
+      <ion-item>
+        <ion-icon ios="ios-at" md="md-at" item-start></ion-icon>
+          E-Mail-Adresse
+        <ion-note item-end> {{user.email}} </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-icon ios="ios-person" md="md-person" item-start></ion-icon>
+          Angemeldet als
+        <ion-note item-end>
+          <div *ngFor="let userData of users | async">
           <div *ngIf="userData.admin == true && checkCurrentUser(userData.userMail) == true ">
               Admin
             </div>
             <div *ngIf="userData.developer == true && checkCurrentUser(userData.userMail) == true ">
               Entwickler
             </div>
-               <div *ngIf="userData.admin == false && userData.developer == false&& checkCurrentUser(userData.userMail) == true ">
+            <div *ngIf="userData.admin == false && userData.developer == false&& checkCurrentUser(userData.userMail) == true ">
               Nutzer
-               </div>
-        </div>
-      </ion-card-content>
-    </ion-card>
+            </div>
+          </div>
+        </ion-note>
+      </ion-item>
+    </ion-list>
     <ion-footer padding>
       <div *ngFor="let userData of users | async">
 
