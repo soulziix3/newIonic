@@ -70,7 +70,7 @@
         </ion-item-sliding>
       </div>
       <div *ngIf="availableBookings == false">
-        Keine aktuellen Buchungen verfügbar
+        Keine aktuellen Buchungen vorhanden
       </div>
     </ion-list>
 
@@ -107,16 +107,6 @@
             <ion-icon ios="ios-people" md="md-people"></ion-icon>
             </button>
 
-            <div *ngIf="data.protocol== false|| data.protocol==null">
-              <button color="secondary" ion-button large icon-only (click)="goToProtocoll(data)">
-                      <ion-icon ios="ios-clipboard"  md="md-clipboard"></ion-icon>
-              </button>
-            </div>
-            <div *ngIf="data.protocol== true">
-              <button color="secondary" ion-button large icon-only (click)="viewProtocoll(data)">
-                      <ion-icon ios="ios-clipboard"  md="md-clipboard"></ion-icon>
-              </button>
-            </div>
             <button color="danger" ion-button large icon-only (click)="deleteBooking(data)">
                     <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon>
             </button>
@@ -125,7 +115,7 @@
         </ion-item-sliding>
       </div>
       <div *ngIf="availableBookings == false">
-        Keine aktuellen Buchungen verfügbar
+        Keine aktuellen Reservierungen vorhanden
       </div>
 
     </ion-list>
@@ -169,7 +159,7 @@
             </ion-item-options>
       </ion-item-sliding>
         <div *ngIf="bookingHistory == false">
-          Keine Buchungen in der Historie verfügbar
+          Keine Buchungen in der Historie vorhanden
         </div>
      </div>
     </ion-list>

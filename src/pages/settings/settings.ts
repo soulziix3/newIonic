@@ -1,6 +1,6 @@
 import { NavController, NavParams } from 'ionic-angular';
 import { AdminPage } from '../admin/admin';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthProvider } from '../../providers/auth/auth';
 import { WelcomePage } from '../welcome/welcome';
 import firebase, {auth} from 'firebase';
@@ -15,7 +15,6 @@ interface User {
   email: string,
   admin: boolean,
   developer: boolean,
-
 }
 
 @Component({
@@ -23,22 +22,20 @@ interface User {
   templateUrl: 'settings.html',
 })
 
-export class SettingsPage {
+export class SettingsPage implements OnInit{
   user = firebase.auth().currentUser;
   public userCollectionRef: AngularFirestoreCollection<User> = this.af.collection("users");
-  users = this.userCollectionRef.valueChanges()
-  public isAdmin: any
+  users = this.userCollectionRef.valueChanges();
+  public isAdmin: any;
 
   constructor(public navCtrl: NavController,
               public af: AngularFirestore,
               public db: AngularFireDatabase
   ) {
+  }
 
-
-    this.checkAdmin()
-
-
-
+  ngOnInit() {
+      this.checkAdmin()
   }
 
   public gotoadmin() {
@@ -56,34 +53,26 @@ export class SettingsPage {
   }
 
   checkAdmin(){
-
     let user = firebase.auth().currentUser;
     this.af.collection("users").ref.get().then(function (querySnapshot) {
         querySnapshot.forEach(function (userDoc) {
           if (userDoc.get("admin") == true && userDoc.get("userMail") == user.email ){
             //console.log("Ein Admin ist angemeldet")
             SettingsPage.prototype.isAdmin = true
-
-
-
           }
-          else{
-
-
-          }
-
+          //else{
+          //}
         })
-
       })
-
     }
+
     checkCurrentUser(mail){
      let user = firebase.auth().currentUser;
      let userMail =  user.email
       //console.log(userMail)
       //console.log(mail)
 
-     if (mail == userMail){
+     if(mail == userMail){
        //console.log("user ist angemeldet")
        return true
      }
@@ -92,8 +81,3 @@ export class SettingsPage {
      }
     }
 }
-
-
-
-
-
