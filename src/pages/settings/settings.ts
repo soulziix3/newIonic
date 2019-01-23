@@ -42,12 +42,12 @@ export class SettingsPage {
   }
 
   public gotoadmin() {
-    console.log(firebase.auth().currentUser.uid)
+    //console.log(firebase.auth().currentUser.uid)
     this.navCtrl.push(AdminPage);
   }
 
   public gotoUserAdmin() {
-    console.log(firebase.auth().currentUser.uid)
+    //console.log(firebase.auth().currentUser.uid)
     this.navCtrl.push(UserAdminPage);
   }
 
@@ -61,7 +61,7 @@ export class SettingsPage {
     this.af.collection("users").ref.get().then(function (querySnapshot) {
         querySnapshot.forEach(function (userDoc) {
           if (userDoc.get("admin") == true && userDoc.get("userMail") == user.email ){
-            console.log("Ein Admin ist angemeldet")
+            //console.log("Ein Admin ist angemeldet")
             SettingsPage.prototype.isAdmin = true
 
 
@@ -80,11 +80,11 @@ export class SettingsPage {
     checkCurrentUser(mail){
      let user = firebase.auth().currentUser;
      let userMail =  user.email
-      console.log(userMail)
-      console.log(mail)
+      //console.log(userMail)
+      //console.log(mail)
 
      if (mail == userMail){
-       console.log("user ist angemeldet")
+       //console.log("user ist angemeldet")
        return true
      }
      else {

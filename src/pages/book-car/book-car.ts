@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { AngularFirestore } from 'angularfire2/firestore';
@@ -54,7 +54,7 @@ interface User {
     templateUrl: 'book-car.html',
 
 })
-export class BookCarPage {
+export class BookCarPage implements OnInit{
     userID: any;
     data: any;
     dateStart: any;
@@ -75,7 +75,7 @@ export class BookCarPage {
     public bookingCollectionRef: AngularFirestoreCollection<Booking> = this.af.collection(
         "bookings");
     public userCollectionRef: AngularFirestoreCollection<User> = this.af.collection("users");
-    users = this.userCollectionRef.valueChanges()
+    users = this.userCollectionRef.valueChanges();
     public bookings = this.bookingCollectionRef.valueChanges();
     public carArray1:any = [];
     public newArray: any = [];
@@ -96,18 +96,21 @@ export class BookCarPage {
         this.timeStart = navParams.get("tStart");
         this.timeEnd = navParams.get("tEnd");
         this.seat = navParams.get("seat");
-        this.destination = navParams.get("destination")
+        this.destination = navParams.get("destination");
         this.dataCar = this.bookingCollectionRef.valueChanges();
-        this.dateEnd = new Date(this.dateEnd)
-        this.dateEnd.setHours(this.dateEnd.getHours() - 1)
-        this.dateEnd = this.dateEnd.getTime()
-        this.dateStart = new Date(this.dateStart)
-        this.dateStart.setHours(this.dateStart.getHours() - 1)
+        this.dateEnd = new Date(this.dateEnd);
+        this.dateEnd.setHours(this.dateEnd.getHours() - 1);
+        this.dateEnd = this.dateEnd.getTime();
+        this.dateStart = new Date(this.dateStart);
+        this.dateStart.setHours(this.dateStart.getHours() - 1);
         this.dateStart = this.dateStart.getTime()
 
+    }
+
+    ngOnInit() {
         this.getAllPosts().subscribe((data)=>{
             this.data = data;
-            let test = this.checkCarAndBookingData(data)
+            this.checkCarAndBookingData(data)
         });
 
         this.getAllDocuments().subscribe((data)=>{
@@ -115,9 +118,9 @@ export class BookCarPage {
         });
     }
 
-    test(test) {
-        console.log(test);
-    }
+    //test(test) {
+    //    console.log(test);
+    //}
 
     getAllPosts(): Observable<any>{
         return this.af.collection<any>("cars").valueChanges();
@@ -136,19 +139,19 @@ export class BookCarPage {
 
     }
 
-    testNew(carData)
-    {
-        return true
-    }
+    //testNew(carData)
+    //{
+    //    return true
+   //}
 
     checkCarAndBookingData(carData){
-        var carArray = this.carArray1
+        var carArray = this.carArray1;
         let af = this.af;
-        let datestart = this.dateStart
-        let dateend = this.dateEnd
-        let seat = this.seat
-        console.log(datestart)
-        console.log(dateend)
+        let datestart = this.dateStart;
+        let dateend = this.dateEnd;
+        let seat = this.seat;
+        console.log(datestart);
+        console.log(dateend);
 
 
 
@@ -173,9 +176,9 @@ export class BookCarPage {
                     } else{
                         //debugger
                         if (this.seat <= carData[i].sitze) {
-                            this.availableCars = true
+                            this.availableCars = true;
                             BookCarPage.prototype.pushData(carData[i]);
-                            carArray.push(carData[i])
+                            carArray.push(carData[i]);
                             console.log(carArray, "keine buchung")
                         }
                     }
@@ -193,7 +196,7 @@ export class BookCarPage {
 
                             querySnapshot.forEach(function(carDoc) {
                                 //debugger
-                                var checkCar:boolean = true
+                                var checkCar:boolean = true;
                                 if (bookingDoc.get('carID') === carDoc.get("carid")) {
 
                                     if ((datestart < bookingDoc.get('dateStart')) &&
@@ -208,8 +211,8 @@ export class BookCarPage {
                                                 }
                                                 if (checkCar == true) {
                                                     BookCarPage.prototype.pushData(carDoc.data());
-                                                    carArray.push(carDoc.data())
-                                                    console.log(carArray, "buchung <")
+                                                    carArray.push(carDoc.data());
+                                                    //console.log(carArray, "buchung <")
                                                 } else {
                                                     checkCar = true
                                                 }
@@ -230,7 +233,7 @@ export class BookCarPage {
                                                 if (checkCar == true) {
                                                     BookCarPage.prototype.pushData(carDoc.data());
                                                     carArray.push(carDoc.data())
-                                                    console.log(carArray, "buchung <")
+                                                    //console.log(carArray, "buchung <")
                                                 } else {
                                                     checkCar = true
                                                 }
@@ -240,12 +243,12 @@ export class BookCarPage {
                                 } else {
                                 }
                             });
-                            if (carArray.length != 0) {
-                                console.log("data found")
+                            if(carArray.length != 0) {
+                                //console.log("data found")
                                 BookCarPage.prototype.availableCars = true
 
                             } else {
-                                console.log("no data")
+                                //console.log("no data")
                                 BookCarPage.prototype.availableCars = false
 
                             }
@@ -259,18 +262,17 @@ export class BookCarPage {
     }
 
     pushData(data) {
-        this.carArray1 = []
+        this.carArray1 = [];
         this.carArray1.push(data);
         //console.log(this.carArray1)
     }
 
-    returnBoolCarData(array){
+    //returnBoolCarData(array){
         //this.availableCars = true
-    }
+    //}
 
     bookCar(data) {
-        console.log(data.carid);
-
+        //console.log(data.carid);
         const createToast = this.toastCtrl.create({
             message: "Fahrzeug erfolgreich gebucht",
             duration: 3000
@@ -287,15 +289,11 @@ export class BookCarPage {
                 },
                 {
                     text: "Ja ",
-
                     handler: () => {
-
-
-
                         let carRef = this.af.collection('cars').ref.where('carid', '==', data.carid);
                         carRef.get().then((result) => {
                             result.forEach(doc => {
-                                console.log(doc.id);
+                                //console.log(doc.id);
                                 const id = this.af.createId();
 
                                 this.bookingCollectionRef.add({
@@ -307,7 +305,6 @@ export class BookCarPage {
                                     bookingID: id,
                                     protocol: false,
                                     userMail: firebase.auth().currentUser.email
-
                                 });
 
                             })
@@ -325,7 +322,6 @@ export class BookCarPage {
 
     }
     getCarImg(kennzeichen){
-
       const carImgRef = firebase.storage().ref().child('cars/'+ kennzeichen+".jpg");
       carImgRef.getDownloadURL().then(url => {
         return url
@@ -336,12 +332,12 @@ export class BookCarPage {
     }
      checkCurrentUser(mail){
      let user = firebase.auth().currentUser;
-     let userMail =  user.email
-      console.log(userMail)
-      console.log(mail)
+     let userMail =  user.email;
+      //console.log(userMail)
+      //console.log(mail)
 
-     if (mail == userMail){
-       console.log("user ist angemeldet")
+     if(mail == userMail){
+       //console.log("user ist angemeldet")
        return true
      }
      else {
