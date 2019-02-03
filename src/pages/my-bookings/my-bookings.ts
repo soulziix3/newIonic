@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {AlertController, App, IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {AlertController, IonicPage, NavController, ToastController} from 'ionic-angular';
 import {AngularFireDatabase} from "angularfire2/database"
 import {AngularFirestore, AngularFirestoreCollection} from "angularfire2/firestore"
 import firebase, {app} from "firebase";
 import {LoginPage} from "../login/login";
 import {ProtocolPage} from "../about/protocol";
 import {ViewprotocolPage} from "../viewprotocol/viewprotocol";
-import {HomePage} from "../home/home";
 import {Observable} from "../../../node_modules/rxjs/Observable";
 
 interface Booking {
@@ -28,7 +26,7 @@ interface Car {
     gebucht: [string, string, string, string, string]
 }
 
-declare const bookingData;
+//declare const bookingData;
 
 @IonicPage()
 @Component({
@@ -58,18 +56,10 @@ export class MyBookingsPage implements OnInit{
     circumstances : any = [];
     protocoldata: any;
     protocolboolean: boolean = true;
-    //bookingsComplete = {
-    //    booking: this.bookings,
-    //    car: this.cars,
-    //    merge: this.carArray
-    //};
-    //public bookingData:any;
 
     constructor(public navCtrl: NavController,
-                //public app: App,
                 public alertCtrl: AlertController,
                 public toastCtrl: ToastController,
-                //private formBuilder: FormBuilder,
                 private af: AngularFirestore,
                 public db: AngularFireDatabase) {
       this.protocoldata = {
@@ -94,7 +84,6 @@ export class MyBookingsPage implements OnInit{
     mergeCarAndBookingData(){
         this.carArray = [];
         this.carArray_history = [];
-        //debugger;
         let merge: any;
         let af = this.af;
         let carArray = this.carArray;
@@ -111,8 +100,6 @@ export class MyBookingsPage implements OnInit{
                         .then(function(querySnapshot) {
 
                             querySnapshot.forEach(function(bookingDoc) {
-                                //var checkCar:boolean
-                                //debugger
 
                                 if (bookingDoc.get('carID') === carDoc.get('carid') &&
                                     bookingDoc.get('userID') === firebase.auth().currentUser.uid) {
@@ -121,11 +108,9 @@ export class MyBookingsPage implements OnInit{
                                     MyBookingsPage.prototype.pushMergedData(merge);
                                     if (typeof merge !== 'undefined') {
                                         carArray.push(merge);
-                                            //var currDate = MyBookingsPage.prototype.checkCurrentDate();
                                     }
                                 }
                                 for(let i = 0; i < carArray.length; i++) {
-                                    //debugger
                                     if (carArray[i].dateEnd < date.getTime()) {
                                         carArray_history.push(carArray[i])
                                         carArray.splice(i,1)
@@ -150,15 +135,12 @@ export class MyBookingsPage implements OnInit{
             .catch(function(error) {
                 console.log("Error getting documents: ", error);
             });
-        //console.log(this.carArray)
     }
 
 
     logoutUser(): Promise<void> {
         this.navCtrl.push(LoginPage);
         return firebase.auth().signOut();
-        //this.auth.logout();
-        //this.authData.logoutUser();
     };
 
     checkuID(){
@@ -171,7 +153,6 @@ export class MyBookingsPage implements OnInit{
     }
 
     deleteBooking(data){
-        console.log("Buchung löschen");
         const createToast = this.toastCtrl.create({
             message: 'Buchung erfolgreich storniert',
             duration: 3000
@@ -194,14 +175,11 @@ export class MyBookingsPage implements OnInit{
                         let bookRef = this.af.collection('bookings').ref.where('bookingID', '==', data.bookingID);
                         bookRef.get().then((result) => {
                             result.forEach(doc => {
-
-                                console.log(doc.id);
                                 this.bookingCollectionRef.doc(doc.id).delete();
                             })
                         });
 
                         createToast.present();
-                        //this.navCtrl.setRoot(HomePage);
                     }
                 }
             ]
@@ -212,37 +190,25 @@ export class MyBookingsPage implements OnInit{
 
     pushMergedData(carArr) {
         this.carArray = [];
-        //console.log(this.bookingsComplete.merge)
-        // if (typeof this.carArray !== 'undefined') {
         this.carArray.push(carArr)
-        //this.bookingsComplete.merge.push(carArr)
-        // }
-        //console.log(this.carArray)
     }
 
     checkCurrentDate(){
-        const curDate = new Date(this.date).getTime();
         return this.date;
 
     }
     goToProtocoll(data) {
       this.bookingData = data;
-      console.log(this.protocoldata);
-      //console.log(this.protocoldata);
-      console.log(data);
       this.navCtrl.push(ProtocolPage, {
         protocoldata: this.protocoldata,
         data: data,
-        //protocol: data1,
       })
     }
 
     viewProtocoll(data) {
       this.bookingData = data;
-      console.log(data);
       this.navCtrl.push(ViewprotocolPage, {
         data: data,
-        //protocol: data1,
       })
     }
 
@@ -256,7 +222,6 @@ export class MyBookingsPage implements OnInit{
             duration: 3000
         });
 
-        var num_seat = data1.seat;
         const prompt = this.alertCtrl.create({
             title: 'Ändern',
             message: "Hier können Sie Buchung der Sitze ändern:",
@@ -295,9 +260,7 @@ export class MyBookingsPage implements OnInit{
                             let bookingRef = this.af.collection('bookings').ref.where('bookingID', '==', data1.bookingID);
                             bookingRef.get().then((result) => {
                                 result.forEach(doc => {
-                                    //console.log(doc.data());
                                     this.bookingCollectionRef.doc(doc.id).update(array);
-                                    console.log(this.carArray)
                                     createToast.present();
                                 })
                             });
@@ -309,7 +272,6 @@ export class MyBookingsPage implements OnInit{
                             });
 
                             toast.onDidDismiss(() => {
-                                console.log('Dismissed toast');
                             });
                             toast.present();
                         }

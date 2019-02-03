@@ -1,19 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { TabsPage } from '../tabs/tabs';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { FormGroup, FormBuilder } from '@angular/forms';
 import { AlertController, ToastController } from 'ionic-angular';
-//import { FirebaseListObservable } from 'database-deprecated';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
-import {auth, firestore} from "firebase";
 import firebase from 'firebase';
 import {HomePage} from "../home/home";
-import {SignupPage} from "../signup/signup";
-import {map} from "rxjs/operators";
-import {pipe} from "rxjs";
 
 /**
  * Generated class for the BookCarPage page.
@@ -114,16 +107,10 @@ export class BookCarPage implements OnInit{
             if(result.size > 0) {
                 result.forEach(doc => {
                     if(doc.get('admin') == true) {
-                        console.log('jup')
-                        //debugger
-                        //BookCarPage.prototype.setAdminBool(true);
                         BookCarPage.prototype.adminBool = true;
-                        //console.log(BookCarPage.prototype.adminBool)
                     }
                     else {
-                    //    BookCarPage.prototype.setAdminBool(true);
                         BookCarPage.prototype.adminBool = false
-                        //console.log(BookCarPage.prototype.adminBool)
                     }
                 })
             }
@@ -132,11 +119,6 @@ export class BookCarPage implements OnInit{
 
     ngOnInit() {
         BookCarPage.prototype.userBool = this.checkCurrentUser(firebase.auth().currentUser.email);
-        console.log("Test ",BookCarPage.prototype.userBool)
-        console.log("Test2 ",BookCarPage.prototype.adminBool)
-        //console.log(BookCarPage.prototype.adminBool)
-        //console.log(this.adminBool)
-        //console.log(BookCarPage.prototype.adminBool)
 
         this.getAllPosts().subscribe((data)=>{
             this.data = data;
@@ -158,9 +140,6 @@ export class BookCarPage implements OnInit{
 
         }
     }
-    //test(test) {
-    //    console.log(test);
-    //}
 
     getAllPosts(): Observable<any>{
         return this.af.collection<any>("cars").valueChanges();
@@ -171,10 +150,8 @@ export class BookCarPage implements OnInit{
     }
 
     getInformation(data) {
-
         this.getAllDocuments().subscribe((data)=>{
             this.dataBooking = data;
-            //this.test(this.dataBooking);
         });
     }
 
@@ -192,16 +169,11 @@ export class BookCarPage implements OnInit{
         for (let i = 0; i < carData.length; i++){
 
             let bookRef = this.af.collection('bookings').ref.where('carID', '==', carData[i].carid);
-            //console.log(bookRef)
-
             if (bookRef != undefined){
-
                 bookRef.get().then((result) => {
                     if(result.size > 0) {
                     result.forEach(doc => {
-
                         console.log("Keine Daten")
-
                     })
                     } else{
                         //debugger
@@ -209,7 +181,6 @@ export class BookCarPage implements OnInit{
                             this.availableCars = true;
                             BookCarPage.prototype.pushData(carData[i]);
                             carArray.push(carData[i]);
-                            //console.log(carArray, "keine buchung")
                         }
                     }
                 });
@@ -261,7 +232,6 @@ export class BookCarPage implements OnInit{
                                                 if (checkCar == true) {
                                                     BookCarPage.prototype.pushData(carDoc.data());
                                                     carArray.push(carDoc.data())
-                                                    //console.log(carArray, "buchung <")
                                                 } else {
                                                     checkCar = true
                                                 }
@@ -272,11 +242,9 @@ export class BookCarPage implements OnInit{
                                 }
                             });
                             if(carArray.length != 0) {
-                                //console.log("data found")
                                 BookCarPage.prototype.availableCars = true
 
                             } else {
-                                //console.log("no data")
                                 BookCarPage.prototype.availableCars = false
 
                             }
@@ -292,15 +260,9 @@ export class BookCarPage implements OnInit{
     pushData(data) {
         this.carArray1 = [];
         this.carArray1.push(data);
-        //console.log(this.carArray1)
     }
 
-    //returnBoolCarData(array){
-        //this.availableCars = true
-    //}
-
     bookCar(data) {
-        //console.log(data.carid);
         const createToast = this.toastCtrl.create({
             message: "Fahrzeug erfolgreich gebucht",
             duration: 3000
@@ -321,7 +283,6 @@ export class BookCarPage implements OnInit{
                         let carRef = this.af.collection('cars').ref.where('carid', '==', data.carid);
                         carRef.get().then((result) => {
                             result.forEach(doc => {
-                                //console.log(doc.id);
                                 const id = this.af.createId();
 
                                 this.bookingCollectionRef.add({
@@ -337,18 +298,15 @@ export class BookCarPage implements OnInit{
 
                             })
                         });
-
                         createToast.present();
                         this.navCtrl.setRoot(HomePage);
                     }
                 }
             ]
-
         });
         confirm.present();
-
-
     }
+
     getCarImg(kennzeichen){
       const carImgRef = firebase.storage().ref().child('cars/'+ kennzeichen+".jpg");
       carImgRef.getDownloadURL().then(url => {
@@ -359,16 +317,12 @@ export class BookCarPage implements OnInit{
      checkCurrentUser(mail){
      let user = firebase.auth().currentUser;
      let userMail =  user.email;
-      //console.log(userMail)
-      //console.log(mail)
 
      if(mail == userMail){
-       //console.log("user ist angemeldet")
        return true
      }
      else {
        return false
      }
     }
-
 }

@@ -15,23 +15,28 @@
 <ion-content padding>
   <div>
     <ion-item>
-      <label> Startdatum: {{dateStart | date: 'dd/MM/yyyy'}}</label>
+      <ion-label> Startdatum:</ion-label>
+      <ion-label class="alignme">{{dateStart | date: 'dd/MM/yyyy'}}</ion-label>
     </ion-item>
 
     <ion-item>
-      <label> Enddatum: {{dateEnd | date: 'dd/MM/yyyy' }}</label>
+      <ion-label> Enddatum: </ion-label>
+      <ion-label class="alignme">{{dateEnd | date: 'dd/MM/yyyy' }}</ion-label>
     </ion-item>
 
     <ion-item>
-      <label> Startzeit: {{dateStart | date: 'HH:mm' }}</label>
+      <ion-label> Startzeit: </ion-label>
+      <ion-label class="alignme">{{dateStart | date: 'HH:mm' }}</ion-label>
     </ion-item>
 
     <ion-item>
-      <label> Endzeit: {{dateEnd | date: 'HH:mm'}} </label>
+      <ion-label> Endzeit: </ion-label>
+      <ion-label class="alignme">{{dateEnd | date: 'HH:mm'}}</ion-label>
     </ion-item>
 
     <ion-item>
-      <label>Anzahl Sitzplätze: {{seat}}</label>
+      <ion-label>Anzahl Sitzplätze: </ion-label>
+      <ion-label class="alignme">{{seat}}</ion-label>
     </ion-item>
   </div>
   <br>
