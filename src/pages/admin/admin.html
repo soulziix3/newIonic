@@ -119,20 +119,23 @@
                 <ion-item>
                     Buchung
                 </ion-item>
-                <ion-item-sliding *ngFor="let data of bookingsComplete.booking| async "#item>
+                <ion-item-sliding *ngFor="let data of carArray"#item>
                     <ion-item>
 
                         <ion-col style="text-align: left">
                             <ion-grid>
                                 <ion-row>
-                                    <ion-col>
+                                  <ion-col>
+                                        <p><b>Email: {{ data.userMail }} </b></p>
+                                        <p>Gebuchte Sitzplätze: {{data.seat}} </p>
+                                        <p> Enddatum: {{data.dateEnd | date: 'dd/MM/yyyy'}} </p>
+                                        <p>Endzeit: {{data.dateEnd | date: 'HH:mm'}}</p>
+                                        <p><b>{{data.marke}} {{data.modell}} {{data.kennzeichen}} </b></p>
+                                        <p>Max. Anzahl Sitzplätze: {{data.sitze}}</p>
                                         <p>Startdatum: {{data.dateStart | date: 'dd/MM/yyyy'}}</p>
                                         <p>Startzeit: {{data.dateStart | date: 'HH:mm'}}</p>
                                     </ion-col>
-                                    <ion-col>
-                                        <p> Enddatum: {{data.dateEnd | date: 'dd/MM/yyyy'}} </p>
-                                        <p>Endzeit: {{data.dateEnd | date: 'HH:mm'}}</p>
-                                    </ion-col>
+
                                 </ion-row>
                             </ion-grid>
                         </ion-col>

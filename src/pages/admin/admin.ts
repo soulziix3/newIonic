@@ -1,21 +1,17 @@
-import {Component, Input} from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+import {Component, Input, OnInit} from '@angular/core';
+import { AngularFirestore } from 'angularfire2/firestore';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import {AlertController, Loading, LoadingController, NavController, ToastController} from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-//import { AngularFireStorage, AngularFireUploadTask } from 'angularfire2/storage';
 import { ImageProvider } from '../../providers/image-provider';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Crop } from '@ionic-native/crop';
-import NumberFormat = Intl.NumberFormat;
 import {AngularFireAuth} from "angularfire2/auth";
 import firebase from "firebase";
 import {MyBookingsPage} from "../my-bookings/my-bookings";
-//import {map} from "rxjs/operators";
-//import {DatabaseProvider} from "../../providers/auth/database";
 
 interface Booking {
     carID: string;
@@ -23,7 +19,8 @@ interface Booking {
     dateStart: string;
     timeEnd: string;
     timeStart: string;
-    seat: number;}
+    seat: number;
+    userMail: string}
 
 interface Car {
     carid: string;
@@ -41,7 +38,7 @@ interface Car {
     selector: 'page-admin',
     templateUrl: 'admin.html',
 })
-export class AdminPage {
+export class AdminPage implements OnInit{
   public loading: Loading;
   data: any;
   picVar: string;
@@ -62,6 +59,7 @@ export class AdminPage {
     booking: this.bookings,
     car: this.cars
   };
+  public carArray:any[] = [];
 
   constructor(
     public navCtrl: NavController,
@@ -71,23 +69,13 @@ export class AdminPage {
     public alertCtrl: AlertController,
     public toastCtrl: ToastController,
     private camera: Camera,
-    private imageSrv: ImageProvider,
-    private afAuth: AngularFireAuth,
-    private imagePicker: ImagePicker,
-    private cropService: Crop,
     public loadingCtrl: LoadingController,
   ) {
     this.carData = this.carCollectionRef.valueChanges();
-
-
     this.getAllPosts().subscribe((data) => {
       this.data = data;
       console.log(this.data);
     });
-
-    //this.carCollectionRef = af.collection('cars');
-    //this.carData = this.carCollectionRef.valueChanges();
-    //console.log(this.carCollectionRef);
 
     this.carcreateForm = formBuilder.group({
       marke: [''],
@@ -105,8 +93,44 @@ export class AdminPage {
 
       this.alertCtrl = alertCtrl
     }
-
   }
+     ngOnInit() {
+
+        this.carArray = [];
+        var af = this.af;
+        var merge: any;
+        var carArray = this.carArray;
+        this.af.collection("bookings").ref.orderBy('dateStart')
+            .get()
+            .then(function(querySnapshot) {
+                querySnapshot.forEach(function(bookingDoc) {
+
+                    af.collection("cars").ref
+                        .get()
+                        .then(function(querySnapshot) {
+
+                            querySnapshot.forEach(function(carDoc) {
+                                //debugger
+                                //var checkCar:boolean
+                                if(bookingDoc.get('carID') == carDoc.get('carid')) {
+                                    merge = Object.assign(carDoc.data(), bookingDoc.data());
+                                    AdminPage.prototype.pushMergedData(merge);
+                                    carArray.push(merge)
+                                    //console.log(carArray)
+                                }
+
+                            });
+                        });
+
+                });
+            })
+    }
+
+    pushMergedData(carArr) {
+        this.carArray = [];
+        this.carArray.push(carArr);
+        //console.log(this.carArray)
+    }
 
   getAllPosts(): Observable<any> {
     return this.af.collection<any>("cars").valueChanges();
@@ -208,7 +232,6 @@ export class AdminPage {
           name: 'marke',
           placeholder: 'Marke',
           value: data1.marke
-
         },
         {
           name: 'modell',
@@ -253,7 +276,6 @@ export class AdminPage {
                 this.carCollectionRef.doc(doc.id).update(cardata);
               })
             });
-
             createToast.present();
           }
         }
@@ -261,21 +283,6 @@ export class AdminPage {
     });
     prompt.present();
   }
-
-
-//      this.carCollectionRef.doc('Caxf4WsmhhIjlZrpUIRY').ref.get().then(function(doc) {
-//          if (doc.exists) {
-//              this.singleData = doc.data();
-//              console.log("Document data:", doc.data());
-
-//          } else {
-//              console.log("No such document!");
-//          }
-//      }).catch(function(error) {
-//          console.log("Error getting document:", error);
-//      });
-
-
   deletecar(data1) {
     const createToast = this.toastCtrl.create({
       message: 'Fahrzeug erfolgreich gelöscht',
@@ -295,7 +302,6 @@ export class AdminPage {
   }
 
   @Input('useURI') useURI: Boolean = true;
-
 
   getPicture(sourceType, cardata) {
     const cameraOptions: CameraOptions = {
@@ -366,18 +372,14 @@ export class AdminPage {
         this.showSuccesfulUploadAlert();
 
       });
-
-
   }
 
   showSuccesfulUploadAlert() {
-
     const createToast = this.toastCtrl.create({
       message: 'Bild erfolgreich hochgeladen',
       duration: 3000
     });
     createToast.present();
-
     // clear the previous photo data in the variable
     this.captureDataUrl = "";
   }
@@ -396,7 +398,7 @@ export class AdminPage {
           console.log(doc.id);
           let newArray = {
             "imgUrl": imageURL
-          }
+          };
           this.carCollectionRef.doc(doc.id).update(newArray);
         })
       });
@@ -441,7 +443,7 @@ export class AdminPage {
                 }
             ]
 
-        })
+        });
     confirm.present()
 
 
