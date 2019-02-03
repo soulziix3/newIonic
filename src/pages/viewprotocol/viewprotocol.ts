@@ -105,11 +105,6 @@ export class ViewprotocolPage {
     }
 
     editProtocoll(protocoldata) {
-        //this.bookingData = data;
-        console.log(protocoldata);
-        console.log(this.bookingdata)
-
-        //console.log(data1);
         this.navCtrl.push(ProtocolPage, {
             protocoldata: protocoldata,
             data: this.bookingdata,
@@ -155,9 +150,7 @@ export class ViewprotocolPage {
                 //return this.imageSrv.uploadImage(base64Image, this.afAuth.auth.currentUser.uid);
             })
             .then(data => {
-                //this.images.push(data);
-                //localStorage.setItem('images', JSON.stringify(this.images));
-                //this.downloadImageUrls();
+
             })
             .catch(function(error) {
                 console.log("No image selected", error);
@@ -198,8 +191,6 @@ export class ViewprotocolPage {
             message: 'Bild erfolgreich hochgeladen',
             duration: 3000
         });
-        createToast.present();
-
         // clear the previous photo data in the variable
         this.captureDataUrl = "";
     }
@@ -213,8 +204,6 @@ export class ViewprotocolPage {
             let protocolRef = this.af.collection('protocol').ref.where('protocolid', '==', protocolData.protocolid);
             protocolRef.get().then((result) => {
                 result.forEach(doc => {
-                    //console.log(doc.data());
-                    //added benefit of getting the document id / key
                     console.log(doc.id);
                     let newArray = {
                         "imgUrl": imageURL

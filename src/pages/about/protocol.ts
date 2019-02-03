@@ -157,7 +157,6 @@ export class ProtocolPage {
       let bookingRef = this.af.collection('bookings').ref.where('bookingID', '==', array.bookingID);
                             bookingRef.get().then((result) => {
                                 result.forEach(doc => {
-                                    //console.log(doc.data());
                                     this.bookingCollectionRef.doc(doc.id).update(array);
 
 
@@ -178,9 +177,6 @@ export class ProtocolPage {
         protocolid,
       });
       this.navCtrl.setRoot(MyBookingsPage);
-      //this.navCtrl.push(ViewprotocolPage, {
-        //data: this.bookingdata
-      //);
   }
   updateprotocol() {
         let array = {
@@ -204,14 +200,10 @@ export class ProtocolPage {
       let protocolRef = this.af.collection('protocol').ref.where('bookingID', '==', array.bookingID);
                             protocolRef.get().then((result) => {
                                 result.forEach(doc => {
-                                  //console.log(doc.data());
                                   this.protocolCollectionRef.doc(doc.id).update(array);
                                 })
                             });
        this.navCtrl.setRoot(MyBookingsPage)
-       //this.navCtrl.push(ViewprotocolPage, {
-        //data: this.bookingdata
-        //});
     }
 
 }
