@@ -115,7 +115,6 @@ export class ProtocolPage {
         this.protocolcircumstances = this.protocoldata.circumstances;
         this.protocolboolean = false;
         this.protocolboolean = this.protocoldata.protocolboolean;
-        console.log(this.protocolboolean)
         this.driverA = [];
         this.driverB =[];
         this.circumstances = [];
@@ -162,7 +161,7 @@ export class ProtocolPage {
 
                                 })
                             });
-      console.log(this.bookingID)
+
       var protocolid = this.af.createId();
       this.protocolCollectionRef.add({
         bookingID :this.bookingID,

@@ -204,7 +204,6 @@ export class ViewprotocolPage {
             let protocolRef = this.af.collection('protocol').ref.where('protocolid', '==', protocolData.protocolid);
             protocolRef.get().then((result) => {
                 result.forEach(doc => {
-                    console.log(doc.id);
                     let newArray = {
                         "imgUrl": imageURL
                     }
